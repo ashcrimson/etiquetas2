@@ -43,3 +43,6 @@ Route::resource('projects', 'ProjectController');
 
 Route::resource('configurations', 'ConfigurationController');
 
+
+
+Route::resource('convenios', 'ConvenioController');
