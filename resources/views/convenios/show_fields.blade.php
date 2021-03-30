@@ -28,6 +28,16 @@
 {!! $convenio->procedimiento !!}<br>
 
 
+<!-- Endoscopia Urologica Field -->
+{!! Form::label('endoscopia_urologica', 'Endoscopia Urologica:') !!}
+{!! $convenio->endoscopia_urologica !!}<br>
+
+
+<!-- Servicio De Esterilizacion Field -->
+{!! Form::label('servicio_de_esterilizacion', 'Servicio De Esterilizacion:') !!}
+{!! $convenio->servicio_de_esterilizacion !!}<br>
+
+
 <!-- Hospitalizacion Field -->
 {!! Form::label('hospitalizacion', 'Hospitalizacion:') !!}
 {!! $convenio->hospitalizacion !!}<br>

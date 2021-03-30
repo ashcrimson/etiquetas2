@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Convenio
  * @package App\Models
- * @version March 30, 2021, 8:16 am CST
+ * @version March 30, 2021, 12:25 pm CST
  *
  * @property string $entidad
  * @property boolean $atencion_urgencia
@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property boolean $laboratorio
  * @property boolean $rayos_x_e_imagenologia
  * @property boolean $procedimiento
+ * @property boolean $endoscopia_urologica
+ * @property boolean $servicio_de_esterilizacion
  * @property boolean $hospitalizacion
  * @property boolean $urologia
  * @property boolean $cirugia_mediana_complejidad
@@ -52,6 +54,8 @@ class Convenio extends Model
         'laboratorio',
         'rayos_x_e_imagenologia',
         'procedimiento',
+        'endoscopia_urologica',
+        'servicio_de_esterilizacion',
         'hospitalizacion',
         'urologia',
         'cirugia_mediana_complejidad',
@@ -82,6 +86,8 @@ class Convenio extends Model
         'laboratorio' => 'boolean',
         'rayos_x_e_imagenologia' => 'boolean',
         'procedimiento' => 'boolean',
+        'endoscopia_urologica' => 'boolean',
+        'servicio_de_esterilizacion' => 'boolean',
         'hospitalizacion' => 'boolean',
         'urologia' => 'boolean',
         'cirugia_mediana_complejidad' => 'boolean',
@@ -111,6 +117,8 @@ class Convenio extends Model
         'laboratorio' => 'required|boolean',
         'rayos_x_e_imagenologia' => 'required|boolean',
         'procedimiento' => 'required|boolean',
+        'endoscopia_urologica' => 'required|boolean',
+        'servicio_de_esterilizacion' => 'required|boolean',
         'hospitalizacion' => 'required|boolean',
         'urologia' => 'required|boolean',
         'cirugia_mediana_complejidad' => 'required|boolean',

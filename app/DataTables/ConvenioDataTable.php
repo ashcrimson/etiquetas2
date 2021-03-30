@@ -21,9 +21,7 @@ class ConvenioDataTable extends DataTable
         return $dataTable->addColumn('action', function($Convenio){
             $id = $Convenio->id;
             return view('convenios.datatables_actions',compact('Convenio','id'));
-            
         })
-
         ->editColumn('atencion_urgencia',function ($item){
             return $item->atencion_urgencia ? 'Sí' : 'No';
         })
@@ -38,6 +36,12 @@ class ConvenioDataTable extends DataTable
         })
         ->editColumn('procedimiento',function ($item){
             return $item->procedimiento ? 'Sí' : 'No';
+        })
+        ->editColumn('endoscopia_urologica',function ($item){
+            return $item->endoscopia_urologica ? 'Sí' : 'No';
+        })
+        ->editColumn('servicio_de_esterilizacion',function ($item){
+            return $item->servicio_de_esterilizacion ? 'Sí' : 'No';
         })
         ->editColumn('hospitalizacion',function ($item){
             return $item->hospitalizacion ? 'Sí' : 'No';
@@ -131,6 +135,8 @@ class ConvenioDataTable extends DataTable
             'laboratorio',
             'rayos_x_e_imagenologia',
             'procedimiento',
+            'endoscopia_urologica',
+            'servicio_de_esterilizacion',
             'hospitalizacion',
             'urologia',
             'cirugia_mediana_complejidad',

@@ -54,6 +54,26 @@
 </div>
 
 
+<!-- Endoscopia Urologica Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('endoscopia_urologica', 'Endoscopia Urologica:') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('endoscopia_urologica', 0) !!}
+        {!! Form::checkbox('endoscopia_urologica', '1', null) !!}
+    </label>
+</div>
+
+
+<!-- Servicio De Esterilizacion Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('servicio_de_esterilizacion', 'Servicio De Esterilizacion:') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('servicio_de_esterilizacion', 0) !!}
+        {!! Form::checkbox('servicio_de_esterilizacion', '1', null) !!}
+    </label>
+</div>
+
+
 <!-- Hospitalizacion Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('hospitalizacion', 'Hospitalizacion:') !!}
