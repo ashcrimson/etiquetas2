@@ -46,6 +46,9 @@ class ConvenioDataTable extends DataTable
         ->editColumn('hospitalizacion',function ($item){
             return $item->hospitalizacion ? 'Sí' : 'No';
         })
+        ->editColumn('ginecologia',function ($item){
+            return $item->hospitalizacion ? 'Sí' : 'No';
+        })
         ->editColumn('urologia',function ($item){
             return $item->urologia ? 'Sí' : 'No';
         })
@@ -138,6 +141,7 @@ class ConvenioDataTable extends DataTable
             'endoscopia_urologica',
             'servicio_de_esterilizacion',
             'hospitalizacion',
+            'ginecologia',
             'urologia',
             'cirugia_mediana_complejidad',
             'otorrinolaringologia',

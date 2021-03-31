@@ -17,6 +17,7 @@ $factory->define(Convenio::class, function (Faker $faker) {
         'endoscopia_urologica' => $this->faker->word,
         'servicio_de_esterilizacion' => $this->faker->word,
         'hospitalizacion' => $this->faker->word,
+        'ginecologia' => $this->faker->word,
         'urologia' => $this->faker->word,
         'cirugia_mediana_complejidad' => $this->faker->word,
         'otorrinolaringologia' => $this->faker->word,

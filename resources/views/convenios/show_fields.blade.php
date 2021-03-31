@@ -43,6 +43,11 @@
 {!! $convenio->hospitalizacion !!}<br>
 
 
+<!-- Ginecologia Field -->
+{!! Form::label('ginecologia', 'Ginecologia:') !!}
+{!! $convenio->ginecologia !!}<br>
+
+
 <!-- Urologia Field -->
 {!! Form::label('urologia', 'Urologia:') !!}
 {!! $convenio->urologia !!}<br>

@@ -24,6 +24,7 @@ class CreateConveniosTable extends Migration
             $table->boolean('endoscopia_urologica');
             $table->boolean('servicio_de_esterilizacion');
             $table->boolean('hospitalizacion');
+            $table->boolean('ginecologia');
             $table->boolean('urologia');
             $table->boolean('cirugia_mediana_complejidad');
             $table->boolean('otorrinolaringologia');

@@ -84,6 +84,16 @@
 </div>
 
 
+<!-- Ginecologia Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('ginecologia', 'Ginecologia:') !!}
+    <label class="checkbox-inline">
+        {!! Form::hidden('ginecologia', 0) !!}
+        {!! Form::checkbox('ginecologia', '1', null) !!}
+    </label>
+</div>
+
+
 <!-- Urologia Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('urologia', 'Urologia:') !!}

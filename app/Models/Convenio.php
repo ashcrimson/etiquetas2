@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Convenio
  * @package App\Models
- * @version March 30, 2021, 12:25 pm CST
+ * @version March 31, 2021, 6:41 am CST
  *
  * @property string $entidad
  * @property boolean $atencion_urgencia
@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property boolean $endoscopia_urologica
  * @property boolean $servicio_de_esterilizacion
  * @property boolean $hospitalizacion
+ * @property boolean $ginecologia
  * @property boolean $urologia
  * @property boolean $cirugia_mediana_complejidad
  * @property boolean $otorrinolaringologia
@@ -57,6 +58,7 @@ class Convenio extends Model
         'endoscopia_urologica',
         'servicio_de_esterilizacion',
         'hospitalizacion',
+        'ginecologia',
         'urologia',
         'cirugia_mediana_complejidad',
         'otorrinolaringologia',
@@ -89,6 +91,7 @@ class Convenio extends Model
         'endoscopia_urologica' => 'boolean',
         'servicio_de_esterilizacion' => 'boolean',
         'hospitalizacion' => 'boolean',
+        'ginecologia' => 'boolean',
         'urologia' => 'boolean',
         'cirugia_mediana_complejidad' => 'boolean',
         'otorrinolaringologia' => 'boolean',
@@ -120,6 +123,7 @@ class Convenio extends Model
         'endoscopia_urologica' => 'required|boolean',
         'servicio_de_esterilizacion' => 'required|boolean',
         'hospitalizacion' => 'required|boolean',
+        'ginecologia' => 'required|boolean',
         'urologia' => 'required|boolean',
         'cirugia_mediana_complejidad' => 'required|boolean',
         'otorrinolaringologia' => 'required|boolean',
