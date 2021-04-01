@@ -15,7 +15,7 @@ class CreateDetalleConveniosTable extends Migration
     {
         Schema::create('detalle__convenios', function (Blueprint $table) {
             $table->id();
-            $table->integer('convenio_id')->unsigned();
+            $table->unsignedInteger('convenio_id');
             $table->foreign('convenio_id')->references('id')->on('convenios');
             $table->boolean('atencion_urgencia');
             $table->boolean('consulta_especialidad');
