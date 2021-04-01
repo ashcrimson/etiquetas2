@@ -90,5 +90,10 @@ class Convenio extends Model
         'updated_at' => 'nullable'
     ];
 
+    public function detalle_convenio()
+    {
+        return $this->hasMany(Detalle_Convenio::class);
+    }
+
     
 }
