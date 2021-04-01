@@ -7,31 +7,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Convenio
  * @package App\Models
- * @version March 31, 2021, 6:41 am CST
+ * @version April 1, 2021, 7:08 am CST
  *
- * @property string $entidad
- * @property boolean $atencion_urgencia
- * @property boolean $consulta_especialidad
- * @property boolean $laboratorio
- * @property boolean $rayos_x_e_imagenologia
- * @property boolean $procedimiento
- * @property boolean $endoscopia_urologica
- * @property boolean $servicio_de_esterilizacion
- * @property boolean $hospitalizacion
- * @property boolean $ginecologia
- * @property boolean $urologia
- * @property boolean $cirugia_mediana_complejidad
- * @property boolean $otorrinolaringologia
- * @property boolean $medicina_nuclear
- * @property boolean $hemodinamia
- * @property boolean $medicina_complementaria
- * @property boolean $esterilizacion
+ * @property string $rut
+ * @property string $razon_social
+ * @property string $direccion
  * @property boolean $formalizado
  * @property boolean $acuerdo_comercial
  * @property boolean $tramite
  * @property boolean $historico
  * @property string $inicio_vigencia
  * @property string $termino_vigencia
+ * @property string $observacion_termino
  * @property string $observaciones
  */
 class Convenio extends Model
@@ -49,29 +36,16 @@ class Convenio extends Model
 
 
     public $fillable = [
-        'entidad',
-        'atencion_urgencia',
-        'consulta_especialidad',
-        'laboratorio',
-        'rayos_x_e_imagenologia',
-        'procedimiento',
-        'endoscopia_urologica',
-        'servicio_de_esterilizacion',
-        'hospitalizacion',
-        'ginecologia',
-        'urologia',
-        'cirugia_mediana_complejidad',
-        'otorrinolaringologia',
-        'medicina_nuclear',
-        'hemodinamia',
-        'medicina_complementaria',
-        'esterilizacion',
+        'rut',
+        'razon_social',
+        'direccion',
         'formalizado',
         'acuerdo_comercial',
         'tramite',
         'historico',
         'inicio_vigencia',
         'termino_vigencia',
+        'observacion_termino',
         'observaciones'
     ];
 
@@ -82,29 +56,16 @@ class Convenio extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'entidad' => 'string',
-        'atencion_urgencia' => 'boolean',
-        'consulta_especialidad' => 'boolean',
-        'laboratorio' => 'boolean',
-        'rayos_x_e_imagenologia' => 'boolean',
-        'procedimiento' => 'boolean',
-        'endoscopia_urologica' => 'boolean',
-        'servicio_de_esterilizacion' => 'boolean',
-        'hospitalizacion' => 'boolean',
-        'ginecologia' => 'boolean',
-        'urologia' => 'boolean',
-        'cirugia_mediana_complejidad' => 'boolean',
-        'otorrinolaringologia' => 'boolean',
-        'medicina_nuclear' => 'boolean',
-        'hemodinamia' => 'boolean',
-        'medicina_complementaria' => 'boolean',
-        'esterilizacion' => 'boolean',
+        'rut' => 'string',
+        'razon_social' => 'string',
+        'direccion' => 'string',
         'formalizado' => 'boolean',
         'acuerdo_comercial' => 'boolean',
         'tramite' => 'boolean',
         'historico' => 'boolean',
         'inicio_vigencia' => 'date',
         'termino_vigencia' => 'date',
+        'observacion_termino' => 'string',
         'observaciones' => 'string'
     ];
 
@@ -114,29 +75,16 @@ class Convenio extends Model
      * @var array
      */
     public static $rules = [
-        'entidad' => 'required|string|max:255',
-        'atencion_urgencia' => 'required|boolean',
-        'consulta_especialidad' => 'required|boolean',
-        'laboratorio' => 'required|boolean',
-        'rayos_x_e_imagenologia' => 'required|boolean',
-        'procedimiento' => 'required|boolean',
-        'endoscopia_urologica' => 'required|boolean',
-        'servicio_de_esterilizacion' => 'required|boolean',
-        'hospitalizacion' => 'required|boolean',
-        'ginecologia' => 'required|boolean',
-        'urologia' => 'required|boolean',
-        'cirugia_mediana_complejidad' => 'required|boolean',
-        'otorrinolaringologia' => 'required|boolean',
-        'medicina_nuclear' => 'required|boolean',
-        'hemodinamia' => 'required|boolean',
-        'medicina_complementaria' => 'required|boolean',
-        'esterilizacion' => 'required|boolean',
+        'rut' => 'required|string|max:255',
+        'razon_social' => 'required|string|max:255',
+        'direccion' => 'required|string|max:255',
         'formalizado' => 'required|boolean',
         'acuerdo_comercial' => 'required|boolean',
         'tramite' => 'required|boolean',
         'historico' => 'required|boolean',
         'inicio_vigencia' => 'required',
         'termino_vigencia' => 'required',
+        'observacion_termino' => 'required|string|max:255',
         'observaciones' => 'required|string|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

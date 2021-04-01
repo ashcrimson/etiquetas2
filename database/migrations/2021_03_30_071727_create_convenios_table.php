@@ -15,29 +15,16 @@ class CreateConveniosTable extends Migration
     {
         Schema::create('convenios', function (Blueprint $table) {
             $table->id();
-            $table->string('entidad');
-            $table->boolean('atencion_urgencia');
-            $table->boolean('consulta_especialidad');
-            $table->boolean('laboratorio');
-            $table->boolean('rayos_x_e_imagenologia');
-            $table->boolean('procedimiento');
-            $table->boolean('endoscopia_urologica');
-            $table->boolean('servicio_de_esterilizacion');
-            $table->boolean('hospitalizacion');
-            $table->boolean('ginecologia');
-            $table->boolean('urologia');
-            $table->boolean('cirugia_mediana_complejidad');
-            $table->boolean('otorrinolaringologia');
-            $table->boolean('medicina_nuclear');
-            $table->boolean('hemodinamia');
-            $table->boolean('medicina_complementaria');
-            $table->boolean('esterilizacion');
+            $table->string('rut');
+            $table->string('razon_social');
+            $table->string('direccion');
             $table->boolean('formalizado');
             $table->boolean('acuerdo_comercial');
             $table->boolean('tramite');
             $table->boolean('historico');
             $table->date('inicio_vigencia');
             $table->date('termino_vigencia');
+            $table->string('observacion_termino');
             $table->string('observaciones');
             $table->timestamps();
         });
