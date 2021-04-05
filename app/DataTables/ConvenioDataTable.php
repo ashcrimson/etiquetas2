@@ -80,6 +80,7 @@ class ConvenioDataTable extends DataTable
             return $item->historico ? 'Sí' : 'No';
         })
         
+        
         ;
 
     }

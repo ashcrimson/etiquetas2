@@ -63,8 +63,6 @@ class Convenio extends Model
         'acuerdo_comercial' => 'boolean',
         'tramite' => 'boolean',
         'historico' => 'boolean',
-        'inicio_vigencia' => 'date',
-        'termino_vigencia' => 'date',
         'observacion_termino' => 'string',
         'observaciones' => 'string'
     ];
