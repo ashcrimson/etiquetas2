@@ -21,7 +21,66 @@ class ConvenioDataTable extends DataTable
         return $dataTable->addColumn('action', function($Convenio){
             $id = $Convenio->id;
             return view('convenios.datatables_actions',compact('Convenio','id'));
-        });
+        })
+        ->editColumn('atencion_urgencia',function ($item){
+            return $item->atencion_urgencia ? 'Sí' : 'No';
+        })
+        ->editColumn('consulta_especialidad',function ($item){
+            return $item->consulta_especialidad ? 'Sí' : 'No';
+        })
+        ->editColumn('laboratorio',function ($item){
+            return $item->laboratorio ? 'Sí' : 'No';
+        })
+        ->editColumn('rayos_x_e_imagenologia',function ($item){
+            return $item->rayos_x_e_imagenologia ? 'Sí' : 'No';
+        })
+        ->editColumn('procedimiento',function ($item){
+            return $item->procedimiento ? 'Sí' : 'No';
+        })
+        ->editColumn('endoscopia_urologica',function ($item){
+            return $item->endoscopia_urologica ? 'Sí' : 'No';
+        })
+        ->editColumn('servicio_de_esterilizacion',function ($item){
+            return $item->servicio_de_esterilizacion ? 'Sí' : 'No';
+        })
+        ->editColumn('hospitalizacion',function ($item){
+            return $item->hospitalizacion ? 'Sí' : 'No';
+        })
+        ->editColumn('urologia',function ($item){
+            return $item->urologia ? 'Sí' : 'No';
+        })
+        ->editColumn('cirugia_mediana_complejidad',function ($item){
+            return $item->cirugia_mediana_complejidad ? 'Sí' : 'No';
+        })
+        ->editColumn('otorrinolaringologia',function ($item){
+            return $item->otorrinolaringologia ? 'Sí' : 'No';
+        })
+        ->editColumn('medicina_nuclear',function ($item){
+            return $item->medicina_nuclear ? 'Sí' : 'No';
+        })
+        ->editColumn('hemodinamia',function ($item){
+            return $item->hemodinamia ? 'Sí' : 'No';
+        })
+        ->editColumn('medicina_complementaria',function ($item){
+            return $item->medicina_complementaria ? 'Sí' : 'No';
+        })
+        ->editColumn('esterilizacion',function ($item){
+            return $item->esterilizacion ? 'Sí' : 'No';
+        })
+        ->editColumn('formalizado',function ($item){
+            return $item->formalizado ? 'Sí' : 'No';
+        })
+        ->editColumn('acuerdo_comercial',function ($item){
+            return $item->acuerdo_comercial ? 'Sí' : 'No';
+        })
+        ->editColumn('tramite',function ($item){
+            return $item->tramite ? 'Sí' : 'No';
+        })
+        ->editColumn('historico',function ($item){
+            return $item->historico ? 'Sí' : 'No';
+        })
+        
+        ;
 
     }
 
