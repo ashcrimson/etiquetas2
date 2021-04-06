@@ -27,4 +27,12 @@ class CreateUserRequest extends FormRequest
     {
         return User::$rules;
     }
+
+    public function all($keys = null)
+    {
+        $inputs = parent::input();
+
+
+        return $inputs;
+    }
 }

@@ -62,6 +62,7 @@ class UserController extends AppBaseController
     public function store(CreateUserRequest $request)
     {
         $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
 
         try {
             DB::beginTransaction();
@@ -69,8 +70,6 @@ class UserController extends AppBaseController
 
             /** @var User $user */
             $user = User::create($input);
-
-            $input['password'] = bcrypt($input['password']);
 
             if ($request->hasFile('avatar')){
                 $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
@@ -147,19 +146,17 @@ class UserController extends AppBaseController
      */
     public function update(User $user, UpdateUserRequest $request)
     {
-        $input = $request->all();
-        
         if ($request->roles){
             $authUser = auth()->user();
 
             $maxRolUserAuth = $authUser->roles->min('id');
 
             /**
-            * DEVELOPER =   1;
-            * SUPERADMIN =  2;
-            * ADMIN =       3;
-            * TESTER =      4;
-            * USER =        5;
+             * DEVELOPER =   1;
+             * SUPERADMIN =  2;
+             * ADMIN =       3;
+             * TESTER =      4;
+             * USER =        5;
              */
             //si el maximo rol del usuario es inferior al rol admin
             if (Role::ADMIN < $maxRolUserAuth){
@@ -174,11 +171,6 @@ class UserController extends AppBaseController
             }
 
         }
-
-        if ($input['password']){ 
-            $input['password'] = bcrypt($input['password']); 
-        }else{ 
-            unset($input['password']); }
 
 
         if (empty($user)) {
