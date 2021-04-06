@@ -70,6 +70,8 @@ class UserController extends AppBaseController
             /** @var User $user */
             $user = User::create($input);
 
+            $input['password'] = bcrypt($input['password']);
+
             if ($request->hasFile('avatar')){
                 $user->addMediaFromRequest('avatar')->toMediaCollection('avatars');
             }
@@ -145,6 +147,8 @@ class UserController extends AppBaseController
      */
     public function update(User $user, UpdateUserRequest $request)
     {
+        $input = $request->all();
+        
         if ($request->roles){
             $authUser = auth()->user();
 
@@ -170,6 +174,11 @@ class UserController extends AppBaseController
             }
 
         }
+
+        if ($input['password']){ 
+            $input['password'] = bcrypt($input['password']); 
+        }else{ 
+            unset($input['password']); }
 
 
         if (empty($user)) {
