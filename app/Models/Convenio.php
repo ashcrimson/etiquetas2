@@ -81,7 +81,7 @@ class Convenio extends Model
         'tramite' => 'required|boolean',
         'historico' => 'required|boolean',
         'inicio_vigencia' => 'required',
-        'termino_vigencia' => 'required',
+        'termino_vigencia' => 'nullable',
         'observacion_termino' => 'required|string|max:255',
         'observaciones' => 'required|string|max:255',
         'created_at' => 'nullable',
