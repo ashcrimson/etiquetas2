@@ -16,37 +16,37 @@
     <!-- Dv Run Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('dv_run', 'Dv Run:') !!}
-        {!! Form::text('dv_run', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+        {!! Form::text('dv_run', null, ['id' => 'dv_run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
     <!-- Apellido Paterno Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('apellido_paterno', 'Apellido Paterno:') !!}
-        {!! Form::text('apellido_paterno', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+        {!! Form::text('apellido_paterno', null, ['id' => 'apellido_paterno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
     <!-- Apellido Materno Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('apellido_materno', 'Apellido Materno:') !!}
-        {!! Form::text('apellido_materno', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+        {!! Form::text('apellido_materno', null, ['id' => 'apellido_materno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
     <!-- Primer Nombre Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('primer_nombre', 'Primer Nombre:') !!}
-        {!! Form::text('primer_nombre', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+        {!! Form::text('primer_nombre', null, ['id' => 'primer_nombre','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
     <!-- Segundo Nombre Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('segundo_nombre', 'Segundo Nombre:') !!}
-        {!! Form::text('segundo_nombre', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+        {!! Form::text('segundo_nombre', null, ['id' => 'segundo_nombre','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
     <!-- Fecha Nac Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('fecha_nac', 'Fecha Nac:') !!}
-        {!! Form::date('fecha_nac', null, ['class' => 'form-control','id'=>'fecha_nac']) !!}
+        {!! Form::date('fecha_nac', null, ['id' => 'fecha_nac','class' => 'form-control','id'=>'fecha_nac']) !!}
     </div>
 
 
@@ -96,7 +96,18 @@
 
                 try{
                     let res = await axios.get(url);
-                    console.log('respuesta',res);
+                    let paciente = res.data.data;
+
+                    console.log('respuesta',paciente);
+
+                    $("#dv_run").val(paciente.dv_run);
+                    $("#apellido_paterno").val(paciente.apellido_paterno);
+                    $("#apellido_materno").val(paciente.apellido_materno);
+                    $("#primer_nombre").val(paciente.primer_nombre);
+                    $("#segundo_nombre").val(paciente.segundo_nombre);
+                    $("#fecha_nac").val(paciente.fecha_nac);
+                    $("#sexo").val(paciente.sexo);
+                    $("#sigla_grado").val(paciente.sigla_grado);
 
                 }catch (e) {
                     console.log(e.response);
