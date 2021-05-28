@@ -23,9 +23,9 @@ class CreatePacientesTable extends Migration
             $table->string('segundo_nombre');
             $table->date('fecha_nac');
             $table->string('sexo');
-            $table->string('sigla_grado');
-            $table->string('unid_rep_dot');
-            $table->integer('cond_alta_dot');
+            $table->string('sigla_grado')->nullable();
+            $table->string('unid_rep_dot')->nullable();
+            $table->integer('cond_alta_dot')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

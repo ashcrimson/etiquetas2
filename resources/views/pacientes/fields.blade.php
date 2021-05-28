@@ -56,23 +56,7 @@
         {!! Form::text('sexo', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
-    <!-- Sigla Grado Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('sigla_grado', 'Sigla Grado:') !!}
-        {!! Form::text('sigla_grado', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    </div>
-
-    <!-- Unid Rep Dot Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('unid_rep_dot', 'Unid Rep Dot:') !!}
-        {!! Form::text('unid_rep_dot', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    </div>
-
-    <!-- Cond Alta Dot Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('cond_alta_dot', 'Cond Alta Dot:') !!}
-        {!! Form::number('cond_alta_dot', null, ['class' => 'form-control']) !!}
-    </div>
+    
 </div>
 
 @push('scripts')
@@ -108,6 +92,8 @@
                     $("#fecha_nac").val(paciente.fecha_nac);
                     $("#sexo").val(paciente.sexo);
                     $("#sigla_grado").val(paciente.sigla_grado);
+                    $("#unid_rep_dot").val(paciente.unid_rep_dot);
+                    $("#cond_alta_dot").val(paciente.cond_alta_dot);
 
                 }catch (e) {
                     console.log(e.response);

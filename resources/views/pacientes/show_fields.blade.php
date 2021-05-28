@@ -37,19 +37,3 @@
 {!! Form::label('sexo', 'Sexo:') !!}
 {!! $paciente->sexo !!}<br>
 
-
-<!-- Sigla Grado Field -->
-{!! Form::label('sigla_grado', 'Sigla Grado:') !!}
-{!! $paciente->sigla_grado !!}<br>
-
-
-<!-- Unid Rep Dot Field -->
-{!! Form::label('unid_rep_dot', 'Unid Rep Dot:') !!}
-{!! $paciente->unid_rep_dot !!}<br>
-
-
-<!-- Cond Alta Dot Field -->
-{!! Form::label('cond_alta_dot', 'Cond Alta Dot:') !!}
-{!! $paciente->cond_alta_dot !!}<br>
-
-

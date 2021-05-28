@@ -78,10 +78,7 @@ class PacienteDataTable extends DataTable
             'primer_nombre',
             'segundo_nombre',
             'fecha_nac',
-            'sexo',
-            'sigla_grado',
-            'unid_rep_dot',
-            'cond_alta_dot'
+            'sexo'
         ];
     }
 

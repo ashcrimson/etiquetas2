@@ -63,7 +63,7 @@ class Paciente extends Model
         'apellido_materno' => 'string',
         'primer_nombre' => 'string',
         'segundo_nombre' => 'string',
-        'fecha_nac' => 'date',
+        
         'sexo' => 'string',
         'sigla_grado' => 'string',
         'unid_rep_dot' => 'string',
@@ -84,9 +84,9 @@ class Paciente extends Model
         'segundo_nombre' => 'required|string|max:255',
         'fecha_nac' => 'required',
         'sexo' => 'required|string|max:255',
-        'sigla_grado' => 'required|string|max:255',
-        'unid_rep_dot' => 'required|string|max:255',
-        'cond_alta_dot' => 'required|integer',
+        'sigla_grado' => 'nullable',
+        'unid_rep_dot' => 'nullable',
+        'cond_alta_dot' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
