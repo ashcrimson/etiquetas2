@@ -27,6 +27,7 @@ class CreatePacientesTable extends Migration
             $table->string('unid_rep_dot');
             $table->integer('cond_alta_dot');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

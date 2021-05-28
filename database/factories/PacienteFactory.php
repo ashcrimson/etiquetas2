@@ -1,28 +1,25 @@
 <?php
 
-namespace Database\Factories;
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Models\Paciente;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-class PacienteFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Paciente::class;
+$factory->define(Paciente::class, function (Faker $faker) {
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
-        return [
-            //
-        ];
-    }
-}
+    return [
+        'run' => $this->faker->word,
+        'dv_run' => $this->faker->word,
+        'apellido_paterno' => $this->faker->word,
+        'apellido_materno' => $this->faker->word,
+        'primer_nombre' => $this->faker->word,
+        'segundo_nombre' => $this->faker->word,
+        'fecha_nac' => $this->faker->word,
+        'sexo' => $this->faker->word,
+        'sigla_grado' => $this->faker->word,
+        'unid_rep_dot' => $this->faker->word,
+        'cond_alta_dot' => $this->faker->randomDigitNotNull,
+        'created_at' => $this->faker->date('Y-m-d H:i:s'),
+        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+    ];
+});
