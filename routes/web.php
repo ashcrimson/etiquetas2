@@ -46,3 +46,15 @@ Route::resource('configurations', 'ConfigurationController');
 
 
 Route::resource('convenios', 'ConvenioController');
+
+Route::get('/inicio', function () {
+    return view('inicio');
+});
+
+Route::get('/crear', function () {
+    return view('crear');
+});
+
+Route::get('/muestrapaciente', function () {
+    return view('muestrapaciente');
+});

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Detalle_Convenio;
+use App\Models\Paciente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DetalleConvenioFactory extends Factory
+class PacienteFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Detalle_Convenio::class;
+    protected $model = Paciente::class;
 
     /**
      * Define the model's default state.

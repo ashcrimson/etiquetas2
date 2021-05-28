@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contacto;
+use App\Models\Rema;
 use Illuminate\Http\Request;
 
-class ContactoController extends Controller
+class RemaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ContactoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contacto  $contacto
+     * @param  \App\Models\Rema  $rema
      * @return \Illuminate\Http\Response
      */
-    public function show(Contacto $contacto)
+    public function show(Rema $rema)
     {
         //
     }
@@ -52,10 +52,10 @@ class ContactoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contacto  $contacto
+     * @param  \App\Models\Rema  $rema
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contacto $contacto)
+    public function edit(Rema $rema)
     {
         //
     }
@@ -64,10 +64,10 @@ class ContactoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contacto  $contacto
+     * @param  \App\Models\Rema  $rema
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contacto $contacto)
+    public function update(Request $request, Rema $rema)
     {
         //
     }
@@ -75,10 +75,10 @@ class ContactoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contacto  $contacto
+     * @param  \App\Models\Rema  $rema
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contacto $contacto)
+    public function destroy(Rema $rema)
     {
         //
     }

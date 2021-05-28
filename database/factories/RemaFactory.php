@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Detalle_Convenio;
+use App\Models\Rema;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DetalleConvenioFactory extends Factory
+class RemaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Detalle_Convenio::class;
+    protected $model = Rema::class;
 
     /**
      * Define the model's default state.
