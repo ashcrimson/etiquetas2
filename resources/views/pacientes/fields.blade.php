@@ -92,6 +92,8 @@
 
                 let url = "{{route('get.datos.paciente')}}"+"?run="+run;
 
+                console.log('url',url);
+
                 try{
                     let res = await axios.get(url);
                     console.log('respuesta',res);
