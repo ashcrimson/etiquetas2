@@ -94,10 +94,10 @@
 
                 try{
                     let res = axios.get(url);
-                    console.log('respuesta',$res);
+                    console.log('respuesta',res);
 
                 }catch (e) {
-
+                    console.log(e.response);
                 }
             }
         }
