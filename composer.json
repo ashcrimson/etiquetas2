@@ -12,6 +12,7 @@
         "arielcr/numero-a-letras": "dev-master",
         "barryvdh/laravel-snappy": "^0.4.8",
         "doctrine/dbal": "^3.0",
+        "econea/nusoap": "^0.9.11",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

@@ -9,6 +9,8 @@ use App\Http\Requests\UpdatePacienteRequest;
 use App\Models\Paciente;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use nusoap_client;
 use Response;
 
 class PacienteController extends AppBaseController
@@ -147,5 +149,18 @@ class PacienteController extends AppBaseController
         Flash::success('Paciente deleted successfully.');
 
         return redirect(route('pacientes.index'));
+    }
+
+
+    public function getPacientePorApi(Request $request)
+    {
+
+
+        $params = array('run' =>"12449275");
+        $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
+        $response = $client->call('buscarDetallePersona', $params);
+
+        return $response;
+
     }
 }
