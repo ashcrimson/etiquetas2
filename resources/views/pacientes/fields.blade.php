@@ -92,11 +92,9 @@
 
                 let url = "{{route('get.datos.paciente')}}"+"?run="+run;
 
-                console.log(url);
-
-
                 try{
-                    let res = axios.get(url)
+                    let res = axios.get(url);
+                    console.log('respuesta',$res);
 
                 }catch (e) {
 

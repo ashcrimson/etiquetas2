@@ -156,11 +156,11 @@ class PacienteController extends AppBaseController
     {
 
 
-        $params = array('run' =>"12449275");
+        $params = array('run' => $request->run);
         $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
         $response = $client->call('buscarDetallePersona', $params);
 
-        return $response;
+        return $this->sendResponse($response,"Paciente");
 
     }
 }
