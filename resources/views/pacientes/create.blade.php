@@ -26,22 +26,16 @@
             @include('partials.flash_alert')
             @include('layouts.partials.request_errors')
 
-            <div class="card">
-                <div class="card-body">
-                    {!! Form::open(['route' => 'pacientes.store']) !!}
-                        <div class="form-row">
+            {!! Form::open(['route' => 'pacientes.store']) !!}
 
-                            @include('pacientes.fields')
+                @include('pacientes.fields')
 
-                            <!-- Submit Field -->
-                            <div class="form-group col-sm-12">
-                                <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
-                                <a href="{!! route('pacientes.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
-                            </div>
-                        </div>
-                    {!! Form::close() !!}
+                <!-- Submit Field -->
+                <div class="form-group col-sm-12">
+                    <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
+                    <a href="{!! route('pacientes.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
                 </div>
-            </div>
+            {!! Form::close() !!}
         </div>
     </div>
 
