@@ -56,11 +56,11 @@ class UsersTableSeeder extends Seeder
             $user->options()->sync(Option::pluck('id')->toArray());
         });
 
-        User::factory(6)->create([
-            "password" => bcrypt("123")
-        ])->each(function (User $user){
-            $user->syncRoles(Role::USER);
-            $user->options()->sync(Option::pluck('id')->toArray());
-        });
+//        User::factory(6)->create([
+//            "password" => bcrypt("123")
+//        ])->each(function (User $user){
+//            $user->syncRoles(Role::USER);
+//            $user->options()->sync(Option::pluck('id')->toArray());
+//        });
     }
 }

@@ -24,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        return redirect(route('remas.index'));
+
         return view('home');
     }
 
