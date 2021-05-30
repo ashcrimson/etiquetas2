@@ -33,7 +33,7 @@ class RemaDataTable extends DataTable
      */
     public function query(Rema $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['paciente','user']);
     }
 
     /**
@@ -71,14 +71,12 @@ class RemaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'paciente_id',
-            'numero_unidad',
-            'nombres_conductor',
-            'apellidos_conductor',
+            'id',
+            'paciente' => ['name' => 'paciente.primer_nombre','data' => 'paciente.primer_nombre'],
             'hora_de_llamada',
             'hora_de_salida',
             'hora_de_llegada',
-            'user_id'
+            'user'=> ['name' => 'user.name','data' => 'user.name'],
         ];
     }
 

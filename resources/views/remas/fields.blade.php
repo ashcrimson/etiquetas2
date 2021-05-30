@@ -120,19 +120,19 @@
                     <!-- Hora De Llamada Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('hora_de_llamada', 'Hora De Llamada:') !!}
-                        {!! Form::text('hora_de_llamada', null, ['class' => 'form-control']) !!}
+                        {!! Form::time('hora_de_llamada', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <!-- Hora De Salida Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('hora_de_salida', 'Hora De Salida:') !!}
-                        {!! Form::text('hora_de_salida', null, ['class' => 'form-control']) !!}
+                        {!! Form::time('hora_de_salida', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <!-- Hora De Llegada Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('hora_de_llegada', 'Hora De Llegada:') !!}
-                        {!! Form::text('hora_de_llegada', null, ['class' => 'form-control']) !!}
+                        {!! Form::time('hora_de_llegada', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <!-- User Id Field -->

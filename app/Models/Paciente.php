@@ -63,7 +63,7 @@ class Paciente extends Model
         'apellido_materno' => 'string',
         'primer_nombre' => 'string',
         'segundo_nombre' => 'string',
-        
+
         'sexo' => 'string',
         'sigla_grado' => 'string',
         'unid_rep_dot' => 'string',
@@ -87,8 +87,7 @@ class Paciente extends Model
         'sigla_grado' => 'nullable',
         'unid_rep_dot' => 'nullable',
         'cond_alta_dot' => 'nullable',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+
     ];
 
 

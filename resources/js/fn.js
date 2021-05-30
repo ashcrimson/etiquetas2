@@ -171,7 +171,6 @@ window.deleteItemDt = (data) =>{
     });
 }
 
-$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
 window.erroresToList =  (errors) => {
 

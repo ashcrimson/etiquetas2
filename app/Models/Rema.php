@@ -67,17 +67,36 @@ class Rema extends Model
      * @var array
      */
     public static $rules = [
-        'paciente_id' => 'required',
-        'numero_unidad' => 'required|string|max:255',
-        'nombres_conductor' => 'required|string|max:255',
-        'apellidos_conductor' => 'required|string|max:255',
+
+        'run' => 'required|string|max:255',
+        'dv_run' => 'required|string|max:255',
+
+        'apellido_paterno' => 'required|string|max:255',
+        'apellido_materno' => 'nullable|string|max:255',
+        'primer_nombre' => 'required|string|max:255',
+        'segundo_nombre' => 'nullable|string|max:255',
+        'fecha_nac' => 'required',
+        'sexo' => 'required|string|max:255',
+        'sigla_grado' => 'nullable',
+        'unid_rep_dot' => 'nullable',
+        'cond_alta_dot' => 'nullable',
+
+
         'hora_de_llamada' => 'required',
         'hora_de_salida' => 'required',
         'hora_de_llegada' => 'required',
-        'user_id' => 'required',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable',
-        'deleted_at' => 'nullable'
+
+        'motivo_consulta' => 'required|string',
+        'clasificacion_triaje' => 'required|string|max:255',
+        'presion_arterial' => 'required|string|max:255',
+        'frecuencia_cardiaca' => 'required|string|max:255',
+        'frecuencia_respiratoria' => 'required|string|max:255',
+        'temperatura' => 'required|integer',
+        'saturacion_oxigeno' => 'required|integer',
+        'atencion_enfermeria' => 'required|string',
+        'antecedentes_morbidos' => 'required|string',
+        'alergias' => 'required|string',
+        'medicamentos_habituales' => 'required|string',
     ];
 
     /**

@@ -87938,8 +87938,6 @@ Vue.component('passport-personal-access-tokens', __webpack_require__(/*! ./compo
 
 __webpack_require__(/*! bootstrap-toggle/js/bootstrap-toggle.js */ "./node_modules/bootstrap-toggle/js/bootstrap-toggle.js");
 
-window.swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -88476,8 +88474,6 @@ window.deleteItemDt = function (data) {
     }
   });
 };
-
-$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
 
 window.erroresToList = function (errors) {
   var res = "<ul style='list-style-type: none; padding:0px;'>";
