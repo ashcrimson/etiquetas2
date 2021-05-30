@@ -25,16 +25,22 @@
         <div class="container-fluid">
             @include('layouts.partials.request_errors')
 
-            {!! Form::open(['route' => 'remas.store']) !!}
+            {!! Form::open(['route' => 'remas.store','class' => 'form-loading-on-submit']) !!}
             <div class="form-row">
+                @include('remas.fields')
 
-            @include('remas.fields')
-            <!-- Submit Field -->
-                <div class="form-group col-sm-12">
-                    <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
-                    <a href="{!! route('remas.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
+                <div class="form-group col-sm-6">
+                    <a href="{!! route('remas.index') !!}" class="btn btn-block btn-secondary">Cancelar</a>
                 </div>
+                <div class="form-group col-sm-6">
+                    <button type="submit"  class="btn btn-block btn-success">Guardar</button>
+                </div>
+
             </div>
+
+            <br>
+
+
             {!! Form::close() !!}
         </div>
     </div>

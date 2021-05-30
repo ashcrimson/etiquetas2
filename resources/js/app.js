@@ -87,3 +87,6 @@ Vue.component(
 );
 
 require('bootstrap-toggle/js/bootstrap-toggle.js');
+
+
+window.swal = require('sweetalert2');

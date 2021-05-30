@@ -137,7 +137,7 @@
 
                     <!-- User Id Field -->
                     <div class="form-group col-sm-6">
-                        {!! Form::label('user_id', 'User Id:') !!}
+                        {!! Form::label('user_id', 'Responsable:') !!}
                         {!! Form::text('user', auth()->user()->name, ['class' => 'form-control','readonly']) !!}
                     </div>
 
@@ -148,8 +148,8 @@
     </div>
 
 
-    <div class="col-sm-12">
-        <div class="card card-outline card-info">
+    <div class="col-sm-12 mb-3">
+        <div class="card card-outline card-info ">
             <div class="card-header">
                 <h3 class="card-title">Datos Atención</h3>
 
@@ -161,7 +161,9 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                Contenido
+                <div class="form-row">
+                    @include('paciente_atencions.fields')
+                </div>
             </div>
             <!-- /.card-body -->
         </div>
