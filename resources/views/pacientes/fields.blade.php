@@ -1,62 +1,68 @@
 <div class="form-row" id="root">
     <!-- Run Field -->
-    <div class="form-group col-sm-3">
+    <div class="form-group col-sm-4">
+
         {!! Form::label('run', 'Run:') !!}
-        {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
 
-    </div>
+        <div class="input-group ">
 
-    <div class="form-group col-sm-3">
-        <label for="">&nbsp;</label>
-        <button class="btn btn-success " type="button" @click="getDatosPaciente()">
-            Consultar
-        </button>
+            {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+            <div class="input-group-append">
+                <button class="btn btn-outline-success" type="button" @click="getDatosPaciente()">Consultar</button>
+            </div>
+        </div>
+
     </div>
 
     <!-- Dv Run Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-2">
         {!! Form::label('dv_run', 'Dv Run:') !!}
         {!! Form::text('dv_run', null, ['id' => 'dv_run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
-    <!-- Apellido Paterno Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('apellido_paterno', 'Apellido Paterno:') !!}
-        {!! Form::text('apellido_paterno', null, ['id' => 'apellido_paterno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    </div>
-
-    <!-- Apellido Materno Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('apellido_materno', 'Apellido Materno:') !!}
-        {!! Form::text('apellido_materno', null, ['id' => 'apellido_materno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-    </div>
+    <div class="form-group col-sm-12" style="padding: 0px; margin: 0px"></div>
 
     <!-- Primer Nombre Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-3">
         {!! Form::label('primer_nombre', 'Primer Nombre:') !!}
         {!! Form::text('primer_nombre', null, ['id' => 'primer_nombre','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
     <!-- Segundo Nombre Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-3">
         {!! Form::label('segundo_nombre', 'Segundo Nombre:') !!}
         {!! Form::text('segundo_nombre', null, ['id' => 'segundo_nombre','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
     </div>
 
+    <!-- Apellido Paterno Field -->
+    <div class="form-group col-sm-3">
+        {!! Form::label('apellido_paterno', 'Apellido Paterno:') !!}
+        {!! Form::text('apellido_paterno', null, ['id' => 'apellido_paterno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
+
+    <!-- Apellido Materno Field -->
+    <div class="form-group col-sm-3">
+        {!! Form::label('apellido_materno', 'Apellido Materno:') !!}
+        {!! Form::text('apellido_materno', null, ['id' => 'apellido_materno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    </div>
+
+
+
     <!-- Fecha Nac Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-3">
         {!! Form::label('fecha_nac', 'Fecha Nac:') !!}
         {!! Form::date('fecha_nac', null, ['id' => 'fecha_nac','class' => 'form-control','id'=>'fecha_nac']) !!}
     </div>
 
 
-    <!-- Sexo Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('sexo', 'Sexo:') !!}
-        {!! Form::text('sexo', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    <div class="form-group col-sm-3">
+        {!! Form::label('sexo', 'Sexo:') !!}<br>
+        <input type="checkbox" data-toggle="toggle" data-size="normal" data-on="M" data-off="F" data-style="ios" name="sexo" id="sexo"
+               value="1"
+                {{( !isset($paciente) || (isset($paciente) && $paciente->sexo) ) ? 'checked' : '' }}>
     </div>
 
-    
+
 </div>
 
 @push('scripts')

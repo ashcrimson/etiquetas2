@@ -13,9 +13,20 @@ class CreateRemasTable extends Migration
      */
     public function up()
     {
-        Schema::create('remas', function (Blueprint $table) {
+        Schema::create('pacientes_remas', function (Blueprint $table) {
             $table->id();
+            $table->string('numero_unidad');
+            $table->string('nombres_conductor');
+            $table->string('apellidos_conductor');
+            $table->time('hora_de_llamada');
+            $table->time('hora_de_salida');
+            $table->time('hora_de_llegada');
+            $table->integer('user_id');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('user_id', 'fk_remas_users1')->references('id')->on('users');
+
         });
     }
 

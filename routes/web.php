@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::group(['prefix' => 'developer'],function (){
 
@@ -38,14 +38,8 @@ Route::resource('roles', 'RoleController');
 
 Route::resource('permissions', 'PermissionController');
 
-Route::resource('projects', 'ProjectController');
-
-
 Route::resource('configurations', 'ConfigurationController');
 
-
-
-Route::resource('convenios', 'ConvenioController');
 
 Route::resource('pacientes', 'PacienteController');
 

@@ -85,3 +85,5 @@ Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue').default
 );
+
+require('bootstrap-toggle/js/bootstrap-toggle.js');
