@@ -59,6 +59,7 @@
     "You cannot associate roles superior to yours": "No puedes asociar roles superiores al tuyo",
     "You cannot edit user with role superior to yours": "No puede editar un usuario con un rol superior al suyo",
     "You cannot delete user with role superior to yours": "No puede eliminar un usuario con un rol superior al suyo",
-    "You cannot edit user menu with role superior to yours": "No puede editar el menú del usuario con un rol superior al suyo"
+    "You cannot edit user menu with role superior to yours": "No puede editar el menú del usuario con un rol superior al suyo",
+    "List" : "Listado"
 
 }

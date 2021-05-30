@@ -16,9 +16,9 @@ class CreateRemasTable extends Migration
         Schema::create('remas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('paciente_id');
-            $table->string('numero_unidad');
-            $table->string('nombres_conductor');
-            $table->string('apellidos_conductor');
+            $table->string('numero_unidad')->nullable();
+            $table->string('nombres_conductor')->nullable();
+            $table->string('apellidos_conductor')->nullable();
             $table->time('hora_de_llamada');
             $table->time('hora_de_salida');
             $table->time('hora_de_llegada');

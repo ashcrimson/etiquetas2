@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title_page',__('New Rema'))
+@section('title_page',__('Nueva Rema'))
 
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('New Rema')}}</h1>
+                    <h1>{{__('Nueva Rema')}}</h1>
                 </div>
                 <div class="col ">
                     <a class="btn btn-outline-info float-right"
@@ -23,24 +23,19 @@
 
     <div class="content">
         <div class="container-fluid">
-            @include('partials.flash_alert')
             @include('layouts.partials.request_errors')
 
-            <div class="card">
-                <div class="card-body">
-                    {!! Form::open(['route' => 'remas.store']) !!}
-                        <div class="form-row">
+            {!! Form::open(['route' => 'remas.store']) !!}
+            <div class="form-row">
 
-                            @include('remas.fields')
-                            <!-- Submit Field -->
-                            <div class="form-group col-sm-12">
-                                <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
-                                <a href="{!! route('remas.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
-                            </div>
-                        </div>
-                    {!! Form::close() !!}
+            @include('remas.fields')
+            <!-- Submit Field -->
+                <div class="form-group col-sm-12">
+                    <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
+                    <a href="{!! route('remas.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
                 </div>
             </div>
+            {!! Form::close() !!}
         </div>
     </div>
 
