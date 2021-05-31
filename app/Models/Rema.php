@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,6 +22,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property time $hora_de_salida
  * @property time $hora_de_llegada
  * @property integer $user_id
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  */
 class Rema extends Model
 {
