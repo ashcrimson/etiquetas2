@@ -47,5 +47,4 @@ Route::get('get/data/paciente', 'PacienteController@getPacientePorApi')->name('g
 
 Route::resource('remas', 'RemaController');
 
-
 Route::resource('pacienteAtencions', 'PacienteAtencionController');

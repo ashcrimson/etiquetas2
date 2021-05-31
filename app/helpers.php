@@ -220,3 +220,14 @@ function optionsParentAuthUser(){
     return $optionParent->merge($options)->sortBy('orden');
 
 }
+
+function timeToDateTime($time){
+
+    if (!$time)
+        return null;
+
+    list($hora,$minuto) = explode(':',$time);
+
+    return Carbon::now()->setTime($hora,$minuto,0);
+
+}

@@ -19,15 +19,17 @@ class CreateRemasTable extends Migration
             $table->string('numero_unidad')->nullable();
             $table->string('nombres_conductor')->nullable();
             $table->string('apellidos_conductor')->nullable();
-            $table->time('hora_de_llamada');
-            $table->time('hora_de_salida');
-            $table->time('hora_de_llegada');
+            $table->timestamp('hora_de_llamada');
+            $table->timestamp('hora_de_salida');
+            $table->timestamp('hora_de_llegada');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('estado_id');
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('user_id', 'fk_remas_users1')->references('id')->on('users');
             $table->foreign('paciente_id', 'fk_remas_pacientes1')->references('id')->on('pacientes');
+            $table->foreign('estado_id', 'fk_remas_estados1')->references('id')->on('remas_estados');
 
         });
     }

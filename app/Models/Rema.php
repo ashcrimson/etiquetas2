@@ -9,18 +9,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Rema
  * @package App\Models
- * @version May 30, 2021, 1:34 pm CST
+ * @version May 30, 2021, 9:29 pm CST
  *
+ * @property \App\Models\RemasEstado $estado
  * @property \App\Models\Paciente $paciente
+ * @property \App\Models\PacienteAtencion $atencion
  * @property \App\Models\User $user
  * @property \Illuminate\Database\Eloquent\Collection $pacientesAtenciones
  * @property integer $paciente_id
  * @property string $numero_unidad
  * @property string $nombres_conductor
  * @property string $apellidos_conductor
- * @property time $hora_de_llamada
- * @property time $hora_de_salida
- * @property time $hora_de_llegada
+ * @property string|Carbon $hora_de_llamada
+ * @property string|Carbon $hora_de_salida
+ * @property string|Carbon $hora_de_llegada
  * @property integer $user_id
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -47,7 +49,8 @@ class Rema extends Model
         'hora_de_llamada',
         'hora_de_salida',
         'hora_de_llegada',
-        'user_id'
+        'user_id',
+        'estado_id'
     ];
 
     /**
@@ -61,7 +64,8 @@ class Rema extends Model
         'numero_unidad' => 'string',
         'nombres_conductor' => 'string',
         'apellidos_conductor' => 'string',
-        'user_id' => 'integer'
+        'user_id' => 'integer',
+        'estado_id' => 'integer'
     ];
 
     /**
@@ -105,6 +109,14 @@ class Rema extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
+    public function estado()
+    {
+        return $this->belongsTo(\App\Models\RemaEstado::class, 'estado_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
     public function paciente()
     {
         return $this->belongsTo(\App\Models\Paciente::class, 'paciente_id');
@@ -123,6 +135,11 @@ class Rema extends Model
      **/
     public function pacientesAtenciones()
     {
-        return $this->hasMany(\App\Models\PacientesAtencione::class, 'rema_id');
+        return $this->hasMany(PacienteAtencione::class, 'rema_id');
+    }
+
+    public function atencion()
+    {
+        return $this->hasOne(PacienteAtencion::class,'rema_id');
     }
 }

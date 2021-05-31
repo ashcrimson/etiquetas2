@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,6 +22,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $sigla_grado
  * @property string $unid_rep_dot
  * @property integer $cond_alta_dot
+ * @property string $nombre_completo
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  */
 class Paciente extends Model
 {
@@ -90,5 +94,10 @@ class Paciente extends Model
 
     ];
 
+    public function getNombreCompletoAttribute()
+    {
+        $nombre = $this->primer_nombre.' '.$this->segundo_nombre.' '.$this->apellido_paterno.' '.$this->apellido_materno;
+        return str_replace('  ','',$nombre);
+    }
 
 }

@@ -21,6 +21,10 @@ class RemaDataTable extends DataTable
         return $dataTable->addColumn('action', function($Rema){
             $id = $Rema->id;
             return view('remas.datatables_actions',compact('Rema','id'));
+        })->editColumn('nombre',function (Rema $rema){
+            return $rema->paciente->nombre_completo;
+        })->editColumn('fecha_ingreso',function (Rema $rema){
+            return $rema->created_at->format('d/m/Y');
         });
 
     }
@@ -33,7 +37,7 @@ class RemaDataTable extends DataTable
      */
     public function query(Rema $model)
     {
-        return $model->newQuery()->with(['paciente','user']);
+        return $model->newQuery()->with(['paciente','user','estado']);
     }
 
     /**
@@ -72,10 +76,17 @@ class RemaDataTable extends DataTable
     {
         return [
             'id',
-            'paciente' => ['name' => 'paciente.primer_nombre','data' => 'paciente.primer_nombre'],
-            'hora_de_llamada',
-            'hora_de_salida',
-            'hora_de_llegada',
+            'rut' => ['name' => 'paciente.run','data' => 'paciente.run'],
+            'nombre' => ['data' => 'nombre', 'name' => 'nombre', 'searchable' => 'false', 'orderable' => false],
+
+            'primer_nombre' => ['data' => 'paciente.primer_nombre', "name" => "paciente.primer_nombre",'visible' => false,'printable' => false, 'exportable' => false],
+            'segundo_nombre' => ['data' => 'paciente.segundo_nombre', "name" => "paciente.segundo_nombre",'visible' => false,'printable' => false, 'exportable' => false],
+            'apellido_paterno' => ['data' => 'paciente.apellido_paterno', "name" => "paciente.apellido_paterno",'visible' => false,'printable' => false, 'exportable' => false],
+            'apellido_materno' => ['data' => 'paciente.apellido_materno', "name" => "paciente.apellido_materno",'visible' => false,'printable' => false, 'exportable' => false],
+
+
+            'fecha_ingreso',
+            'estado' => ['name' => 'estado.nombre','data' => 'estado.nombre'],
             'user'=> ['name' => 'user.name','data' => 'user.name'],
         ];
     }

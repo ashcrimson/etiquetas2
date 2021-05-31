@@ -23,7 +23,7 @@
 
                         <div class="input-group ">
 
-                            {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 8]) !!}
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="button" @click="getDatosPaciente()">Consultar</button>
                             </div>
@@ -35,7 +35,7 @@
                     <!-- Dv Run Field -->
                     <div class="form-group col-sm-2">
                         {!! Form::label('dv_run', 'Dv Run:') !!}
-                        {!! Form::text('dv_run', null, ['id' => 'dv_run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!! Form::text('dv_run', null, ['id' => 'dv_run','class' => 'form-control','maxlength' => 1]) !!}
                     </div>
 
                     <div class="form-group col-sm-12" style="padding: 0px; margin: 0px"></div>
@@ -43,25 +43,25 @@
                     <!-- Primer Nombre Field -->
                     <div class="form-group col-sm-3">
                         {!! Form::label('primer_nombre', 'Primer Nombre:') !!}
-                        {!! Form::text('primer_nombre', null, ['id' => 'primer_nombre','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!! Form::text('primer_nombre', null, ['id' => 'primer_nombre','class' => 'form-control','maxlength' => 255]) !!}
                     </div>
 
                     <!-- Segundo Nombre Field -->
                     <div class="form-group col-sm-3">
                         {!! Form::label('segundo_nombre', 'Segundo Nombre:') !!}
-                        {!! Form::text('segundo_nombre', null, ['id' => 'segundo_nombre','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!! Form::text('segundo_nombre', null, ['id' => 'segundo_nombre','class' => 'form-control','maxlength' => 255]) !!}
                     </div>
 
                     <!-- Apellido Paterno Field -->
                     <div class="form-group col-sm-3">
                         {!! Form::label('apellido_paterno', 'Apellido Paterno:') !!}
-                        {!! Form::text('apellido_paterno', null, ['id' => 'apellido_paterno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!! Form::text('apellido_paterno', null, ['id' => 'apellido_paterno','class' => 'form-control','maxlength' => 255]) !!}
                     </div>
 
                     <!-- Apellido Materno Field -->
                     <div class="form-group col-sm-3">
                         {!! Form::label('apellido_materno', 'Apellido Materno:') !!}
-                        {!! Form::text('apellido_materno', null, ['id' => 'apellido_materno','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!! Form::text('apellido_materno', null, ['id' => 'apellido_materno','class' => 'form-control','maxlength' => 255]) !!}
                     </div>
 
                     <!-- Fecha Nac Field -->
@@ -102,19 +102,19 @@
 {{--                    <!-- Numero Unidad Field -->--}}
 {{--                    <div class="form-group col-sm-6">--}}
 {{--                        {!! Form::label('numero_unidad', 'Numero Unidad:') !!}--}}
-{{--                        {!! Form::text('numero_unidad', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}--}}
+{{--                        {!! Form::text('numero_unidad', null, ['class' => 'form-control','maxlength' => 255]) !!}--}}
 {{--                    </div>--}}
 
 {{--                    <!-- Nombres Conductor Field -->--}}
 {{--                    <div class="form-group col-sm-6">--}}
 {{--                        {!! Form::label('nombres_conductor', 'Nombres Conductor:') !!}--}}
-{{--                        {!! Form::text('nombres_conductor', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}--}}
+{{--                        {!! Form::text('nombres_conductor', null, ['class' => 'form-control','maxlength' => 255]) !!}--}}
 {{--                    </div>--}}
 
 {{--                    <!-- Apellidos Conductor Field -->--}}
 {{--                    <div class="form-group col-sm-6">--}}
 {{--                        {!! Form::label('apellidos_conductor', 'Apellidos Conductor:') !!}--}}
-{{--                        {!! Form::text('apellidos_conductor', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}--}}
+{{--                        {!! Form::text('apellidos_conductor', null, ['class' => 'form-control','maxlength' => 255]) !!}--}}
 {{--                    </div>--}}
 
                     <!-- Hora De Llamada Field -->

@@ -14,12 +14,13 @@ class OptionsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
         \DB::table('options')->delete();
-        
+
         \DB::table('options')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'option_id' => NULL,
@@ -34,7 +35,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'option_id' => 1,
@@ -49,7 +50,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'option_id' => 1,
@@ -64,7 +65,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'option_id' => 1,
@@ -79,7 +80,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:38:19',
                 'deleted_at' => '2021-05-30 14:38:19',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'option_id' => 1,
@@ -94,7 +95,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'option_id' => 1,
@@ -109,7 +110,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'option_id' => 1,
@@ -124,7 +125,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'option_id' => 1,
@@ -139,7 +140,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:38:11',
                 'deleted_at' => '2021-05-30 14:38:11',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'option_id' => NULL,
@@ -154,7 +155,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'option_id' => NULL,
@@ -169,7 +170,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:38:06',
                 'deleted_at' => '2021-05-30 14:38:06',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'option_id' => 10,
@@ -184,7 +185,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'option_id' => 10,
@@ -199,7 +200,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2021-05-30 14:28:25',
                 'deleted_at' => NULL,
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 13,
                 'option_id' => NULL,
@@ -215,7 +216,8 @@ class OptionsTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
     }
 }
