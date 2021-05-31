@@ -16,13 +16,13 @@ class RemasEstadosTableSeeder extends Seeder
     public function run()
     {
 
-        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+//        \DB::statement('ALTER TABLE remas DISABLE CONSTRAINT fk_remas_estados1');
 
-        \DB::table('remas_estados')->truncate();
+        \DB::table('remas_estados')->delete();
 
         RemaEstado::factory()->create(['nombre' => 'CREADA']);
 
-        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+//        \DB::statement('ALTER TABLE remas ENABLE CONSTRAINT fk_remas_estados1');
 
 
     }
