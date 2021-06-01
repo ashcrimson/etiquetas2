@@ -6,8 +6,15 @@
 
 <!-- Clasificacion Triaje Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('clasificacion_triaje', 'Clasificacion Triaje:') !!}
-    {!! Form::text('clasificacion_triaje', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::label('clasificacion_triaje','Clasificacion Triaje:') !!}
+    {!!
+        Form::select(
+            'clasificacion_triaje',
+            ['' => 'Seleccione una..','SC' => 'Sin Clasificacion','C1','C2','C3','C4','C5']
+            , null
+            , ['id'=>'clasificacion_triaje','class' => 'form-control','style'=>'width: 100%']
+        )
+    !!}
 </div>
 
 <!-- Presion Arterial Field -->

@@ -46,6 +46,7 @@ class RemaController extends AppBaseController
      * @param CreateRemaRequest $request
      *
      * @return Response
+     * @throws \Exception
      */
     public function store(CreateRemaRequest $request)
     {
@@ -56,10 +57,10 @@ class RemaController extends AppBaseController
 
             $this->procesaStore($request);
 
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             DB::rollBack();
 
-            throw new Exception($exception);
+            throw new \Exception($exception);
         }
 
         DB::commit();
@@ -150,10 +151,11 @@ class RemaController extends AppBaseController
     /**
      * Update the specified Rema in storage.
      *
-     * @param  int              $id
+     * @param int $id
      * @param UpdateRemaRequest $request
      *
      * @return Response
+     * @throws \Exception
      */
     public function update($id, UpdateRemaRequest $request)
     {
@@ -166,12 +168,55 @@ class RemaController extends AppBaseController
             return redirect(route('remas.index'));
         }
 
-        $rema->fill($request->all());
-        $rema->save();
+
+        try {
+            DB::beginTransaction();
+
+            $this->procesaUpdate($request,$rema);
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            throw new \Exception($exception);
+        }
+
+        DB::commit();
 
         Flash::success('Rema updated successfully.');
 
         return redirect(route('remas.index'));
+    }
+
+    public function procesaUpdate(Request $request,Rema $rema)
+    {
+        //        DB::enableQueryLog();
+
+        /**
+         * @var  Paciente $paciente
+         */
+        $paciente = $this->creaOactualizaPaciente($request);
+
+        $request->merge([
+            'paciente_id' => $paciente->id,
+            'hora_de_llamada' => timeToDateTime($request->hora_de_llamada),
+            'hora_de_salida' => timeToDateTime($request->hora_de_salida),
+            'hora_de_llegada' => timeToDateTime($request->hora_de_llegada),
+            'estado_id' => RemaEstado::CREADA,
+        ]);
+
+
+        /** @var Rema $rema */
+        $rema->fill($request->all());
+        $rema->save();
+
+        $atencion = $rema->atencion;
+
+        $atencion->fill($request->all());
+        $atencion->save();
+
+        return $rema;
+
+//        dd(DB::getQueryLog());
     }
 
     /**
@@ -260,7 +305,7 @@ class RemaController extends AppBaseController
         $rema->setAttribute("apellido_materno" ,$rema->paciente->apellido_materno);
         $rema->setAttribute("primer_nombre" ,$rema->paciente->primer_nombre);
         $rema->setAttribute("segundo_nombre" ,$rema->paciente->segundo_nombre);
-        $rema->setAttribute("fecha_nac" ,$rema->paciente->fecha_nac);
+        $rema->setAttribute("fecha_nac" ,Carbon::parse($rema->paciente->fecha_nac)->format('Y-m-d'));
         $rema->setAttribute("sexo" ,$rema->paciente->sexo);
 //        $rema->setAttribute("sigla_grado" ,$rema->paciente->sigla_grado);
 //        $rema->setAttribute("unid_rep_dot" ,$rema->paciente->unid_rep_dot);
