@@ -306,7 +306,7 @@ class RemaController extends AppBaseController
         $rema->setAttribute("primer_nombre" ,$rema->paciente->primer_nombre);
         $rema->setAttribute("segundo_nombre" ,$rema->paciente->segundo_nombre);
         $rema->setAttribute("fecha_nac" ,Carbon::parse($rema->paciente->fecha_nac)->format('Y-m-d'));
-        $rema->setAttribute("sexo" ,$rema->paciente->sexo);
+        $rema->setAttribute("sexo" ,$rema->paciente->sexo == 'M' ? 1 : 0);
 //        $rema->setAttribute("sigla_grado" ,$rema->paciente->sigla_grado);
 //        $rema->setAttribute("unid_rep_dot" ,$rema->paciente->unid_rep_dot);
 //        $rema->setAttribute("cond_alta_dot" ,$rema->paciente->cond_alta_dot);

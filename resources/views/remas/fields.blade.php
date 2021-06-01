@@ -75,7 +75,7 @@
                         {!! Form::label('sexo', 'Sexo:') !!}<br>
                         <input type="checkbox" data-toggle="toggle" data-size="normal" data-on="M" data-off="F" data-style="ios" name="sexo" id="sexo"
                                value="1"
-                            {{( !isset($paciente) || (isset($paciente) && $paciente->sexo) ) ? 'checked' : '' }}>
+                            {{( !isset($rema) || (isset($rema) && $rema->sexo) ) ? 'checked' : '' }}>
                     </div>
                 </div>
             </div>
