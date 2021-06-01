@@ -74,7 +74,7 @@
                         {!! Form::label('sexo', 'Sexo:') !!}<br>
                         <input type="checkbox" data-toggle="toggle" data-size="normal" data-on="M" data-off="F" data-style="ios" name="sexo" id="sexo"
                                value="1"
-                            {{( !isset($paciente) || (isset($paciente) && $paciente->sexo) ) ? 'checked' : '' }}>
+                            {{ ($paciente->sexo ?? '') =="M"  ? 'checked' : '' }}>
                     </div>
                 </div>
             </div>
@@ -82,44 +82,44 @@
         </div>
     </div>
 
-    <div class=" col-sm-12">
-        <div class="card card-outline card-info">
-            <div class="card-header">
-                <h3 class="card-title">Datos de REMA</h3>
+{{--    <div class=" col-sm-12">--}}
+{{--        <div class="card card-outline card-info">--}}
+{{--            <div class="card-header">--}}
+{{--                <h3 class="card-title">Datos de REMA</h3>--}}
 
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                </div>
-                <!-- /.card-tools -->
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                Contenido
-            </div>
-            <!-- /.card-body -->
-        </div>
-    </div>
+{{--                <div class="card-tools">--}}
+{{--                    <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--                <!-- /.card-tools -->--}}
+{{--            </div>--}}
+{{--            <!-- /.card-header -->--}}
+{{--            <div class="card-body">--}}
+{{--                Contenido--}}
+{{--            </div>--}}
+{{--            <!-- /.card-body -->--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
-    <div class="col-sm-12">
-        <div class="card card-outline card-info">
-            <div class="card-header">
-                <h3 class="card-title">Datos Atención</h3>
+{{--    <div class="col-sm-12">--}}
+{{--        <div class="card card-outline card-info">--}}
+{{--            <div class="card-header">--}}
+{{--                <h3 class="card-title">Datos Atención</h3>--}}
 
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                </div>
-                <!-- /.card-tools -->
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                Contenido
-            </div>
-            <!-- /.card-body -->
-        </div>
-    </div>
+{{--                <div class="card-tools">--}}
+{{--                    <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--                <!-- /.card-tools -->--}}
+{{--            </div>--}}
+{{--            <!-- /.card-header -->--}}
+{{--            <div class="card-body">--}}
+{{--                Contenido--}}
+{{--            </div>--}}
+{{--            <!-- /.card-body -->--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 </div>
 

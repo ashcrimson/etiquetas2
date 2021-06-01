@@ -87,7 +87,6 @@ class Paciente extends Model
         'primer_nombre' => 'required|string|max:255',
         'segundo_nombre' => 'required|string|max:255',
         'fecha_nac' => 'required',
-        'sexo' => 'required|string|max:255',
         'sigla_grado' => 'nullable',
         'unid_rep_dot' => 'nullable',
         'cond_alta_dot' => 'nullable',

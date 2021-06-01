@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreatePacienteRequest;
 use App\Http\Requests\UpdatePacienteRequest;
 use App\Models\Paciente;
+use Carbon\Carbon;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -45,10 +46,12 @@ class PacienteController extends AppBaseController
      */
     public function store(CreatePacienteRequest $request)
     {
-        $input = $request->all();
+        $request->merge([
+            'sexo' => $request->sexo ? 'M' : 'F',
+        ]);
 
         /** @var Paciente $paciente */
-        $paciente = Paciente::create($input);
+        $paciente = Paciente::create($request->all());
 
         Flash::success('Paciente saved successfully.');
 
@@ -94,6 +97,8 @@ class PacienteController extends AppBaseController
             return redirect(route('pacientes.index'));
         }
 
+        $paciente->fecha_nac = Carbon::parse($paciente->fecha_nac)->format('Y-m-d');
+
         return view('pacientes.edit')->with('paciente', $paciente);
     }
 
@@ -115,6 +120,10 @@ class PacienteController extends AppBaseController
 
             return redirect(route('pacientes.index'));
         }
+
+        $request->merge([
+            'sexo' => $request->sexo ? 'M' : 'F',
+        ]);
 
         $paciente->fill($request->all());
         $paciente->save();
