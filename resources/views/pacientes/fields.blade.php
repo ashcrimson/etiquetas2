@@ -23,7 +23,7 @@
 
                         <div class="input-group ">
 
-                            {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                            {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 9,]) !!}
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="button" @click="getDatosPaciente()">Consultar</button>
                             </div>
@@ -34,7 +34,7 @@
                     <!-- Dv Run Field -->
                     <div class="form-group col-sm-2">
                         {!! Form::label('dv_run', 'Dv Run:') !!}
-                        {!! Form::text('dv_run', null, ['id' => 'dv_run','class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                        {!! Form::text('dv_run', null, ['id' => 'dv_run','class' => 'form-control','maxlength' => 1]) !!}
                     </div>
 
                     <div class="form-group col-sm-12" style="padding: 0px; margin: 0px"></div>

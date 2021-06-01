@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Paciente;
+use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -21,6 +22,8 @@ class PacienteDataTable extends DataTable
         return $dataTable->addColumn('action', function($Paciente){
             $id = $Paciente->id;
             return view('pacientes.datatables_actions',compact('Paciente','id'));
+        })->editColumn('fecha_nac',function (Paciente $paciente){
+            return Carbon::parse($paciente->fecha_nac)->format('d/m/Y');
         });
 
     }
@@ -71,6 +74,7 @@ class PacienteDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            'id',
             'run',
             'dv_run',
             'apellido_paterno',

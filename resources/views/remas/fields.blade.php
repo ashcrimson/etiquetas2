@@ -23,7 +23,7 @@
 
                         <div class="input-group ">
 
-                            {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 8]) !!}
+                            {!! Form::text('run', null, ['id' => 'run','class' => 'form-control','maxlength' => 9]) !!}
                             <div class="input-group-append">
                                 <button class="btn btn-outline-success" type="button" @click="getDatosPaciente()">Consultar</button>
                             </div>
