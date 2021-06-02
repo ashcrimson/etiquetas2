@@ -27,23 +27,22 @@
             @include('partials.flash_alert')
             @include('layouts.partials.request_errors')
 
-            <div class="card">
-                <div class="card-body">
 
-                   {!! Form::model($rema, ['route' => ['remas.update', $rema->id], 'method' => 'patch']) !!}
-                        <div class="form-row">
+               {!! Form::model($rema, ['route' => ['remas.update', $rema->id], 'method' => 'patch']) !!}
+                <div class="form-row">
+                    @include('remas.fields')
 
-                            @include('remas.fields')
-                            <!-- Submit Field -->
-                            <div class="form-group col-sm-12">
-                                <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
-                                <a href="{!! route('remas.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
-                            </div>
-                        </div>
+                    <div class="form-group col-sm-6">
+                        <a href="{!! route('remas.index') !!}" class="btn btn-block btn-secondary">Cancelar</a>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <button type="submit"  class="btn btn-block btn-success">Guardar</button>
+                    </div>
 
-                   {!! Form::close() !!}
                 </div>
-            </div>
+                <br>
+
+               {!! Form::close() !!}
         </div>
     </div>
 

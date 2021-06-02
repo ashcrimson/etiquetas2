@@ -43,7 +43,7 @@
 <!-- Temperatura Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('temperatura', 'Temperatura:') !!}
-    {!! Form::number('temperatura', null, ['class' => 'form-control']) !!}
+    {!! Form::number('temperatura', null, ['class' => 'form-control','step="any"','min="0"','max="50"']) !!}
 </div>
 
 <!-- Saturacion Oxigeno Field -->

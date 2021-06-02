@@ -97,7 +97,7 @@ class Rema extends Model
         'presion_arterial' => 'required|string|max:255',
         'frecuencia_cardiaca' => 'required|string|max:255',
         'frecuencia_respiratoria' => 'required|string|max:255',
-        'temperatura' => 'required|integer',
+        'temperatura' => 'required',
         'saturacion_oxigeno' => 'required|integer',
         'atencion_enfermeria' => 'required|string',
         'antecedentes_morbidos' => 'required|string',
