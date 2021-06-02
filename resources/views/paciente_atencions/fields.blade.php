@@ -20,19 +20,24 @@
 <!-- Presion Arterial Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('presion_arterial', 'Presion Arterial:') !!}
-    {!! Form::text('presion_arterial', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('presion_arterial', null, [
+            'id' => 'presion_arterial',
+            'class' => 'form-control',
+            'maxlength' => 255,
+            "data-inputmask"=>'"mask": "999/99"', "data-mask"
+         ]) !!}
 </div>
 
 <!-- Frecuencia Cardiaca Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('frecuencia_cardiaca', 'Frecuencia Cardiaca:') !!}
-    {!! Form::text('frecuencia_cardiaca', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('frecuencia_cardiaca', null, ['class' => 'form-control','maxlength' => 255]) !!}
 </div>
 
 <!-- Frecuencia Respiratoria Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('frecuencia_respiratoria', 'Frecuencia Respiratoria:') !!}
-    {!! Form::text('frecuencia_respiratoria', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('frecuencia_respiratoria', null, ['class' => 'form-control','maxlength' => 255]) !!}
 </div>
 
 <!-- Temperatura Field -->
@@ -70,3 +75,13 @@
     {!! Form::label('medicamentos_habituales', 'Medicamentos Habituales:') !!}
     {!! Form::textarea('medicamentos_habituales', null, ['class' => 'form-control','rows' => 2]) !!}
 </div>
+
+@push('scripts')
+<script>
+    $(function () {
+
+        $('[data-mask]').inputmask()
+
+    })
+</script>
+@endpush
