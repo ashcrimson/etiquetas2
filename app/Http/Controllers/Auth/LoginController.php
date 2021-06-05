@@ -64,7 +64,6 @@ class LoginController extends Controller
         $this->validateLogin($request);
 
         $usuario = (strstr($request->email, '@', true) . "\n");
-        $dominio = (str_replace("@", "", strstr($usuario, '@')) . "\n");
 
         $params = array(
             "id" => $usuario,
@@ -76,7 +75,7 @@ class LoginController extends Controller
 
 
         if ($response['resp']==0){
-            return redirect()->back()->withErrors(['email',$response['mensaje']]);
+            return redirect()->back()->withInput()->withErrors(['username' => $response['mensaje']]);
         }
 
         $user = User::where('email', '=', $request->email)->first();
