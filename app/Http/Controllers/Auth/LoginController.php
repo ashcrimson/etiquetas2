@@ -9,6 +9,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Socialite\Facades\Socialite;
@@ -73,10 +74,22 @@ class LoginController extends Controller
         $response = $client->call('autentifica_ldap', $params);
 
 
-        dd($response);
+        if ($response['resp']==0){
+            return redirect()->back()->withErrors($response['mensaje']);
+        }
 
+        $user = User::where('email', '=', $request->email)->first();
 
+        if (!$user) {
+            $user = User::create([
+                'username' => $usuario,
+                'name' => $response['nombre'],
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+            ]);
+        }
 
+        Auth::login($user);
 
     }
 
