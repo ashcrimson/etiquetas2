@@ -74,7 +74,7 @@ class LoginController extends Controller
         $response = $client->call('autentifica_ldap', $params);
 
 
-        if ($response['resp']==0){
+        if ($response['resp']==0 || $response['resp']==-1 ){
             return redirect()->back()->withInput()->withErrors(['username' => $response['mensaje']]);
         }
 
