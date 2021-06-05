@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -75,7 +76,7 @@ class LoginController extends Controller
 
 
         if ($response['resp']==0){
-            return redirect()->back()->withErrors($response['mensaje']);
+            return redirect()->back()->withErrors(['email',$response['mensaje']]);
         }
 
         $user = User::where('email', '=', $request->email)->first();
@@ -90,6 +91,12 @@ class LoginController extends Controller
         }
 
         Auth::login($user);
+
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return redirect()->intended($this->redirectPath());
 
     }
 
