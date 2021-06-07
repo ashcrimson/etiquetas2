@@ -22,7 +22,7 @@ class CreatePacientesAtencionesTable extends Migration
             $table->string('presion_arterial');
             $table->string('frecuencia_cardiaca');
             $table->string('frecuencia_respiratoria');
-            $table->integer('temperatura');
+            $table->decimal('temperatura');
             $table->integer('saturacion_oxigeno');
             $table->text('atencion_enfermeria');
             $table->text('antecedentes_morbidos');
