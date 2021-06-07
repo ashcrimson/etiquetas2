@@ -30,7 +30,7 @@ class PacienteAtencion extends Model
     use SoftDeletes;
 
     public $table = 'pacientes_atenciones';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -69,7 +69,6 @@ class PacienteAtencion extends Model
         'presion_arterial' => 'string',
         'frecuencia_cardiaca' => 'string',
         'frecuencia_respiratoria' => 'string',
-        'temperatura' => 'integer',
         'saturacion_oxigeno' => 'integer',
         'atencion_enfermeria' => 'string',
         'antecedentes_morbidos' => 'string',
