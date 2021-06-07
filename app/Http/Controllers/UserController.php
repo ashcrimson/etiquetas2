@@ -294,8 +294,10 @@ class UserController extends AppBaseController
     public function canEditUser(User $user)
     {
 
+        $rolSuperiorUserEdit = $user->roles->min('id') ?? 100;
+
         //si el usuario a editar tiene un rol superior al usuario autenticado
-        if ($user->roles->min('id') < auth()->user()->roles->min('id') ){
+        if ($rolSuperiorUserEdit < auth()->user()->roles->min('id') ){
             flash(__('You cannot edit user with role superior to yours'))->error();
             return false;
         }
@@ -305,8 +307,10 @@ class UserController extends AppBaseController
 
     public function canDeleteUser(User $user)
     {
+        $rolSuperiorUserEdit = $user->roles->min('id') ?? 100;
+
         //si el usuario a editar tiene un rol superior al usuario autenticado
-        if ($user->roles->min('id') < auth()->user()->roles->min('id') ){
+        if ($rolSuperiorUserEdit < auth()->user()->roles->min('id') ){
             flash(__('You cannot delete user with role superior to yours'))->error();
             return false;
         }
@@ -316,8 +320,10 @@ class UserController extends AppBaseController
 
     public function canEditMenu(User $user)
     {
+        $rolSuperiorUserEdit = $user->roles->min('id') ?? 100;
+
         //si el usuario a editar tiene un rol superior al usuario autenticado
-        if ($user->roles->min('id') < auth()->user()->roles->min('id') ){
+        if ($rolSuperiorUserEdit < auth()->user()->roles->min('id') ){
             flash(__('You cannot edit user menu with role superior to yours'))->error();
             return false;
         }

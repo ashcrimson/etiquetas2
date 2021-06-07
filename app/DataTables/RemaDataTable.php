@@ -18,9 +18,9 @@ class RemaDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', function($Rema){
-            $id = $Rema->id;
-            return view('remas.datatables_actions',compact('Rema','id'));
+        return $dataTable->addColumn('action', function(Rema $rema){
+            $id = $rema->id;
+            return view('remas.datatables_actions',compact('rema','id'));
         })->editColumn('nombre',function (Rema $rema){
             return $rema->paciente->nombre_completo;
         })->editColumn('fecha_ingreso',function (Rema $rema){

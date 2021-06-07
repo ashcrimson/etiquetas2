@@ -1,16 +1,11 @@
-@can('pacientes.show')
 <a href="{{ route('pacientes.show', $id) }}" data-toggle="tooltip" title="Ver" class='btn btn-default btn-sm'>
     <i class="fa fa-eye"></i>
 </a>
-@endcan
 
-@can('pacientes.edit')
 <a href="{{ route('pacientes.edit', $id) }}" data-toggle="tooltip" title="Editar" class='btn btn-outline-info btn-sm'>
     <i class="fa fa-edit"></i>
 </a>
-@endcan
 
-@can('pacientes.destroy')
 <a href="#" onclick="deleteItemDt(this)" data-id="{{$id}}" data-toggle="tooltip" title="Eliminar" class='btn btn-outline-danger btn-sm'>
     <i class="fa fa-trash-alt"></i>
 </a>
@@ -20,4 +15,3 @@
     @method('DELETE')
     @csrf
 </form>
-@endcan

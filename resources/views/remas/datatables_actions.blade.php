@@ -1,16 +1,13 @@
-@can('remas.show')
 <a href="{{ route('remas.show', $id) }}" data-toggle="tooltip" title="Ver" class='btn btn-default btn-sm'>
     <i class="fa fa-eye"></i>
 </a>
-@endcan
 
-@can('remas.edit')
+@if(auth()->user()->id == $rema->user_id)
 <a href="{{ route('remas.edit', $id) }}" data-toggle="tooltip" title="Editar" class='btn btn-outline-info btn-sm'>
     <i class="fa fa-edit"></i>
 </a>
-@endcan
+@endif
 
-@can('remas.destroy')
 <a href="#" onclick="deleteItemDt(this)" data-id="{{$id}}" data-toggle="tooltip" title="Eliminar" class='btn btn-outline-danger btn-sm'>
     <i class="fa fa-trash-alt"></i>
 </a>
@@ -20,4 +17,3 @@
     @method('DELETE')
     @csrf
 </form>
-@endcan
