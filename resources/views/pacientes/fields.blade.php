@@ -103,16 +103,22 @@
 
                     console.log('respuesta',res);
 
-                    $("#dv_run").val(paciente.dv_run);
-                    $("#apellido_paterno").val(paciente.apellido_paterno);
-                    $("#apellido_materno").val(paciente.apellido_materno);
-                    $("#primer_nombre").val(paciente.primer_nombre);
-                    $("#segundo_nombre").val(paciente.segundo_nombre);
-                    $("#fecha_nac").val(paciente.fecha_nac);
-                    $("#sexo").val(paciente.sexo);
-                    $("#sigla_grado").val(paciente.sigla_grado);
-                    $("#unid_rep_dot").val(paciente.unid_rep_dot);
-                    $("#cond_alta_dot").val(paciente.cond_alta_dot);
+                    if (!paciente){
+                        alertWarning('Rut No Encontrado');
+                    }else{
+                        $("#dv_run").val(paciente.dv_run);
+                        $("#apellido_paterno").val(paciente.apellido_paterno);
+                        $("#apellido_materno").val(paciente.apellido_materno);
+                        $("#primer_nombre").val(paciente.primer_nombre);
+                        $("#segundo_nombre").val(paciente.segundo_nombre);
+                        $("#fecha_nac").val(paciente.fecha_nac);
+                        $("#sexo").val(paciente.sexo);
+                        $("#sigla_grado").val(paciente.sigla_grado);
+                        $("#unid_rep_dot").val(paciente.unid_rep_dot);
+                        $("#cond_alta_dot").val(paciente.cond_alta_dot);
+                    }
+
+
                     this.loading = false;
 
                 }catch (e) {
