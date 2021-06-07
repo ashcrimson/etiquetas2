@@ -8,6 +8,7 @@ use App\Http\Requests\CreatePacienteRequest;
 use App\Http\Requests\UpdatePacienteRequest;
 use App\Models\Paciente;
 use Carbon\Carbon;
+use Exception;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -164,12 +165,20 @@ class PacienteController extends AppBaseController
     public function getPacientePorApi(Request $request)
     {
 
+        try {
 
-        $params = array('run' => $request->run);
-        $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
-        $response = $client->call('buscarDetallePersona', $params);
+            $params = array('run' => $request->run);
+            $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
+            $client->response_timeout = 5;
+            $response = $client->call('buscarDetallePersona', $params);
 
-        return $this->sendResponse($response,"Paciente");
+            return $this->sendResponse($response,"Paciente");
+
+        } catch (Exception $exception) {
+
+            return $this->sendError($exception->getMessage());
+        }
+
 
     }
 }

@@ -28,7 +28,26 @@
 
             {!! Form::open(['route' => 'pacientes.store']) !!}
 
-                @include('pacientes.fields')
+                <div class="col-12">
+                    <div class="card card-outline card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Datos Personales</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="form-row">
+                                @include('pacientes.fields')
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
 
                 <!-- Submit Field -->
                 <div class="form-group col-sm-12">
