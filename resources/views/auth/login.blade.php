@@ -6,7 +6,7 @@
 
     <div class="login-box">
         <div class="login-logo text-dark text-uppercase text-bold"  >
-            <a href="{{ route('home') }}"><b style="color: black !important;">{{ config('app.name', 'Laravel') }}</b></a>
+            <a href="{{ route('home') }}"><b style="color: black !important;">SISTEMA REMA</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
