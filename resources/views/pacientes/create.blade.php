@@ -23,7 +23,7 @@
 
     <div class="content">
         <div class="container-fluid">
-            @include('partials.flash_alert')
+
             @include('layouts.partials.request_errors')
 
             {!! Form::open(['route' => 'pacientes.store']) !!}

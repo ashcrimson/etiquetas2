@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\RemaDataTable;
+use App\DataTables\Scopes\ScopeRemaDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateRemaRequest;
 use App\Http\Requests\UpdateRemaRequest;
@@ -25,8 +26,15 @@ class RemaController extends AppBaseController
      * @param RemaDataTable $remaDataTable
      * @return Response
      */
-    public function index(RemaDataTable $remaDataTable)
+    public function index(RemaDataTable $remaDataTable,Request $request)
     {
+
+        $scope = new ScopeRemaDataTable();
+        $scope->del = $request->del ?? null;
+        $scope->al = $request->al ?? null;
+
+        $remaDataTable->addScope($scope);
+
         return $remaDataTable->render('remas.index');
     }
 

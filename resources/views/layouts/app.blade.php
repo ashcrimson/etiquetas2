@@ -73,6 +73,9 @@
 
 <script src="{{ url (mix('/js/app.js')) }}" type="text/javascript"></script>
 
+@include('partials.flash_alert')
+
+
 <script>
     @if(config('app.debug'))
         logW("Modo Debug Activo")
@@ -93,7 +96,36 @@
 
             Swal.showLoading();
         });
-    })
+    });
+
+    /**
+     * Formatea los datos de los inputs de un formulario
+     * solo se utiliza en archivos de servicio DataTable ej: VentaDataTable.php
+     * en el método html
+     * ->ajax([
+     *      'data' => "function(data) { formatDataDatatables($('#form-filter-ventas').serializeArray(), data);   }"
+     *  ])
+     * @param source
+     * @param target
+     */
+    function formatDataDataTables(source, target) {
+
+        $(source).each(function (i, v) {
+
+            // console.log(i, v);
+            if(v['name'].includes('[]')){
+
+                if (!target[v['name']]){
+                    target[v['name']] =  [v['value']]
+                }else{
+                    target[v['name']].push(v['value']) ;
+                }
+            }else{
+                target[v['name']] = v['value'];
+            }
+        })
+
+    }
 </script>
 
 <!--            Scripts inyectados

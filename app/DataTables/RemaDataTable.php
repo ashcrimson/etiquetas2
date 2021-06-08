@@ -51,6 +51,9 @@ class RemaDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
+            ->ajax([
+                'data' => "function(data) { formatDataDataTables($('#form-filter').serializeArray(), data);   }"
+            ])
             ->parameters([
                 'dom'     => 'Bfltrip',
                 'order'   => [[0, 'desc']],
