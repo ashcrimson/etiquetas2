@@ -37,7 +37,7 @@ class RemaDataTable extends DataTable
      */
     public function query(Rema $model)
     {
-        return $model->newQuery()->with(['paciente','user','estado']);
+        return $model->newQuery()->with(['paciente','user','estado','atencion']);
     }
 
     /**
@@ -59,7 +59,7 @@ class RemaDataTable extends DataTable
                 'responsive' => true,
                 'buttons' => [
                     ['extend' => 'create', 'text' => '<i class="fa fa-plus"></i> <span class="d-none d-sm-inline">Crear</span>'],
-                    
+
                     ['excel'],
                 ],
             ]);
@@ -82,7 +82,7 @@ class RemaDataTable extends DataTable
             'apellido_paterno' => ['data' => 'paciente.apellido_paterno', "name" => "paciente.apellido_paterno",'visible' => false,'printable' => false, 'exportable' => false],
             'apellido_materno' => ['data' => 'paciente.apellido_materno', "name" => "paciente.apellido_materno",'visible' => false,'printable' => false, 'exportable' => false],
 
-
+            'clasificacion_triaje' => ['name' => 'atencion.clasificacion_triaje','data' => 'atencion.clasificacion_triaje'],
             'fecha_ingreso',
             'estado' => ['name' => 'estado.nombre','data' => 'estado.nombre'],
             'user'=> ['name' => 'user.name','data' => 'user.name'],
