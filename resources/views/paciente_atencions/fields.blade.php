@@ -6,7 +6,7 @@
 
 <!-- Clasificacion Triaje Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('clasificacion_triaje','Clasificacion Triaje:') !!}
+    {!! Form::label('clasificacion_triaje','Clasificacion Triage:') !!}
     {!!
         Form::select(
             'clasificacion_triaje',
@@ -19,7 +19,7 @@
 
 <!-- Presion Arterial Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('presion_arterial', 'Presion Arterial:') !!}
+    {!! Form::label('presion_arterial', 'Presión Arterial:') !!}
     {!! Form::text('presion_arterial', null, [
             'id' => 'presion_arterial',
             'class' => 'form-control',
@@ -31,13 +31,13 @@
 <!-- Frecuencia Cardiaca Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('frecuencia_cardiaca', 'Frecuencia Cardiaca:') !!}
-    {!! Form::text('frecuencia_cardiaca', null, ['class' => 'form-control','maxlength' => 255]) !!}
+    {!! Form::number('frecuencia_cardiaca', null, ['class' => 'form-control','maxlength' => 255]) !!}
 </div>
 
 <!-- Frecuencia Respiratoria Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('frecuencia_respiratoria', 'Frecuencia Respiratoria:') !!}
-    {!! Form::text('frecuencia_respiratoria', null, ['class' => 'form-control','maxlength' => 255]) !!}
+    {!! Form::number('frecuencia_respiratoria', null, ['class' => 'form-control','maxlength' => 255]) !!}
 </div>
 
 <!-- Temperatura Field -->
@@ -48,19 +48,19 @@
 
 <!-- Saturacion Oxigeno Field -->
 <div class="form-group col-sm-4">
-    {!! Form::label('saturacion_oxigeno', 'Saturacion Oxigeno:') !!}
+    {!! Form::label('saturacion_oxigeno', 'Saturación Oxígeno:') !!}
     {!! Form::number('saturacion_oxigeno', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Atencion Enfermeria Field -->
 <div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('atencion_enfermeria', 'Atencion Enfermeria:') !!}
+    {!! Form::label('atencion_enfermeria', 'Atención Enfermería:') !!}
     {!! Form::textarea('atencion_enfermeria', null, ['class' => 'form-control','rows' => 2]) !!}
 </div>
 
 <!-- Antecedentes Morbidos Field -->
 <div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('antecedentes_morbidos', 'Antecedentes Morbidos:') !!}
+    {!! Form::label('antecedentes_morbidos', 'Antecedentes Mórbidos:') !!}
     {!! Form::textarea('antecedentes_morbidos', null, ['class' => 'form-control','rows' => 2]) !!}
 </div>
 
