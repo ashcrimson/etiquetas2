@@ -134,7 +134,7 @@ class Rema extends Model
      **/
     public function pacientesAtenciones()
     {
-        return $this->hasMany(PacienteAtencione::class, 'rema_id');
+        return $this->hasMany(PacienteAtencion::class, 'rema_id');
     }
 
     public function atencion()

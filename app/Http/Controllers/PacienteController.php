@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\PacienteDataTable;
+use App\DataTables\Scopes\ScopePacienteDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreatePacienteRequest;
 use App\Http\Requests\UpdatePacienteRequest;
@@ -23,8 +24,15 @@ class PacienteController extends AppBaseController
      * @param PacienteDataTable $pacienteDataTable
      * @return Response
      */
-    public function index(PacienteDataTable $pacienteDataTable)
+    public function index(PacienteDataTable $pacienteDataTable,Request $request)
     {
+
+        $scope = new ScopePacienteDataTable();
+        $scope->del = $request->del ?? null;
+        $scope->al = $request->al ?? null;
+
+        $pacienteDataTable->addScope($scope);
+
         return $pacienteDataTable->render('pacientes.index');
     }
 

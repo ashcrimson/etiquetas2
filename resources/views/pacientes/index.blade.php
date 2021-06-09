@@ -31,8 +31,23 @@
             <div class="clearfix"></div>
 
 
+            <div class="card card-outline card-success">
+                <div class="card-header">
+                    <h3 class="card-title py-1">Filtros</h3>
 
-            <div class="clearfix"></div>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                    <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    @include('pacientes.form_filters')
+                </div>
+                <!-- /.card-body -->
+            </div>
+
             <div class="card card-primary">
                 <div class="card-body">
                         @include('pacientes.table')
