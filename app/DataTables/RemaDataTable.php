@@ -84,9 +84,14 @@ class RemaDataTable extends DataTable
             'segundo_nombre' => ['data' => 'paciente.segundo_nombre', "name" => "paciente.segundo_nombre",'visible' => false,'printable' => false, 'exportable' => false],
             'apellido_paterno' => ['data' => 'paciente.apellido_paterno', "name" => "paciente.apellido_paterno",'visible' => false,'printable' => false, 'exportable' => false],
             'apellido_materno' => ['data' => 'paciente.apellido_materno', "name" => "paciente.apellido_materno",'visible' => false,'printable' => false, 'exportable' => false],
-
+            'paciente.fecha_nac',
+            'paciente.sexo',
+            'hora_de_llamada',
+            'hora_de_salida',
+            'hora_de_llegada',
+            'atencion.motivo_consulta',
             'clasificacion_triaje' => ['name' => 'atencion.clasificacion_triaje','data' => 'atencion.clasificacion_triaje'],
-            'fecha_ingreso',
+            
             'estado' => ['name' => 'estado.nombre','data' => 'estado.nombre'],
             'user'=> ['name' => 'user.name','data' => 'user.name'],
         ];
