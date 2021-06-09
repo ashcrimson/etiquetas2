@@ -7,13 +7,14 @@
     <i class="fa fa-edit"></i>
 </a>
 @endif
-
+@can('Eliminaringreso')
 <a href="#" onclick="deleteItemDt(this)" data-id="{{$id}}" data-toggle="tooltip" title="Eliminar" class='btn btn-outline-danger btn-sm'>
     <i class="fa fa-trash-alt"></i>
 </a>
-
+@endcan
 
 <form action="{{ route('remas.destroy', $id)}}" method="POST" id="delete-form{{$id}}">
     @method('DELETE')
     @csrf
 </form>
+
