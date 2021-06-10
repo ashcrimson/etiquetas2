@@ -65,6 +65,8 @@ class LoginController extends Controller
 
         $usuario = (strstr($request->email, '@', true) . "\n");
 
+        $usuario = $request->username ?? $usuario;
+
         $params = array(
             "id" => $usuario,
             "clave" => $request->password,
@@ -74,11 +76,11 @@ class LoginController extends Controller
         $response = $client->call('autentifica_ldap', $params);
 
 
-        if ($response['resp']==0 || $response['resp']==-1 ){
+        if ($response['resp']!=1 ){
             return redirect()->back()->withInput()->withErrors(['username' => $response['mensaje']]);
         }
 
-        $user = User::where('email', '=', $request->email)->first();
+        $user = User::where('email', $request->email)->orWher('username',$request->username)->first();
 
         if (!$user) {
             $user = User::create([
