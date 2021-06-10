@@ -19,17 +19,11 @@
     </section>
 
     <div class="content">
-        <div class="card card-primary">
-            <div class="card-body">
-                <div class="row">
-                    <div class="form-group col-sm-12">
-                        @include('remas.show_fields')
-                        <a href="{{ route('remas.index') }}" class="btn btn-default">
-                        {{__('Back')}}
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+            @include('remas.show_fields')
+            <a href="{{ route('remas.index') }}" class="btn btn-default">
+            {{__('Back')}}
+            </a>
+
     </div>
 @endsection

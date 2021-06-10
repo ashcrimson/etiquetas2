@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Paciente
  * @package App\Models
- * @version May 27, 2021, 8:03 pm CST
+ * @version June 10, 2021, 8:52 am CST
  *
+ * @property \Illuminate\Database\Eloquent\Collection $atenciones
+ * @property \Illuminate\Database\Eloquent\Collection $remas
  * @property string $run
  * @property string $dv_run
  * @property string $apellido_paterno
@@ -97,6 +99,23 @@ class Paciente extends Model
     {
         $nombre = $this->primer_nombre.' '.$this->segundo_nombre.' '.$this->apellido_paterno.' '.$this->apellido_materno;
         return str_replace('  ','',$nombre);
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function atenciones()
+    {
+        return $this->hasMany(\App\Models\PacienteAtencion::class, 'paciente_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function remas()
+    {
+        return $this->hasMany(\App\Models\Rema::class, 'paciente_id');
     }
 
 }
