@@ -80,7 +80,7 @@ class LoginController extends Controller
             return redirect()->back()->withInput()->withErrors(['username' => $response['mensaje']]);
         }
 
-        $user = User::where('email', $request->email)->orWher('username',$request->username)->first();
+        $user = User::where('email', $request->email)->orWhere('username',$request->username)->first();
 
         if (!$user) {
             $user = User::create([
