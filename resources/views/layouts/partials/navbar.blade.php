@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-dark navbar-primary">
     <!-- Left navbar links -->
-    <ul class="navbar-nav">
+    <!-- <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
@@ -13,7 +13,7 @@
         </li>
     </ul>
 
-    <!-- SEARCH FORM -->
+    SEARCH FORM
     <form class="form-inline ml-3 d-none d-sm-inline-block">
         <div class="input-group input-group-sm">
             <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -23,7 +23,7 @@
                 </button>
             </div>
         </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
