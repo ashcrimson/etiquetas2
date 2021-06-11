@@ -60,7 +60,8 @@ class PacienteDataTable extends DataTable
                 //'scrollX' => false,
                 'responsive' => true,
                 'buttons' => [
-                    ['extend' => 'create', 'text' => '<i class="fa fa-plus"></i> <span class="d-none d-sm-inline">Crear</span>'],
+                    ['extend' => 'create',  'text' => '<a class="btn btn-outline-success"><i class="fa fa-plus"></i> <span class=" d-sm-inline">Nuevo Ingreso</span></a>
+                    '],
 
                     ['excel'],
                 ],

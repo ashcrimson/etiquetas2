@@ -4,12 +4,12 @@
     <div class="form-row">
 
         <div class="form-group col-sm-3">
-            {!! Form::label('del', 'Del:') !!}
+            {!! Form::label('del', 'Desde:') !!}
             {!! Form::date('del', null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group col-sm-3">
-            {!! Form::label('al', 'Al:') !!}
+            {!! Form::label('al', 'Hasta:') !!}
             {!! Form::date('al', null, ['class' => 'form-control']) !!}
         </div>
 

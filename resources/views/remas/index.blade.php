@@ -32,7 +32,7 @@
 
             <div class="card card-outline card-success">
                 <div class="card-header">
-                    <h3 class="card-title py-1">Filtros</h3>
+                    <h3 class="card-title py-1">Filtrar por fecha de ingreso</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>

@@ -67,7 +67,7 @@
                                                 <td>{{$rema->estado->nombre}}</td>
                                                 <td>{{$rema->user->name}}</td>
                                                 <td>
-                                                    <a href="{{ route('remas.show', $rema->id) }}" data-toggle="tooltip" title="Ver" class='btn btn-default btn-sm'>
+                                                    <a href="{{ route('remas.show', $rema->id) }}" data-toggle="tooltip" title="Ver" class='btn btn-default btn-sm' style="font-size: .895rem;">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
                                                 </td>

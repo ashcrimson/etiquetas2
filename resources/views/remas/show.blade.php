@@ -19,11 +19,12 @@
     </section>
 
     <div class="content">
-
+        <div class="card-body" >
             @include('remas.show_fields')
-            <a href="{{ route('remas.index') }}" class="btn btn-default">
+            <a href="{{ route('remas.index') }}" class="btn btn-default" style="margin-left: 10px;">
             {{__('Back')}}
             </a>
+        </div>
 
     </div>
 @endsection
