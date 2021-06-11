@@ -279,6 +279,9 @@ class RemaController extends AppBaseController
 
     public function creaAtencion(Request $request)
     {
+
+        list($presionAsistolica,$presionSistolica) = explode("/",$request->presion_arterial);
+
         /**
          * @var PacienteAtencion $atencion
          */
@@ -288,6 +291,8 @@ class RemaController extends AppBaseController
             'motivo_consulta' => $request->motivo_consulta,
             'clasificacion_triaje' => $request->clasificacion_triaje,
             'presion_arterial' => $request->presion_arterial,
+            'presion_arterial_pa' => $presionAsistolica,
+            'presion_arterial_ps' => $presionSistolica,
             'frecuencia_cardiaca' => $request->frecuencia_cardiaca,
             'frecuencia_respiratoria' => $request->frecuencia_respiratoria,
             'temperatura' => $request->temperatura,

@@ -45,6 +45,8 @@ class PacienteAtencion extends Model
         'motivo_consulta',
         'clasificacion_triaje',
         'presion_arterial',
+        'presion_arterial_pa',
+        'presion_arterial_ps',
         'frecuencia_cardiaca',
         'frecuencia_respiratoria',
         'temperatura',
