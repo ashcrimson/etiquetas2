@@ -21,6 +21,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $segundo_nombre
  * @property string $fecha_nac
  * @property string $sexo
+ *
+ * @property string $direccion
+ * @property string $familiar_responsable
+ * @property string $telefono
+ * @property string $telefono2
+ * @property string $prevision_id
+ *
  * @property string $sigla_grado
  * @property string $unid_rep_dot
  * @property integer $cond_alta_dot
@@ -53,7 +60,13 @@ class Paciente extends Model
         'sexo',
         'sigla_grado',
         'unid_rep_dot',
-        'cond_alta_dot'
+        'cond_alta_dot',
+
+        'direccion',
+        'familiar_responsable',
+        'telefono',
+        'telefono2',
+        'prevision_id',
     ];
 
     /**

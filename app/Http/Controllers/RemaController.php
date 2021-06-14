@@ -270,6 +270,13 @@ class RemaController extends AppBaseController
             'segundo_nombre' => $request->segundo_nombre,
 
             'sexo' => $request->sexo ? 'M' : 'F',
+
+            'direccion' => $request->direccion,
+            'familiar_responsable' => $request->familiar_responsable,
+            'telefono' => $request->telefono,
+            'telefono2' => $request->telefono2,
+            'prevision_id' => $request->prevision_id,
+
         ]);
 
 
@@ -320,6 +327,12 @@ class RemaController extends AppBaseController
         $rema->setAttribute("segundo_nombre" ,$rema->paciente->segundo_nombre);
         $rema->setAttribute("fecha_nac" ,Carbon::parse($rema->paciente->fecha_nac)->format('Y-m-d'));
         $rema->setAttribute("sexo" ,$rema->paciente->sexo == 'M' ? 1 : 0);
+
+        $rema->setAttribute("direccion" ,$rema->paciente->direccion);
+        $rema->setAttribute("familiar_responsable" ,$rema->paciente->familiar_responsable);
+        $rema->setAttribute("telefono" ,$rema->paciente->telefono);
+        $rema->setAttribute("telefono2" ,$rema->paciente->telefono2);
+        $rema->setAttribute("prevision_id" ,$rema->paciente->prevision_id);
 //        $rema->setAttribute("sigla_grado" ,$rema->paciente->sigla_grado);
 //        $rema->setAttribute("unid_rep_dot" ,$rema->paciente->unid_rep_dot);
 //        $rema->setAttribute("cond_alta_dot" ,$rema->paciente->cond_alta_dot);

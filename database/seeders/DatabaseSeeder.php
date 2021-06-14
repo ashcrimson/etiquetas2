@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             $this->call(OptionsTableSeeder::class);
             $this->call(UsersTableSeeder::class);
             $this->call(RemasEstadosTableSeeder::class);
-    }
+            $this->call(PacientesPrevisionesTableSeeder::class);
+        }
 
 
     }

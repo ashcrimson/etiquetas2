@@ -18,9 +18,9 @@ class PacientePrevisionDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', function($Paciente Prevision){
-            $id = $Paciente Prevision->id;
-            return view('paciente_previsions.datatables_actions',compact('Paciente Prevision','id'));
+        return $dataTable->addColumn('action', function(PacientePrevision $pacientePrevision){
+            $id = $pacientePrevision->id;
+            return view('paciente_previsions.datatables_actions',compact('pacientePrevision','id'));
         });
 
     }

@@ -10,7 +10,7 @@
     {!!
         Form::select(
             'clasificacion_triaje',
-            ['' => 'Seleccione una..','SC' => 'Sin Clasificacion','C1'=> 'C1','C2'=>'C2','C3'=>'C3','C4'=>'C4','C5'=>'C5']
+            ['' => 'Seleccione una..','SC' => 'Sin Clasificacion','S1'=> 'S1','S2'=>'S2','S3'=>'S3','S4'=>'S4','S5'=>'S5']
             , null
             , ['id'=>'clasificacion_triaje','class' => 'form-control','style'=>'width: 100%']
         )

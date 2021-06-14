@@ -1,4 +1,3 @@
-
 <div class="form-row" id="paciente-fields">
     <!-- Run Field -->
     <div class="form-group col-sm-4">
@@ -69,12 +68,48 @@
                value="1"
             {{($rema->sexo ?? null)=="M" || ($paciente->sexo ?? null)=="M"  ? 'checked' : '' }}>
     </div>
+
+    <div class="form-group col-sm-3">
+        {!! Form::label('prevision_id','Prevision:') !!}
+        {!!
+            Form::select(
+                'prevision_id',
+                select(\App\Models\PacientePrevision::class,'nombre','id')
+                , null
+                , ['id'=>'previsiones','class' => 'form-control','style'=>'width: 100%']
+            )
+        !!}
+    </div>
+
+
+    <!-- telefono Field -->
+    <div class="form-group col-sm-3">
+        {!! Form::label('telefono', 'Telefono:') !!}
+        {!! Form::text('telefono', null, ['id' => 'telefono','class' => 'form-control','maxlength' => 255]) !!}
+    </div>
+    
+    <!-- Direccion Field -->
+    <div class="form-group col-sm-12">
+        {!! Form::label('direccion', 'Dirección:') !!}
+        {!! Form::text('direccion', null, ['id' => 'direccion','class' => 'form-control','maxlength' => 255]) !!}
+    </div>
+
+
+    <!-- familiar_responsable Field -->
+    <div class="form-group col-sm-12">
+        {!! Form::label('familiar_responsable', 'Familiar Responsable:') !!}
+        {!! Form::text('familiar_responsable', null, ['id' => 'familiar_responsable','class' => 'form-control','maxlength' => 255]) !!}
+    </div>
+
+
 </div>
 
 
 
 @push('scripts')
 <script>
+
+
     const vmPacienteFields = new Vue({
         el: '#paciente-fields',
         name: 'paciente-fields',
