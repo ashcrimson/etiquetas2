@@ -14,12 +14,12 @@ class PacientesPrevisionesTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        \DB::table('pacientes_previsiones')->delete();
-        
+
+//        \DB::table('pacientes_previsiones')->delete();
+
         \DB::table('pacientes_previsiones')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'nombre' => 'FONASA',
@@ -28,7 +28,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:44:11',
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'nombre' => 'ARMADA',
@@ -37,7 +37,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:44:06',
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'nombre' => 'ISAPRE',
@@ -46,7 +46,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:44:21',
                 'deleted_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'nombre' => 'CAPREDENA',
@@ -55,7 +55,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:44:44',
                 'deleted_at' => NULL,
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'nombre' => 'SISAN',
@@ -64,7 +64,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:44:50',
                 'deleted_at' => NULL,
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'nombre' => 'SISAE',
@@ -73,7 +73,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:44:58',
                 'deleted_at' => NULL,
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'nombre' => 'DIPRECA',
@@ -82,7 +82,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:45:06',
                 'deleted_at' => NULL,
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'nombre' => 'SIN PREVISION',
@@ -91,7 +91,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:45:18',
                 'deleted_at' => NULL,
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'nombre' => 'EJERCITO',
@@ -100,7 +100,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'updated_at' => '2021-06-14 15:45:27',
                 'deleted_at' => NULL,
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'nombre' => 'FACH',
@@ -110,7 +110,7 @@ class PacientesPrevisionesTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }
