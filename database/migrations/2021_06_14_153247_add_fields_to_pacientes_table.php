@@ -18,7 +18,7 @@ class AddFieldsToPacientesTable extends Migration
             $table->string('familiar_responsable')->nullable();
             $table->string('telefono')->nullable();
             $table->string('telefono2')->nullable();
-            $table->unsignedInteger('prevision_id')->nullable();
+            $table->unsignedBigInteger('prevision_id')->nullable();
 
             $table->foreign('prevision_id', 'fk_pacientes_previsiones1')->references('id')->on('pacientes_previsiones');
 
