@@ -57,49 +57,49 @@ class LoginController extends Controller
 
         $this->username = $this->findUsername();
     }
-
-    public function login(Request $request)
-    {
-
-        $this->validateLogin($request);
-
-        $usuario = (strstr($request->email, '@', true) . "\n");
-
-        $usuario = $request->username ?? $usuario;
-
-        $params = array(
-            "id" => $usuario,
-            "clave" => $request->password,
-        );
-
-        $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
-        $response = $client->call('autentifica_ldap', $params);
-
-
-        if ($response['resp']!=1 ){
-            return redirect()->back()->withInput()->withErrors(['username' => $response['mensaje']]);
-        }
-
-        $user = User::where('email', $request->email)->orWhere('username',$request->username)->first();
-
-        if (!$user) {
-            $user = User::create([
-                'username' => $usuario,
-                'name' => $response['nombre'],
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-            ]);
-        }
-
-        Auth::login($user);
-
-        $request->session()->regenerate();
-
-        $this->clearLoginAttempts($request);
-
-        return redirect()->intended($this->redirectPath());
-
-    }
+//
+//    public function login(Request $request)
+//    {
+//
+//        $this->validateLogin($request);
+//
+//        $usuario = (strstr($request->email, '@', true) . "\n");
+//
+//        $usuario = $request->username ?? $usuario;
+//
+//        $params = array(
+//            "id" => $usuario,
+//            "clave" => $request->password,
+//        );
+//
+//        $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
+//        $response = $client->call('autentifica_ldap', $params);
+//
+//
+//        if ($response['resp']!=1 ){
+//            return redirect()->back()->withInput()->withErrors(['username' => $response['mensaje']]);
+//        }
+//
+//        $user = User::where('email', $request->email)->orWhere('username',$request->username)->first();
+//
+//        if (!$user) {
+//            $user = User::create([
+//                'username' => $usuario,
+//                'name' => $response['nombre'],
+//                'email' => $request->email,
+//                'password' => bcrypt($request->password),
+//            ]);
+//        }
+//
+//        Auth::login($user);
+//
+//        $request->session()->regenerate();
+//
+//        $this->clearLoginAttempts($request);
+//
+//        return redirect()->intended($this->redirectPath());
+//
+//    }
 
 
     /**

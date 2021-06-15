@@ -115,7 +115,7 @@
                                 <!-- Morris chart - Sales -->
                                 <div class="chart tab-pane active" id="revenue-chart"
                                      style="position: relative; height: 300px;">
-                                    <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                    <div id="chart" style="height: 300px;"></div>
                                 </div>
                                 <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
                                     <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
@@ -125,9 +125,9 @@
                     </div>
                     <!-- /.card -->
 
-                
 
-                  
+
+
                     <!-- /.card -->
                 </section>
                 <!-- /.Left col -->
@@ -238,7 +238,7 @@
                     <!-- /.card -->
 
                     <!-- Calendar -->
-                  
+
                     <!-- /.card -->
                 </section>
                 <!-- right col -->
@@ -252,4 +252,13 @@
 @push('scripts')
     <script src="{{asset("js/dashboard.js")}}"></script>
     <script src="{{asset("js/demo.js")}}"></script>
+
+    <script src="{{asset('js/echarts.min.js')}}"></script>
+    <script src="{{asset('js/chartisan_echarts.js')}}"></script>
+    <script>
+        const chart = new Chartisan({
+            el: '#chart',
+            url: "@chart('sample_chart')",
+        });
+    </script>
 @endpush
