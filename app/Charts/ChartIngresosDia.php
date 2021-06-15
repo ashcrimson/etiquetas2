@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Charts;
 
 use App\Models\Rema;
+use Carbon\Carbon;
 use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
@@ -20,9 +21,9 @@ class ChartIngresosDia extends BaseChart
     public function handler(Request $request): Chartisan
     {
 
-        $remas  = Rema::select(DB::raw('hour(created_at) hora,count(*) valor'))
-            ->groupBy('hora')
-            ->whereRaw("date(created_at) = ?",[fechaActual('en')])
+        $remas  = Rema::select(DB::raw('extract(hour from created_at) as hora,count(*) as valor'))
+            ->groupByRaw('extract(hour from created_at)')
+            ->whereDate("created_at",Carbon::today()->toDateString())
             ->get();
 
         $labels = $remas->pluck('hora')->toArray();

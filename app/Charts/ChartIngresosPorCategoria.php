@@ -21,12 +21,10 @@ class ChartIngresosPorCategoria extends BaseChart
      */
     public function handler(Request $request): Chartisan
     {
-        $mesActual = Carbon::now()->format('m');
-
 
         $remas  = PacienteAtencion::select(DB::raw('clasificacion_triaje,count(*) valor'))
             ->groupBy('clasificacion_triaje')
-            ->whereRaw("month(created_at) = ?",[$mesActual])
+            ->whereMonth("created_at",date('m'))
             ->get();
 
         $labels = $remas->pluck('clasificacion_triaje')->toArray();

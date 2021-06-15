@@ -20,8 +20,6 @@ class ChartIngresosMes extends BaseChart
      */
     public function handler(Request $request): Chartisan
     {
-        $mesActual = Carbon::now()->format('m');
-
 
         $iniMes = Carbon::now()->firstOfMonth();
         $finMes = Carbon::now()->lastOfMonth();
@@ -29,9 +27,9 @@ class ChartIngresosMes extends BaseChart
         $dias = $iniMes->diffInDays($finMes)+1;
 
 
-        $remas  = Rema::select(DB::raw('day(created_at) dia,count(*) valor'))
-            ->groupBy('dia')
-            ->whereRaw("month(created_at) = ?",[$mesActual])
+        $remas  = Rema::select(DB::raw('extract(day from created_at) as dia,count(*) as valor'))
+            ->groupByRaw('extract(day from created_at)')
+            ->whereMonth("created_at",date('m'))
             ->get();
 
         $labels = [];
