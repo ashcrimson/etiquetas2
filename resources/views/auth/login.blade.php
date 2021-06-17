@@ -6,7 +6,7 @@
 
     <div class="login-box">
         <div class="login-logo text-dark text-uppercase text-bold"  >
-            <p><img src="https://www.aec.cl/avisos/38-naval.jpg" alt=""></p>
+            <p><img src="{{asset('dist/img/Logo HNV.png')}}" alt=""></p>
             <a href="{{ route('home') }}"><b style="color: black !important;">SISTEMA REMA</b></a>
         </div>
         <!-- /.login-logo -->

@@ -25,6 +25,9 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="icon" 
+      type="image/png" 
+      href="{{asset('dist/img/kisspng-star-of-life-emergency-medical-services-emergency-5b676f0ea71421.2380760815335052946844.png')}}">
 
     <!--            Estilos inyectados
     ------------------------------------------------------------------------>
@@ -49,13 +52,7 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
-        <strong>
-            Copyright &copy; 2014-{{anioActual()}}
-        </strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.0
-        </div>
+        
     </footer>
 
     <!-- Control Sidebar -->
