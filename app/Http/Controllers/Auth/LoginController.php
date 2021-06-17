@@ -100,7 +100,7 @@ class LoginController extends Controller
         if (!$user) {
             $user = User::create([
                 'username' => $usuario,
-                'name' => $response['nombre'],
+                'name' => "'".$response['nombre']."'",
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
             ]);
