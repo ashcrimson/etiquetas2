@@ -15,6 +15,7 @@ class CreateRemasTable extends Migration
     {
         Schema::create('remas', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_admision');
             $table->unsignedBigInteger('paciente_id');
             $table->string('numero_unidad')->nullable();
             $table->string('nombres_conductor')->nullable();

@@ -15,19 +15,21 @@ class CreatePacientesAtencionesTable extends Migration
     {
         Schema::create('pacientes_atenciones', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_admision');
             $table->unsignedBigInteger('paciente_id');
             $table->unsignedBigInteger('rema_id');
-            $table->text('motivo_consulta');
-            $table->string('clasificacion_triaje');
-            $table->string('presion_arterial');
-            $table->string('frecuencia_cardiaca');
-            $table->string('frecuencia_respiratoria');
-            $table->decimal('temperatura');
-            $table->integer('saturacion_oxigeno');
-            $table->text('atencion_enfermeria');
-            $table->text('antecedentes_morbidos');
-            $table->text('alergias');
-            $table->text('medicamentos_habituales');
+            $table->string('qf');
+            $table->string('droga');
+            $table->decimal('dosis');
+            $table->string('suero_dilucion');
+            $table->string('vol_suero');
+            $table->decimal('vol_agregado');
+            $table->decimal('vol_final');
+            $table->string('bajada');
+            $table->string('medico');
+            $table->text('servicio_solicitante');
+            $table->text('control_producto_terminado');
+            $table->text('entrega_conforme_enfermeria');
             $table->timestamps();
             $table->softDeletes();
 
