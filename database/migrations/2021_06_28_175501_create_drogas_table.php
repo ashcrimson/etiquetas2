@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateDrogasTable extends Migration
-{
+{ 
     /**
      * Run the migrations.
      *
