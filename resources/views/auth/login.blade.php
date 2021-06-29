@@ -7,7 +7,7 @@
     <div class="login-box">
         <div class="login-logo text-dark text-uppercase text-bold"  >
             <p><img src="{{asset('dist/img/Logo HNV.png')}}" alt=""></p>
-            <a href="{{ route('home') }}"><b style="color: black !important;">SISTEMA REMA</b></a>
+            <a href="{{ route('home') }}"><b style="color: black !important;">SISTEMA ETIQUETAS</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">

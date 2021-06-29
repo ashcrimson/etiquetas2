@@ -4,7 +4,7 @@
     <a href="{{route('home')}}" class="brand-link navbar-primary">
         <img src="{{asset('dist/img/kisspng-star-of-life-emergency-medical-services-emergency-5b676f0ea71421.2380760815335052946844.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">Sistema REMA</span>
+        <span class="brand-text font-weight-light">Sistema Etiquetas</span>
     </a>
 
     <!-- Sidebar -->

@@ -73,17 +73,18 @@ class PacienteAtencionDataTable extends DataTable
         return [
             'paciente_id',
             'rema_id',
-            'motivo_consulta',
-            'clasificacion_triaje',
-            'presion_arterial',
-            'frecuencia_cardiaca',
-            'frecuencia_respiratoria',
-            'temperatura',
-            'saturacion_oxigeno',
-            'atencion_enfermeria',
-            'antecedentes_morbidos',
-            'alergias',
-            'medicamentos_habituales'
+            'qf',
+            'droga',
+            'dosis',
+            'suero_dilusion',
+            'vol_suero',
+            'vol_agregado',
+            'vol_final',
+            'bajada',
+            'medico',
+            'servicio_solicitante',
+            'medicamentos_habituales',
+            'entrega_conforme_enfermeria'
         ];
     }
 

@@ -40,21 +40,21 @@ class PacienteAtencion extends Model
 
 
     public $fillable = [
+        'fecha_admision',
         'paciente_id',
         'rema_id',
-        'motivo_consulta',
-        'clasificacion_triaje',
-        'presion_arterial',
-        'presion_arterial_pa',
-        'presion_arterial_ps',
-        'frecuencia_cardiaca',
-        'frecuencia_respiratoria',
-        'temperatura',
-        'saturacion_oxigeno',
-        'atencion_enfermeria',
-        'antecedentes_morbidos',
-        'alergias',
-        'medicamentos_habituales'
+        'qf',
+        'droga',
+        'dosis',
+        'suero_dilusion',
+        'vol_suero',
+        'vol_agregado',
+        'vol_final',
+        'bajada',
+        'medico',
+        'servicio_solicitante',
+        'control_producto_terminado',
+        'entrega_conforme_enfermeria'
     ];
 
     /**
@@ -66,16 +66,18 @@ class PacienteAtencion extends Model
         'id' => 'integer',
         'paciente_id' => 'integer',
         'rema_id' => 'integer',
-        'motivo_consulta' => 'string',
-        'clasificacion_triaje' => 'string',
-        'presion_arterial' => 'string',
-        'frecuencia_cardiaca' => 'string',
-        'frecuencia_respiratoria' => 'string',
-        'saturacion_oxigeno' => 'integer',
-        'atencion_enfermeria' => 'string',
-        'antecedentes_morbidos' => 'string',
-        'alergias' => 'string',
-        'medicamentos_habituales' => 'string'
+        'qf' => 'string',
+        'droga' => 'string',
+        'dosis' => 'integer',
+        'suero_dilusion' => 'string',
+        'vol_suero' => 'string',
+        'vol_agregado' => 'decimal',
+        'vol_final' => 'decimal',
+        'bajada' => 'string',
+        'medico' => 'string',
+        'servicio_solicitante' => 'string',
+        'control_producto_terminado' => 'string',
+        'entrega_conforme_enfermeria' => 'string'
     ];
 
     /**
@@ -86,20 +88,18 @@ class PacienteAtencion extends Model
     public static $rules = [
         'paciente_id' => 'required',
         'rema_id' => 'required',
-        'motivo_consulta' => 'required|string',
-        'clasificacion_triaje' => 'required|string|max:255',
-        'presion_arterial' => 'required|string|max:255',
-        'frecuencia_cardiaca' => 'required|string|max:255',
-        'frecuencia_respiratoria' => 'required|string|max:255',
-        'temperatura' => 'required|integer',
-        'saturacion_oxigeno' => 'required|integer',
-        'atencion_enfermeria' => 'required|string',
-        'antecedentes_morbidos' => 'required|string',
-        'alergias' => 'required|string',
-        'medicamentos_habituales' => 'required|string',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable',
-        'deleted_at' => 'nullable'
+        'qf' => 'nullable',
+        'droga' => 'nullable',
+        'dosis' => 'nullable',
+        'suero_dilusion' => 'nullable',
+        'vol_suero' => 'nullable',
+        'vol_agregado' => 'nullable',
+        'vol_final' => 'nullable',
+        'bajada' => 'nullable',
+        'medico' => 'nullable',
+        'servicio_solicitante' => 'nullable',
+        'medicamentos_habituales' => 'nullable',
+        'entrega_conforme_enfermeria' => 'nullable'
     ];
 
     /**
