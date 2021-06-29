@@ -71,7 +71,12 @@ class DrogaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nombre'
+            'nombre',
+            'dosis',
+            'suero_dilusion',
+            'vol_agregado',
+            'vol_final',
+            'bajada'
         ];
     }
 

@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Droga
  * @package App\Models
- * @version June 28, 2021, 6:07 pm CST
+ * @version June 29, 2021, 8:54 am CST
  *
  * @property string $nombre
+ * @property number $dosis
+ * @property string $suero_dilusion
+ * @property number $vol_agregado
+ * @property number $vol_final
+ * @property string $bajada
  */
 class Droga extends Model
 {
@@ -26,7 +31,12 @@ class Droga extends Model
 
 
     public $fillable = [
-        'nombre'
+        'nombre',
+        'dosis',
+        'suero_dilusion',
+        'vol_agregado',
+        'vol_final',
+        'bajada'
     ];
 
     /**
@@ -36,7 +46,12 @@ class Droga extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'nombre' => 'string'
+        'nombre' => 'string',
+        'dosis' => 'decimal:2',
+        'suero_dilusion' => 'string',
+        'vol_agregado' => 'decimal:2',
+        'vol_final' => 'decimal:2',
+        'bajada' => 'string'
     ];
 
     /**
@@ -46,6 +61,11 @@ class Droga extends Model
      */
     public static $rules = [
         'nombre' => 'required|string|max:255',
+        'dosis' => 'required|numeric',
+        'suero_dilusion' => 'required|string|max:255',
+        'vol_agregado' => 'required|numeric',
+        'vol_final' => 'required|numeric',
+        'bajada' => 'required|string|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
