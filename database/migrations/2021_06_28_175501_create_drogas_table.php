@@ -16,6 +16,11 @@ class CreateDrogasTable extends Migration
         Schema::create('drogas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->decimal('dosis');
+            $table->string('suero_dilusion');
+            $table->decimal('vol_agregado');
+            $table->decimal('vol_final');
+            $table->string('bajada');
             $table->timestamps();
             $table->softDeletes();
         });
