@@ -27,6 +27,10 @@
                         <a href="{{ route('drogas.index') }}" class="btn btn-default">
                         {{__('Back')}}
                         </a>
+                        &nbsp;
+                        <a href="{{ route('drogas.imprimir',$droga->id) }}" class="btn btn-default">
+                            <i class="fa fa-print"></i> Imprimir
+                        </a>
                     </div>
                 </div>
             </div>

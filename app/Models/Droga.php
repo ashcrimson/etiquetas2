@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
@@ -15,13 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property number $vol_agregado
  * @property number $vol_final
  * @property string $bajada
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  */
 class Droga extends Model
 {
     use SoftDeletes;
 
     public $table = 'drogas';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -71,5 +74,5 @@ class Droga extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+
 }

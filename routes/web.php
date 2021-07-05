@@ -54,11 +54,12 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::resource('pacientePrevisions', 'PacientePrevisionController');
 
+    Route::resource('drogas', 'DrogaController');
+    Route::get('drogas/imprime/{droga}', 'DrogaController@imprimeEtiqueta')->name('drogas.imprimir');
+
 });
 
 
-
-Route::resource('drogas', 'DrogaController');
 
 Route::get('print',function (){
 
@@ -71,31 +72,31 @@ Route::get('print',function (){
     $id_aten= "5555";
     $run= "12345";
 
-    $print_data = "^XA
-                ^LH0,0 
-                ^FO4,2 
-                ^GB804,798,4 
-                ^FS 
-                ^FO4,2 ^GB548,52,4 ^FS ^FO19,12 ^ADN,36,20 
-                ^FDHospital Naval A.Nef ^FS ^FO548,2 ^GB260,52,4 
-                ^FS 
-                ^FO561,16 ^ADN,36,10 ^FDP/V ^FS ^FO611,16
-                ^ADN,36,10 ^FD1:3 
-                ^FO21,100 ^ADN,15,15 ^FR ^FDNombre:
-                ^FS 
-                ^FO321,100
-                ^ADN,25,15 ^FR ^FDCLARISA BERNAL MOYA 
-                ^FS ^FO4,210 ^GB128,166,4 ^FS ^FO128,210 ^GB680,166,4 ^FS
-                ^FO136,220 ^ADN,36,15 ^FDHospital Naval ^FS ^FO136,276 ^ADN,36,10 ^FDInformatica ^FS ^FO15,243 ^ADN,108,50 ^FDE3 ^FS ^FO136,338 ^ADN,36,14 ^FDuwu ^FS ^FO580,338 ^ADN,36,15 ^FDRX ^FS ^FO632,210 ^GB176,166,4 ^FS ^FO660,220
-                ^AAN,18,5 ^FDuwu ^FS ^FO695,246 ^ADN,18,5 ^FDCNN ^FS ^FO632, 273
-                ^GB176,103,4 ^FS ^FO640,280 ^ADN,18,5 ^FDPeso Kg ^FS ^FO680,318 ^ADN,36,20 ^FD68 ^FS
-                ^FO632, 372 ^GB176,48,4 ^FS ^FO640,378 ^ADN,18,5 ^FDPuerto: ^FS ^FO658,398 ^ADN,18,10
-                ^FDVALPO ^FS ^FO4,372 ^GB804,48,4 ^FS ^FO25,383 ^ADN,36,10 ^FDNota: ^FS ^FO88,383
-                ^ADN,36,10 ^FDOJO ^FS ^FO640,650 ^XGE:GLSMINI.GRF,1,1 ^FS ^FO606,718
-                ^GB202,82,4 ^FS ^FO4,718 ^GB606,82,4 ^FS ^FO240,718 ^GB144,80,40 ^FS ^FO242,724
-                ^ADN,96,25 ^FR ^FD1-25 ^FS ^FO50,422 ^BY3 ^BCN,260,N,N,N,A ^FVWW540006975010RC ^FS
-                ^FO50,685 ^ADN,27,15 ^FDWW 540006975 01 0 RC 01 ^FS 
-                ^XZ";
+        $print_data = "^XA
+                    ^LH0,0
+                    ^FO4,2
+                    ^GB804,798,4
+                    ^FS
+                    ^FO4,2 ^GB548,52,4 ^FS ^FO19,12 ^ADN,36,20
+                    ^FDHospital Naval A.Nef ^FS ^FO548,2 ^GB260,52,4
+                    ^FS
+                    ^FO561,16 ^ADN,36,10 ^FDP/V ^FS ^FO611,16
+                    ^ADN,36,10 ^FD1:3
+                    ^FO21,100 ^ADN,15,15 ^FR ^FDNombre:
+                    ^FS
+                    ^FO321,100
+                    ^ADN,25,15 ^FR ^FDCLARISA BERNAL MOYA
+                    ^FS ^FO4,210 ^GB128,166,4 ^FS ^FO128,210 ^GB680,166,4 ^FS
+                    ^FO136,220 ^ADN,36,15 ^FDHospital Naval ^FS ^FO136,276 ^ADN,36,10 ^FDInformatica ^FS ^FO15,243 ^ADN,108,50 ^FDE3 ^FS ^FO136,338 ^ADN,36,14 ^FDuwu ^FS ^FO580,338 ^ADN,36,15 ^FDRX ^FS ^FO632,210 ^GB176,166,4 ^FS ^FO660,220
+                    ^AAN,18,5 ^FDuwu ^FS ^FO695,246 ^ADN,18,5 ^FDCNN ^FS ^FO632, 273
+                    ^GB176,103,4 ^FS ^FO640,280 ^ADN,18,5 ^FDPeso Kg ^FS ^FO680,318 ^ADN,36,20 ^FD68 ^FS
+                    ^FO632, 372 ^GB176,48,4 ^FS ^FO640,378 ^ADN,18,5 ^FDPuerto: ^FS ^FO658,398 ^ADN,18,10
+                    ^FDVALPO ^FS ^FO4,372 ^GB804,48,4 ^FS ^FO25,383 ^ADN,36,10 ^FDNota: ^FS ^FO88,383
+                    ^ADN,36,10 ^FDOJO ^FS ^FO640,650 ^XGE:GLSMINI.GRF,1,1 ^FS ^FO606,718
+                    ^GB202,82,4 ^FS ^FO4,718 ^GB606,82,4 ^FS ^FO240,718 ^GB144,80,40 ^FS ^FO242,724
+                    ^ADN,96,25 ^FR ^FD1-25 ^FS ^FO50,422 ^BY3 ^BCN,260,N,N,N,A ^FVWW540006975010RC ^FS
+                    ^FO50,685 ^ADN,27,15 ^FDWW 540006975 01 0 RC 01 ^FS
+                    ^XZ";
 
     // dd($print_data);
 
