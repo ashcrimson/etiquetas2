@@ -66,6 +66,8 @@ Route::group(['middleware' => 'auth'],function () {
     Route::resource('preparacionEstados', 'PreparacionEstadoController');
 
     Route::resource('protocolos', 'ProtocoloController');
+
+    Route::resource('preparacions', 'PreparacionController');
 });
 
 
@@ -174,3 +176,5 @@ Route::get('print',function (){
         echo 'Caught exception: ', $e->getMessage(), "\n";
     }
 });
+
+
