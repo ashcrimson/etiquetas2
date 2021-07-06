@@ -2,17 +2,14 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Eloquent as Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Paciente
  * @package App\Models
- * @version June 10, 2021, 8:52 am CST
+ * @version July 6, 2021, 1:17 pm CST
  *
- * @property \Illuminate\Database\Eloquent\Collection $atenciones
- * @property \Illuminate\Database\Eloquent\Collection $remas
+ * @property \Illuminate\Database\Eloquent\Collection $preparaciones
  * @property string $run
  * @property string $dv_run
  * @property string $apellido_paterno
@@ -21,23 +18,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $segundo_nombre
  * @property string $fecha_nac
  * @property string $sexo
- *
+ * @property string $sigla_grado
+ * @property string $unid_rep_dot
+ * @property integer $cond_alta_dot
  * @property string $direccion
  * @property string $familiar_responsable
  * @property string $telefono
  * @property string $telefono2
- * @property string $prevision_id
- *
- * @property string $sigla_grado
- * @property string $unid_rep_dot
- * @property integer $cond_alta_dot
- * @property string $nombre_completo
- * @property Carbon $created_at
- * @property Carbon $updated_at
  */
 class Paciente extends Model
 {
-    use SoftDeletes,HasFactory;
+    use SoftDeletes;
 
     public $table = 'pacientes';
 
@@ -61,12 +52,10 @@ class Paciente extends Model
         'sigla_grado',
         'unid_rep_dot',
         'cond_alta_dot',
-
         'direccion',
         'familiar_responsable',
         'telefono',
-        'telefono2',
-        'prevision_id',
+        'telefono2'
     ];
 
     /**
@@ -82,11 +71,15 @@ class Paciente extends Model
         'apellido_materno' => 'string',
         'primer_nombre' => 'string',
         'segundo_nombre' => 'string',
-
+        'fecha_nac' => 'date',
         'sexo' => 'string',
         'sigla_grado' => 'string',
         'unid_rep_dot' => 'string',
-        'cond_alta_dot' => 'integer'
+        'cond_alta_dot' => 'integer',
+        'direccion' => 'string',
+        'familiar_responsable' => 'string',
+        'telefono' => 'string',
+        'telefono2' => 'string'
     ];
 
     /**
@@ -102,33 +95,24 @@ class Paciente extends Model
         'primer_nombre' => 'required|string|max:255',
         'segundo_nombre' => 'required|string|max:255',
         'fecha_nac' => 'required',
-        'sigla_grado' => 'nullable',
-        'unid_rep_dot' => 'nullable',
-        'cond_alta_dot' => 'nullable',
-
+        'sexo' => 'required|string|max:255',
+        'sigla_grado' => 'nullable|string|max:255',
+        'unid_rep_dot' => 'nullable|string|max:255',
+        'cond_alta_dot' => 'nullable|integer',
+        'direccion' => 'nullable|string|max:255',
+        'familiar_responsable' => 'nullable|string|max:255',
+        'telefono' => 'nullable|string|max:255',
+        'telefono2' => 'nullable|string|max:255',
+        'created_at' => 'nullable',
+        'updated_at' => 'nullable',
+        'deleted_at' => 'nullable'
     ];
 
-    public function getNombreCompletoAttribute()
-    {
-        $nombre = $this->primer_nombre.' '.$this->segundo_nombre.' '.$this->apellido_paterno.' '.$this->apellido_materno;
-        return str_replace('  ','',$nombre);
-    }
-
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function atenciones()
+    public function preparaciones()
     {
-        return $this->hasMany(\App\Models\PacienteAtencion::class, 'paciente_id');
+        return $this->hasMany(\App\Models\Preparacion::class, 'paciente_id');
     }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function remas()
-    {
-        return $this->hasMany(\App\Models\Rema::class, 'paciente_id');
-    }
-
 }

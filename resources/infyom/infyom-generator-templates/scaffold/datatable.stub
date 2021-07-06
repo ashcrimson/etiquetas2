@@ -18,10 +18,21 @@ class $MODEL_NAME$DataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', function($$MODEL_NAME_HUMAN$){
-            $id = $$MODEL_NAME_HUMAN$->id;
-            return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.datatables_actions',compact('$MODEL_NAME_HUMAN$','id'));
-        });
+       return $dataTable->addColumn('action', function($MODEL_NAME$ $$MODEL_NAME_CAMEL$){
+
+                 $id = $$MODEL_NAME_CAMEL$->id;
+
+                 return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.datatables_actions',compact('$MODEL_NAME_CAMEL$','id'))->render();
+             })
+             ->editColumn('id',function ($MODEL_NAME$ $$MODEL_NAME_CAMEL$){
+
+                 return $$MODEL_NAME_CAMEL$->id;
+
+                 //se debe crear la vista modal_detalles
+                 //return view('$MODEL_NAME_PLURAL_SNAKE$.modal_detalles',compact('$MODEL_NAME_CAMEL$'))->render();
+
+             })
+             ->rawColumns(['action','id']);
 
     }
 
