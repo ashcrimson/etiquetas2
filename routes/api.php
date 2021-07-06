@@ -17,10 +17,11 @@ Route::group(['as'=>'api.','namespace' => 'API'], function () {
         Route::get('user/remove/shortcut/{user}', 'UserAPIController@removeShortcut')->name('users.remove_shortcut');
 
         Route::resource('drogas', 'DrogaAPIController');
+
+        Route::resource('cargos', 'CargoAPIController');
     });
 
 
 });
 
 
-Route::resource('cargos', 'CargoAPIController');
