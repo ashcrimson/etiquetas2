@@ -15,7 +15,7 @@ class CreatePreparacionesEstadosTable extends Migration
     {
         Schema::create('preparaciones_estados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre')->unique('nombre_UNIQUE');
+            $table->string('nombre')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

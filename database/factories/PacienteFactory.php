@@ -13,7 +13,7 @@ $factory->define(Paciente::class, function (Faker $faker) {
         'apellido_paterno' => $faker->lastName,
         'apellido_materno' => $faker->lastName,
         'primer_nombre' => $faker->firstName,
-        'segundo_nombre' => '',
+        'segundo_nombre' => $faker->firstName,
         'fecha_nac' => $faker->date(),
         'sexo' => $faker->randomElement(['M','F']),
         'sigla_grado' => null,

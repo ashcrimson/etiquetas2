@@ -15,7 +15,7 @@ class CreateDilucionesTable extends Migration
     {
         Schema::create('diluciones', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre')->unique('nombre_UNIQUE');
+            $table->string('nombre')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
