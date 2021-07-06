@@ -21,3 +21,6 @@ Route::group(['as'=>'api.','namespace' => 'API'], function () {
 
 
 });
+
+
+Route::resource('cargos', 'CargoAPIController');
