@@ -23,6 +23,8 @@ Route::group(['as'=>'api.','namespace' => 'API'], function () {
         Route::resource('dilucions', 'DilucionAPIController');
 
         Route::resource('empleados', 'EmpleadoAPIController');
+
+        Route::resource('protocolos', 'ProtocoloAPIController');
     });
 
 
