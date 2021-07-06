@@ -26,6 +26,10 @@ class CreatePacientesTable extends Migration
             $table->string('sigla_grado')->nullable();
             $table->string('unid_rep_dot')->nullable();
             $table->integer('cond_alta_dot')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('familiar_responsable')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('telefono2')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

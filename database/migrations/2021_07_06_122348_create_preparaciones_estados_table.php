@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRemasEstadosTable extends Migration
+class CreatePreparacionesEstadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateRemasEstadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('remas_estados', function (Blueprint $table) {
+        Schema::create('preparaciones_estados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre')->unique('nombre_UNIQUE');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +28,6 @@ class CreateRemasEstadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('remas_estados');
+        Schema::dropIfExists('preparaciones_estados');
     }
 }

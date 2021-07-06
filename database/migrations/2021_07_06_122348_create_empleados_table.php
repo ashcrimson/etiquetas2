@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePacientesPrevisionesTable extends Migration
+class CreateEmpleadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreatePacientesPrevisionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pacientes_previsiones', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->boolean('activo')->default(1);
+            $table->string('rut', 45)->nullable();
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->unsignedBigInteger('cargo_id')->index('fk_empleados_cargos1_idx');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +31,6 @@ class CreatePacientesPrevisionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pacientes_previsiones');
+        Schema::dropIfExists('empleados');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFieldsToPacientesAtencionesTable extends Migration
+class CreateCargosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddFieldsToPacientesAtencionesTable extends Migration
      */
     public function up()
     {
-        Schema::table('pacientes_atenciones', function (Blueprint $table) {
-            $table->string('presion_arterial_pa')->nullable();
-            $table->string('presion_arterial_ps')->nullable();
+        Schema::create('cargos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,8 +28,6 @@ class AddFieldsToPacientesAtencionesTable extends Migration
      */
     public function down()
     {
-        Schema::table('pacientes_atenciones', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('cargos');
     }
 }
