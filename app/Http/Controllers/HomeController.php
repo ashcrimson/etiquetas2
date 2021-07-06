@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect(route('drogas.index'));
+        return redirect(route('preparacions.index'));
 
         return view('home');
     }
