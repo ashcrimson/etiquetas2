@@ -58,6 +58,8 @@ Route::group(['middleware' => 'auth'],function () {
     Route::get('drogas/imprime/{droga}', 'DrogaController@imprimeEtiqueta')->name('drogas.imprimir');
 
     Route::resource('cargos', 'CargoController');
+
+    Route::resource('dilucions', 'DilucionController');
 });
 
 

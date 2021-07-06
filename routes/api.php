@@ -19,9 +19,13 @@ Route::group(['as'=>'api.','namespace' => 'API'], function () {
         Route::resource('drogas', 'DrogaAPIController');
 
         Route::resource('cargos', 'CargoAPIController');
+
+        Route::resource('dilucions', 'DilucionAPIController');
     });
 
 
 });
+
+
 
 
