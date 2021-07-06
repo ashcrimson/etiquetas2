@@ -2,22 +2,15 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Droga
  * @package App\Models
- * @version June 29, 2021, 8:54 am CST
+ * @version July 6, 2021, 12:45 pm CST
  *
+ * @property \Illuminate\Database\Eloquent\Collection $preparaciones
  * @property string $nombre
- * @property number $dosis
- * @property string $suero_dilusion
- * @property number $vol_agregado
- * @property number $vol_final
- * @property string $bajada
- * @property Carbon $created_at
- * @property Carbon $updated_at
  */
 class Droga extends Model
 {
@@ -34,12 +27,7 @@ class Droga extends Model
 
 
     public $fillable = [
-        'nombre',
-        'dosis',
-        'suero_dilusion',
-        'vol_agregado',
-        'vol_final',
-        'bajada'
+        'nombre'
     ];
 
     /**
@@ -49,12 +37,7 @@ class Droga extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'nombre' => 'string',
-        'dosis' => 'decimal:2',
-        'suero_dilusion' => 'string',
-        'vol_agregado' => 'decimal:2',
-        'vol_final' => 'decimal:2',
-        'bajada' => 'string'
+        'nombre' => 'string'
     ];
 
     /**
@@ -64,15 +47,16 @@ class Droga extends Model
      */
     public static $rules = [
         'nombre' => 'required|string|max:255',
-        'dosis' => 'required|numeric',
-        'suero_dilusion' => 'required|string|max:255',
-        'vol_agregado' => 'required|numeric',
-        'vol_final' => 'required|numeric',
-        'bajada' => 'required|string|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
 
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function preparaciones()
+    {
+        return $this->hasMany(\App\Models\Preparacione::class, 'droga_id');
+    }
 }

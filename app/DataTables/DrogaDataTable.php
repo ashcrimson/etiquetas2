@@ -49,7 +49,6 @@ class DrogaDataTable extends DataTable
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'     => 'Bfltrip',
-                'stateSave' => true,
                 'order'   => [[0, 'desc']],
                 'language' => ['url' => asset('js/SpanishDataTables.json')],
                 //'scrollX' => false,
@@ -72,12 +71,7 @@ class DrogaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nombre',
-            'dosis',
-            'suero_dilusion',
-            'vol_agregado',
-            'vol_final',
-            'bajada'
+            'nombre'
         ];
     }
 
