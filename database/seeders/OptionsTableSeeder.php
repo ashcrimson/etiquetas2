@@ -14,13 +14,12 @@ class OptionsTableSeeder extends Seeder
      */
     public function run()
     {
-
-//        \DB::statement('ALTER TABLE OPTIONS DISABLE CONSTRAINT FK_OPTIONS_OPTIONS1');
+        
 
         \DB::table('options')->delete();
-
+        
         \DB::table('options')->insert(array (
-            0 =>
+            0 => 
             array (
                 'id' => 1,
                 'option_id' => NULL,
@@ -29,13 +28,13 @@ class OptionsTableSeeder extends Seeder
                 'descripcion' => 'Libero blanditiis deleniti explicabo ullam dolorum dolor et. Qui ab sed temporibus blanditiis molestias aut. Placeat qui quam impedit rerum soluta iste maiores optio.',
                 'icono_l' => 'fa-tools',
                 'icono_r' => NULL,
-                'orden' => 2,
+                'orden' => 5,
                 'color' => 'bg-warning',
                 'created_at' => '2021-05-30 14:28:25',
-                'updated_at' => '2021-05-30 14:28:25',
+                'updated_at' => '2021-07-06 12:59:27',
                 'deleted_at' => NULL,
             ),
-            1 =>
+            1 => 
             array (
                 'id' => 2,
                 'option_id' => 1,
@@ -44,13 +43,13 @@ class OptionsTableSeeder extends Seeder
                 'descripcion' => 'Dolorem officia reprehenderit quo et voluptate dicta aliquid officiis. Facere ducimus quas eveniet quam. Expedita ut nesciunt qui et amet.',
                 'icono_l' => 'fa-users',
                 'icono_r' => NULL,
-                'orden' => 2,
+                'orden' => 6,
                 'color' => 'bg-orange',
                 'created_at' => '2021-05-30 14:28:25',
-                'updated_at' => '2021-05-30 14:28:25',
+                'updated_at' => '2021-07-06 12:59:27',
                 'deleted_at' => NULL,
             ),
-            2 =>
+            2 => 
             array (
                 'id' => 3,
                 'option_id' => 1,
@@ -59,13 +58,13 @@ class OptionsTableSeeder extends Seeder
                 'descripcion' => 'Sit perspiciatis voluptatem velit. Voluptas corporis rerum est soluta error. Expedita est quod autem ad cumque dicta ut. Dolores accusantium repudiandae aliquam.',
                 'icono_l' => 'fa-list',
                 'icono_r' => NULL,
-                'orden' => 2,
+                'orden' => 7,
                 'color' => 'bg-teal',
                 'created_at' => '2021-05-30 14:28:25',
-                'updated_at' => '2021-05-30 14:28:25',
+                'updated_at' => '2021-07-06 12:59:27',
                 'deleted_at' => NULL,
             ),
-            3 =>
+            3 => 
             array (
                 'id' => 4,
                 'option_id' => 1,
@@ -74,13 +73,13 @@ class OptionsTableSeeder extends Seeder
                 'descripcion' => 'Illo quo consequatur quia inventore dicta aliquam voluptatem. Nam vitae in autem ea molestias. Voluptatem aut ut numquam omnis aperiam et eum. Quae dicta consequatur optio ea quia.',
                 'icono_l' => 'fa-user-tag',
                 'icono_r' => NULL,
-                'orden' => 4,
+                'orden' => 8,
                 'color' => 'bg-info',
                 'created_at' => '2021-05-30 14:28:25',
-                'updated_at' => '2021-05-30 14:28:25',
+                'updated_at' => '2021-07-06 12:59:27',
                 'deleted_at' => NULL,
             ),
-            4 =>
+            4 => 
             array (
                 'id' => 5,
                 'option_id' => 1,
@@ -89,13 +88,13 @@ class OptionsTableSeeder extends Seeder
                 'descripcion' => 'Occaecati inventore repellat voluptatum incidunt. Iusto incidunt et dicta aut qui culpa qui. Maiores accusantium delectus sit aliquam.',
                 'icono_l' => 'fa-key',
                 'icono_r' => NULL,
-                'orden' => 5,
+                'orden' => 9,
                 'color' => 'bg-purple',
                 'created_at' => '2021-05-30 14:28:25',
-                'updated_at' => '2021-05-30 14:28:25',
+                'updated_at' => '2021-07-06 12:59:27',
                 'deleted_at' => NULL,
             ),
-            5 =>
+            5 => 
             array (
                 'id' => 6,
                 'option_id' => 1,
@@ -104,13 +103,13 @@ class OptionsTableSeeder extends Seeder
                 'descripcion' => 'Et architecto tempora quod maxime eos esse. Minima ut in consectetur laborum dolores quae consectetur. Tempore similique doloribus repellendus architecto dolores aut ab provident.',
                 'icono_l' => 'fa-cogs',
                 'icono_r' => NULL,
-                'orden' => 6,
+                'orden' => 10,
                 'color' => 'bg-teal',
                 'created_at' => '2021-05-30 14:28:25',
-                'updated_at' => '2021-05-30 14:28:25',
+                'updated_at' => '2021-07-06 12:59:27',
                 'deleted_at' => NULL,
             ),
-            6 =>
+            6 => 
             array (
                 'id' => 7,
                 'option_id' => NULL,
@@ -119,31 +118,74 @@ class OptionsTableSeeder extends Seeder
                 'descripcion' => 'Voluptatibus omnis porro qui ipsa. Sit corrupti voluptatem est laudantium quaerat voluptas. Explicabo corrupti nemo eum magnam expedita.',
                 'icono_l' => 'fa-chart-line',
                 'icono_r' => NULL,
-                'orden' => 1,
+                'orden' => 0,
                 'color' => 'bg-warning',
                 'created_at' => '2021-05-30 14:28:25',
-                'updated_at' => '2021-05-30 14:28:25',
+                'updated_at' => '2021-07-06 12:55:13',
                 'deleted_at' => NULL,
             ),
-
-            7 =>
+            7 => 
             array (
                 'id' => 8,
                 'option_id' => NULL,
-                'nombre' => 'Remas',
-                'ruta' => 'remas.index',
+                'nombre' => 'Preparación de Medicamento',
+                'ruta' => 'preparaciones.index',
                 'descripcion' => 'x',
-                'icono_l' => 'fa-ambulance',
+                'icono_l' => 'fa-prescription-bottle',
                 'icono_r' => NULL,
-                'orden' => 0,
+                'orden' => 1,
                 'color' => NULL,
                 'created_at' => '2021-05-30 14:38:31',
-                'updated_at' => '2021-05-30 14:38:54',
+                'updated_at' => '2021-07-06 12:55:13',
+                'deleted_at' => NULL,
+            ),
+            8 => 
+            array (
+                'id' => 9,
+                'option_id' => NULL,
+                'nombre' => 'Admin Drogas',
+                'ruta' => 'drogas.index',
+                'descripcion' => NULL,
+                'icono_l' => 'fa-pills',
+                'icono_r' => NULL,
+                'orden' => 3,
+                'color' => NULL,
+                'created_at' => '2021-07-06 12:55:26',
+                'updated_at' => '2021-07-06 12:59:27',
+                'deleted_at' => NULL,
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'option_id' => NULL,
+                'nombre' => 'Admin Pacientes',
+                'ruta' => 'pacientes.index',
+                'descripcion' => NULL,
+                'icono_l' => 'fa-user-injured',
+                'icono_r' => NULL,
+                'orden' => 4,
+                'color' => NULL,
+                'created_at' => '2021-07-06 12:55:48',
+                'updated_at' => '2021-07-06 12:59:27',
+                'deleted_at' => NULL,
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'option_id' => NULL,
+                'nombre' => 'Medicos o Profecioneles',
+                'ruta' => 'empleados.index',
+                'descripcion' => NULL,
+                'icono_l' => 'fa-user-md',
+                'icono_r' => NULL,
+                'orden' => 2,
+                'color' => NULL,
+                'created_at' => '2021-07-06 12:56:29',
+                'updated_at' => '2021-07-06 12:59:27',
                 'deleted_at' => NULL,
             ),
         ));
-
-//        \DB::statement('ALTER TABLE OPTIONS ENABLE CONSTRAINT FK_OPTIONS_OPTIONS1');
-
+        
+        
     }
 }
