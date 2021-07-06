@@ -194,7 +194,7 @@ class DrogaController extends AppBaseController
 
         flash('listo')->success();
 
-        return redirect(route('drogas.show',$droga->id));
+        return redirect()->back();
 
     }
 }
