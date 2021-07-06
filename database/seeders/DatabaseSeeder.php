@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DilucionesTableSeeder::class);
         $this->call(ProtocolosTableSeeder::class);
         $this->call(CargosTableSeeder::class);
-
+        $this->call(PreparacionesEstadosTableSeeder::class);
     }
 }

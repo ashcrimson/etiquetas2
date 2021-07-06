@@ -18,9 +18,9 @@ class PreparacionEstadoDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', function($Preparacion Estado){
-            $id = $Preparacion Estado->id;
-            return view('preparacion_estados.datatables_actions',compact('Preparacion Estado','id'));
+        return $dataTable->addColumn('action', function(PreparacionEstado $preparacionEstado){
+            $id = $preparacionEstado->id;
+            return view('preparacion_estados.datatables_actions',compact('preparacionEstado','id'));
         });
 
     }
