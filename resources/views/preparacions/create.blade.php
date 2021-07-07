@@ -26,21 +26,21 @@
 
             @include('layouts.partials.request_errors')
 
-            <div class="card">
-                <div class="card-body">
-                    {!! Form::open(['route' => 'preparacions.store']) !!}
-                        <div class="form-row">
+            {!! Form::open(['route' => 'preparacions.store']) !!}
+                <div class="form-row">
 
-                            @include('preparacions.fields')
-                            <!-- Submit Field -->
-                            <div class="form-group col-sm-12">
-                                <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
-                                <a href="{!! route('preparacions.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
-                            </div>
-                        </div>
-                    {!! Form::close() !!}
+                    @include('preparacions.fields')
+                    <!-- Submit Field -->
+                    <div class="form-group col-sm-6">
+                        <a href="{!! route('remas.index') !!}" class="btn btn-block btn-secondary">Cancelar</a>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <button type="submit"  class="btn btn-block btn-success">Guardar</button>
+                    </div>
                 </div>
-            </div>
+            {!! Form::close() !!}
+
+            <br>
         </div>
     </div>
 

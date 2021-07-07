@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Preparacion;
+use Carbon\Carbon;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -22,7 +23,7 @@ class PreparacionDataTable extends DataTable
             $id = $preparacion->id;
             return view('preparacions.datatables_actions',compact('preparacion','id'));
         })->editColumn('fecha_admision',function (Preparacion $preparacion){
-            return $preparacion->fecha_admision->format('d/m/Y');
+            return Carbon::parse($preparacion->fecha_admision)->format('d/m/Y');
         });
 
     }

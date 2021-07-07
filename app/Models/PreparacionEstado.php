@@ -22,6 +22,12 @@ class PreparacionEstado extends Model
     const UPDATED_AT = 'updated_at';
 
 
+    const SOLICITADO = 1;
+    const PREPARANDO = 2;
+    const PREPARADO = 3;
+    const ADMINISTRADO = 4;
+
+
     protected $dates = ['deleted_at'];
 
 

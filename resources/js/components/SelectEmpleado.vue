@@ -141,6 +141,8 @@
 
                     const data = this.editedItem;
 
+                    console.log(data);
+
                     if(this.editedItem.id === 0){
 
                         var res = await axios.post(route('api.empleados.store'),data);

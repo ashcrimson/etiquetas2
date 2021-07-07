@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \App\Models\PreparacionEstado $estado
  * @property \App\Models\Protocolo $protocolo
  * @property \App\Models\User $user
- * @property string|\Carbon\Carbon $fecha_admision
+ * @property string $fecha_admision
  * @property integer $paciente_id
  * @property string $profesional_a_cargo
  * @property integer $responsable_id
@@ -86,7 +86,6 @@ class Preparacion extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'fecha_admision' => 'datetime',
         'paciente_id' => 'integer',
         'profesional_a_cargo' => 'string',
         'responsable_id' => 'integer',
@@ -117,8 +116,6 @@ class Preparacion extends Model
      */
     public static $rules = [
         'fecha_admision' => 'required',
-        'paciente_id' => 'required',
-        'profesional_a_cargo' => 'required|string|max:255',
         'responsable_id' => 'required',
         'droga_id' => 'required',
         'dosis' => 'required|numeric',
@@ -136,11 +133,6 @@ class Preparacion extends Model
         'entrega_conforme_enfermeria' => 'nullable|string',
         'refrigerar' => 'nullable|boolean',
         'proteger_luz' => 'nullable|boolean',
-        'user_id' => 'required',
-        'estado_id' => 'required',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable',
-        'deleted_at' => 'nullable'
     ];
 
     /**

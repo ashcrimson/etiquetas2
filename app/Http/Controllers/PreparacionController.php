@@ -6,9 +6,15 @@ use App\DataTables\PreparacionDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreatePreparacionRequest;
 use App\Http\Requests\UpdatePreparacionRequest;
+use App\Models\Empleado;
+use App\Models\Paciente;
 use App\Models\Preparacion;
+use App\Models\PreparacionEstado;
+use Carbon\Carbon;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class PreparacionController extends AppBaseController
@@ -43,15 +49,53 @@ class PreparacionController extends AppBaseController
      */
     public function store(CreatePreparacionRequest $request)
     {
-        $input = $request->all();
+        try {
+            DB::beginTransaction();
 
-        /** @var Preparacion $preparacion */
-        $preparacion = Preparacion::create($input);
+            $this->procesaStore($request);
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            throw new \Exception($exception);
+        }
+
+        DB::commit();
 
         Flash::success('Preparacion saved successfully.');
 
         return redirect(route('preparacions.index'));
     }
+
+
+    public function procesaStore(Request $request)
+    {
+
+//        DB::enableQueryLog();
+
+        /**
+         * @var  Paciente $paciente
+         */
+        $paciente = $this->creaOactualizaPaciente($request);
+
+        $request->merge([
+            'user_id' => auth()->user()->id,
+            'profesional_a_cargo' => Empleado::find($request->responsable_id)->nombre_completo,
+            'paciente_id' => $paciente->id,
+            'estado_id' => PreparacionEstado::PREPARADO,
+        ]);
+
+
+        /** @var Preparacion $preparacion */
+        $preparacion = Preparacion::create($request->all());
+
+
+        return $preparacion;
+
+//        dd(DB::getQueryLog());
+
+    }
+
 
     /**
      * Display the specified Preparacion.
@@ -85,6 +129,8 @@ class PreparacionController extends AppBaseController
     {
         /** @var Preparacion $preparacion */
         $preparacion = Preparacion::find($id);
+
+        $preparacion = $this->addAttributos($preparacion);
 
         if (empty($preparacion)) {
             Flash::error('Preparacion not found');
@@ -250,6 +296,59 @@ class PreparacionController extends AppBaseController
         flash('Listo')->success();
 
         return redirect(route('preparacions.index'));
+
+    }
+
+
+    public function creaOactualizaPaciente(Request $request)
+    {
+        $paciente = Paciente::updateOrCreate([
+            'run' => $request->run,
+            'dv_run' => $request->dv_run,
+
+        ],[
+            'run' => $request->run,
+            'fecha_nac' => $request->fecha_nac,
+            'dv_run' => $request->dv_run,
+            'apellido_paterno' => $request->apellido_paterno,
+            'apellido_materno' => $request->apellido_materno,
+            'primer_nombre' => $request->primer_nombre,
+            'segundo_nombre' => $request->segundo_nombre,
+
+            'sexo' => $request->sexo ? 'M' : 'F',
+
+            'direccion' => $request->direccion,
+            'familiar_responsable' => $request->familiar_responsable,
+            'telefono' => $request->telefono,
+            'telefono2' => $request->telefono2,
+            'prevision_id' => $request->prevision_id,
+
+        ]);
+
+
+
+        return $paciente;
+    }
+
+
+    public function addAttributos(Preparacion $preparacion)
+    {
+        $preparacion->setAttribute("run" ,$preparacion->paciente->run);
+        $preparacion->setAttribute("dv_run" ,$preparacion->paciente->dv_run);
+        $preparacion->setAttribute("apellido_paterno" ,$preparacion->paciente->apellido_paterno);
+        $preparacion->setAttribute("apellido_materno" ,$preparacion->paciente->apellido_materno);
+        $preparacion->setAttribute("primer_nombre" ,$preparacion->paciente->primer_nombre);
+        $preparacion->setAttribute("segundo_nombre" ,$preparacion->paciente->segundo_nombre);
+        $preparacion->setAttribute("fecha_nac" ,Carbon::parse($preparacion->paciente->fecha_nac)->format('Y-m-d'));
+        $preparacion->setAttribute("sexo" ,$preparacion->paciente->sexo == 'M' ? 1 : 0);
+
+        $preparacion->setAttribute("direccion" ,$preparacion->paciente->direccion);
+        $preparacion->setAttribute("familiar_responsable" ,$preparacion->paciente->familiar_responsable);
+        $preparacion->setAttribute("telefono" ,$preparacion->paciente->telefono);
+        $preparacion->setAttribute("fecha_admision",Carbon::parse($preparacion->fecha_admision)->format('Y-m-d'));
+
+        return $preparacion;
+
 
     }
 }
