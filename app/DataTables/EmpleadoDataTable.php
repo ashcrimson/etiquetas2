@@ -33,7 +33,7 @@ class EmpleadoDataTable extends DataTable
      */
     public function query(Empleado $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['cargo']);
     }
 
     /**
@@ -74,7 +74,7 @@ class EmpleadoDataTable extends DataTable
             'rut',
             'nombres',
             'apellidos',
-            'cargo_id'
+            'cargo' => ['data' => 'cargo.nombre','name' => 'cargo.nombre'],
         ];
     }
 
