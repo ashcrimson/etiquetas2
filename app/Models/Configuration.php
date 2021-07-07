@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -19,7 +19,7 @@ class Configuration extends Model
     use SoftDeletes;
 
     public $table = 'configurations';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -57,5 +57,5 @@ class Configuration extends Model
         'descripcion' => 'required'
     ];
 
-    
+
 }

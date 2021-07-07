@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Empleado
@@ -22,7 +23,7 @@ class Empleado extends Model
     use SoftDeletes;
 
     public $table = 'empleados';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -88,5 +89,16 @@ class Empleado extends Model
     public function preparacione1s()
     {
         return $this->hasMany(\App\Models\Preparacione::class, 'medico_id');
+    }
+
+    public function scopeQuimico(Builder $q)
+    {
+        $q->where('cargo_id',Cargo::QUIMICO_FARMACEUTICO);
+    }
+
+
+    public function scopeMedico(Builder $q)
+    {
+        $q->where('cargo_id',Cargo::MEDICO);
     }
 }

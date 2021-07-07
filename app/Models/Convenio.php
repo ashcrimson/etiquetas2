@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Convenio
@@ -26,7 +26,7 @@ class Convenio extends Model
     // use SoftDeletes;
 
     public $table = 'convenios';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -93,5 +93,5 @@ class Convenio extends Model
         return $this->hasMany(Detalle_Convenio::class);
     }
 
-    
+
 }

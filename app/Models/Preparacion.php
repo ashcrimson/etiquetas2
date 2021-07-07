@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Preparacion
@@ -45,7 +45,7 @@ class Preparacion extends Model
     use SoftDeletes;
 
     public $table = 'preparaciones';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 

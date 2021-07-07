@@ -8,12 +8,11 @@ use Faker\Generator as Faker;
 $factory->define(Empleado::class, function (Faker $faker) {
 
     return [
-        'rut' => $this->faker->word,
-        'nombres' => $this->faker->word,
-        'apellidos' => $this->faker->word,
-        'cargo_id' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+        'rut' => rand(44444444,99999999),
+        'nombres' => $faker->firstName,
+        'apellidos' => $faker->lastName,
+        'cargo_id' => \App\Models\Cargo::all()->random()->id,
+        'created_at' => $faker->date('Y-m-d H:i:s'),
+        'updated_at' => $faker->date('Y-m-d H:i:s'),
     ];
 });
