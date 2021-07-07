@@ -4,12 +4,14 @@ namespace $NAMESPACE_CONTROLLER$;
 
 use $NAMESPACE_DATATABLES$\$MODEL_NAME$DataTable;
 use $NAMESPACE_REQUEST$;
+use Illuminate\Http\Request;
 use $NAMESPACE_REQUEST$\Create$MODEL_NAME$Request;
 use $NAMESPACE_REQUEST$\Update$MODEL_NAME$Request;
 use $NAMESPACE_REPOSITORY$\$MODEL_NAME$Repository;
 use Flash;
 use $NAMESPACE_APP$\Http\Controllers\AppBaseController;
 use Response;
+use Datatables;
 
 class $MODEL_NAME$Controller extends AppBaseController
 {
@@ -24,12 +26,16 @@ class $MODEL_NAME$Controller extends AppBaseController
     /**
      * Display a listing of the $MODEL_NAME$.
      *
-     * @param $MODEL_NAME$DataTable $$MODEL_NAME_CAMEL$DataTable
+     * @param Request $request
      * @return Response
      */
-    public function index($MODEL_NAME$DataTable $$MODEL_NAME_CAMEL$DataTable)
+    public function index(Request $request)
     {
-        return $$MODEL_NAME_CAMEL$DataTable->render('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index');
+        if ($request->ajax()) {
+            return Datatables::of((new $MODEL_NAME$DataTable())->get())->make(true);
+        }
+    
+        return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index');
     }
 
     /**
@@ -55,7 +61,7 @@ class $MODEL_NAME$Controller extends AppBaseController
 
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->create($input);
 
-        Flash::success(__('messages.saved', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
+        Flash::success('$MODEL_NAME_HUMAN$ saved successfully.');
 
         return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
     }
@@ -72,7 +78,7 @@ class $MODEL_NAME$Controller extends AppBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
+            Flash::error('$MODEL_NAME_HUMAN$ not found');
 
             return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
         }
@@ -92,7 +98,7 @@ class $MODEL_NAME$Controller extends AppBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
+            Flash::error('$MODEL_NAME_HUMAN$ not found');
 
             return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
         }
@@ -113,14 +119,14 @@ class $MODEL_NAME$Controller extends AppBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
+            Flash::error('$MODEL_NAME_HUMAN$ not found');
 
             return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
         }
 
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->update($request->all(), $id);
 
-        Flash::success(__('messages.updated', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
+        Flash::success('$MODEL_NAME_HUMAN$ updated successfully.');
 
         return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
     }
@@ -136,16 +142,8 @@ class $MODEL_NAME$Controller extends AppBaseController
     {
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
-        if (empty($$MODEL_NAME_CAMEL$)) {
-            Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
+        $$MODEL_NAME_CAMEL$->delete();
 
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
-        }
-
-        $this->$MODEL_NAME_CAMEL$Repository->delete($id);
-
-        Flash::success(__('messages.deleted', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
-
-        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
+        return $this->sendSuccess('$MODEL_NAME_HUMAN$ deleted successfully.');
     }
 }
