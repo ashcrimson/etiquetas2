@@ -42,14 +42,13 @@ require ('admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap
 require('admin-lte/plugins/summernote/summernote-bs4.min.js');
 
 require('admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js');
-require('admin-lte/plugins/inputmask/min/jquery.inputmask.bundle.min.js');
 
 require('admin-lte/dist/js/adminlte.min');
 
 
 require('datatables.net-bs4');
 require('datatables.net-buttons-bs4');
-require('datatables.net-fixedheader-bs4');
+// require('datatables.net-fixedheader-bs4');
 require('datatables.net-responsive-bs4');
 require('../../public/vendor/datatables/buttons.server-side');
 
@@ -88,3 +87,10 @@ Vue.component(
 );
 
 require('bootstrap-toggle/js/bootstrap-toggle.js');
+
+
+import Multiselect from 'vue-multiselect'
+
+// register globally
+Vue.component('multiselect', Multiselect);
+

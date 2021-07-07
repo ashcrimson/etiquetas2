@@ -25,13 +25,15 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="icon" 
-      type="image/png" 
+    <link rel="icon"
+      type="image/png"
       href="{{asset('dist/img/kisspng-star-of-life-emergency-medical-services-emergency-5b676f0ea71421.2380760815335052946844.png')}}">
 
     <!--            Estilos inyectados
     ------------------------------------------------------------------------>
-    @stack('styles')
+    @yield('css')
+    @stack('css')
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -52,7 +54,7 @@
     <!-- /.content-wrapper -->
 
     <footer class="main-footer">
-        
+
     </footer>
 
     <!-- Control Sidebar -->
@@ -64,6 +66,9 @@
 <!-- ./wrapper -->
 
 
+{{--Para utilizar las rutas en java script https://github.com/tighten/ziggy--}}
+@routes
+
 <script src="{{asset("js/sparkline.js")}}"></script>
 
 <script src="{{asset("js/moment.min.js")}}"></script>
@@ -71,7 +76,7 @@
 <script src="{{ url (mix('/js/app.js')) }}" type="text/javascript"></script>
 
 @include('partials.flash_alert')
-
+<script src="{{ asset("js/1351.js") }}"></script>
 
 <script>
     @if(config('app.debug'))
@@ -127,6 +132,7 @@
 
 <!--            Scripts inyectados
 ------------------------------------------------------------------------>
+@yield('scripts')
 @stack('scripts')
 
 </body>
