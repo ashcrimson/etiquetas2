@@ -55,7 +55,6 @@ Route::group(['middleware' => 'auth'],function () {
     Route::resource('pacientePrevisions', 'PacientePrevisionController');
 
     Route::resource('drogas', 'DrogaController');
-    Route::get('drogas/imprime/{droga}', 'DrogaController@imprimeEtiqueta')->name('drogas.imprimir');
 
     Route::resource('cargos', 'CargoController');
 
@@ -68,113 +67,7 @@ Route::group(['middleware' => 'auth'],function () {
     Route::resource('protocolos', 'ProtocoloController');
 
     Route::resource('preparacions', 'PreparacionController');
+
+    Route::get('preparacions/imprime/{preparacion}', 'PreparacionController@imprimeEtiqueta')->name('preparaciones.imprimir');
+
 });
-
-
-
-Route::get('print',function (){
-
-    $fecha = \Carbon\Carbon::now()->format('d/m/Y');
-    $primer_nombre = "Felipe";
-    $segundo_nombre = "Pino";
-    $apellido_paterno = "Ojeda";
-    $apellido_materno = "bilches";
-    $runcomp ="123456";
-    $id_aten= "5555";
-    $run= "12345";
-
-        $print_data = "^XA
-                    ^LH0,0
-                    ^FO4,2
-                    ^GB804,798,4
-                    ^FS
-                    ^FO4,2 ^GB548,52,4
-                    ^FS ^FO19,12 ^ADN,36,20
-                    ^FDHospital Naval A.Nef ^FS ^FO548,2 ^GB260,52,4
-
-                    ^FS ^FO611,16
-                    ^ADN,36,10 ^FD1:3
-                    ^FO21,100 ^ADN,15,15 ^FR ^FDNombre:
-                    ^FS
-                    ^FO321,100
-                    ^ADN,25,15 ^FR ^FDCLARISA BERNAL MOYA
-
-
-                    ^FS
-                    ^FO21,130 ^ADN,15,15 ^FR ^FDRut:
-                    ^FS
-                    ^FO321,130
-                    ^ADN,25,15 ^FR ^FD5.628.925-9
-
-                    ^FS
-                    ^FO21,160 ^ADN,15,15 ^FR ^FDFecha Adm:
-                    ^FS
-                    ^FO321,160
-                    ^ADN,25,15 ^FR ^FD05/02/2021
-
-                    ^FS
-                    ^FO21,190 ^ADN,15,15 ^FR ^FDDroga:
-                    ^FS
-                    ^FO321,190
-                    ^ADN,25,15 ^FR ^FDBORTEZOMIB 2,2MG
-
-                    ^FS
-                    ^FO21,220 ^ADN,15,15 ^FR ^FDVol. Total:
-                    ^FS
-                    ^FO321,220
-                    ^ADN,25,15 ^FR ^FD0.88 ML
-
-                    ^FS
-                    ^FO21,250
-                    ^ADN,25,15 ^FR ^FDEsquema:
-                    ^FS
-                    ^FO231,250
-                    ^ADN,25,10 ^FR ^FDBortez sem
-
-                    ^FS
-                    ^FO381,250 ^ADN,15,10 ^FR ^FDCiclo:
-                    ^FS
-                    ^FO461,250
-                    ^ADN,15,10 ^FR ^FD2
-
-                    ^FS
-                    ^FO501,250 ^ADN,15,10 ^FR ^FDDia:
-                    ^FS
-                    ^FO560,250
-                    ^ADN,15,10 ^FR ^FD8 (1,8, 15, 21)
-
-                    ^FS
-                    ^FO21,280 ^ADN,15,15 ^FR ^FDFecha Elab:
-                    ^FS
-                    ^FO321,280
-                    ^ADN,15,10 ^FR ^FD05/05/2021 (vigente 8 hrs) hasta 18 hrs
-
-                    ^FS
-                    ^FO21,310 ^ADN,15,10 ^FR ^FDProteger de Luz:
-                    ^FS
-                    ^FO211,310
-                    ^ADN,15,10 ^FR ^FDSi
-
-                    ^FS
-                    ^FO321,310 ^ADN,15,10 ^FR ^FDRefrigerar:
-                    ^FS
-                    ^FO451,310
-                    ^ADN,15,10 ^FR ^FDNo
-
-                      ^FS
-                    ^XZ";
-
-    // dd($print_data);
-
-    try {
-        $fp = pfsockopen("172.25.34.88", 9100);
-        fputs($fp, $print_data);
-        fclose($fp);
-
-        echo 'Successfully Printed';
-    } catch (Exception $e) {
-        echo 'Caught exception: ', $e->getMessage(), "\n";
-    }
-});
-
-

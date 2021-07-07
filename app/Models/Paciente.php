@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $apellido_materno
  * @property string $primer_nombre
  * @property string $segundo_nombre
+ * @property string $nombre_completo
  * @property string $fecha_nac
  * @property string $sexo
  * @property string $sigla_grado
