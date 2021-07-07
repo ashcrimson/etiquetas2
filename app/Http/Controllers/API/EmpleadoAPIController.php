@@ -7,7 +7,6 @@ use App\Http\Requests\API\UpdateEmpleadoAPIRequest;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Resources\EmpleadoResource;
 use Response;
 
 /**
@@ -37,7 +36,7 @@ class EmpleadoAPIController extends AppBaseController
 
         $empleados = $query->get();
 
-        return $this->sendResponse($empleados, 'Empleados retrieved successfully');
+        return $this->sendResponse($empleados->toArray(), 'Empleados retrieved successfully');
     }
 
     /**
@@ -55,7 +54,7 @@ class EmpleadoAPIController extends AppBaseController
         /** @var Empleado $empleado */
         $empleado = Empleado::create($input);
 
-        return $this->sendResponse($empleado, 'Empleado saved successfully');
+        return $this->sendResponse($empleado->toArray(), 'Empleado guardado exitosamente');
     }
 
     /**
@@ -75,7 +74,7 @@ class EmpleadoAPIController extends AppBaseController
             return $this->sendError('Empleado not found');
         }
 
-        return $this->sendResponse($empleado, 'Empleado retrieved successfully');
+        return $this->sendResponse($empleado->toArray(), 'Empleado retrieved successfully');
     }
 
     /**
@@ -99,7 +98,7 @@ class EmpleadoAPIController extends AppBaseController
         $empleado->fill($request->all());
         $empleado->save();
 
-        return $this->sendResponse($empleado, 'Empleado updated successfully');
+        return $this->sendResponse($empleado->toArray(), 'Empleado actualizado con éxito');
     }
 
     /**

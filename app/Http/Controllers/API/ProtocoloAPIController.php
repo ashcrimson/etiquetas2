@@ -7,7 +7,6 @@ use App\Http\Requests\API\UpdateProtocoloAPIRequest;
 use App\Models\Protocolo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Resources\ProtocoloResource;
 use Response;
 
 /**
@@ -37,7 +36,7 @@ class ProtocoloAPIController extends AppBaseController
 
         $protocolos = $query->get();
 
-        return $this->sendResponse(ProtocoloResource::collection($protocolos), 'Protocolos retrieved successfully');
+        return $this->sendResponse($protocolos->toArray(), 'Protocolos retrieved successfully');
     }
 
     /**
@@ -55,7 +54,7 @@ class ProtocoloAPIController extends AppBaseController
         /** @var Protocolo $protocolo */
         $protocolo = Protocolo::create($input);
 
-        return $this->sendResponse(new ProtocoloResource($protocolo), 'Protocolo saved successfully');
+        return $this->sendResponse($protocolo->toArray(), 'Protocolo guardado exitosamente');
     }
 
     /**
@@ -75,7 +74,7 @@ class ProtocoloAPIController extends AppBaseController
             return $this->sendError('Protocolo not found');
         }
 
-        return $this->sendResponse(new ProtocoloResource($protocolo), 'Protocolo retrieved successfully');
+        return $this->sendResponse($protocolo->toArray(), 'Protocolo retrieved successfully');
     }
 
     /**
@@ -99,7 +98,7 @@ class ProtocoloAPIController extends AppBaseController
         $protocolo->fill($request->all());
         $protocolo->save();
 
-        return $this->sendResponse(new ProtocoloResource($protocolo), 'Protocolo updated successfully');
+        return $this->sendResponse($protocolo->toArray(), 'Protocolo actualizado con éxito');
     }
 
     /**

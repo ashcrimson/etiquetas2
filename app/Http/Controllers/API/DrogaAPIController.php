@@ -7,7 +7,6 @@ use App\Http\Requests\API\UpdateDrogaAPIRequest;
 use App\Models\Droga;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Resources\DrogaResource;
 use Response;
 
 /**
@@ -37,7 +36,7 @@ class DrogaAPIController extends AppBaseController
 
         $drogas = $query->get();
 
-        return $this->sendResponse(DrogaResource::collection($drogas), 'Drogas retrieved successfully');
+        return $this->sendResponse($drogas->toArray(), 'Drogas retrieved successfully');
     }
 
     /**
@@ -55,7 +54,7 @@ class DrogaAPIController extends AppBaseController
         /** @var Droga $droga */
         $droga = Droga::create($input);
 
-        return $this->sendResponse(new DrogaResource($droga), 'Droga saved successfully');
+        return $this->sendResponse($droga->toArray(), 'Droga guardado exitosamente');
     }
 
     /**
@@ -75,7 +74,7 @@ class DrogaAPIController extends AppBaseController
             return $this->sendError('Droga not found');
         }
 
-        return $this->sendResponse(new DrogaResource($droga), 'Droga retrieved successfully');
+        return $this->sendResponse($droga->toArray(), 'Droga retrieved successfully');
     }
 
     /**
@@ -99,7 +98,7 @@ class DrogaAPIController extends AppBaseController
         $droga->fill($request->all());
         $droga->save();
 
-        return $this->sendResponse(new DrogaResource($droga), 'Droga updated successfully');
+        return $this->sendResponse($droga->toArray(), 'Droga actualizado con éxito');
     }
 
     /**

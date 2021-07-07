@@ -7,7 +7,6 @@ use App\Http\Requests\API\UpdateDilucionAPIRequest;
 use App\Models\Dilucion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Resources\DilucionResource;
 use Response;
 
 /**
@@ -37,7 +36,7 @@ class DilucionAPIController extends AppBaseController
 
         $dilucions = $query->get();
 
-        return $this->sendResponse(DilucionResource::collection($dilucions), 'Dilucions retrieved successfully');
+        return $this->sendResponse($dilucions->toArray(), 'Dilucions retrieved successfully');
     }
 
     /**
@@ -55,7 +54,7 @@ class DilucionAPIController extends AppBaseController
         /** @var Dilucion $dilucion */
         $dilucion = Dilucion::create($input);
 
-        return $this->sendResponse(new DilucionResource($dilucion), 'Dilucion saved successfully');
+        return $this->sendResponse($dilucion->toArray(), 'Dilucion guardado exitosamente');
     }
 
     /**
@@ -75,7 +74,7 @@ class DilucionAPIController extends AppBaseController
             return $this->sendError('Dilucion not found');
         }
 
-        return $this->sendResponse(new DilucionResource($dilucion), 'Dilucion retrieved successfully');
+        return $this->sendResponse($dilucion->toArray(), 'Dilucion retrieved successfully');
     }
 
     /**
@@ -99,7 +98,7 @@ class DilucionAPIController extends AppBaseController
         $dilucion->fill($request->all());
         $dilucion->save();
 
-        return $this->sendResponse(new DilucionResource($dilucion), 'Dilucion updated successfully');
+        return $this->sendResponse($dilucion->toArray(), 'Dilucion actualizado con éxito');
     }
 
     /**

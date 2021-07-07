@@ -7,7 +7,6 @@ use App\Http\Requests\API\UpdateCargoAPIRequest;
 use App\Models\Cargo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Resources\CargoResource;
 use Response;
 
 /**
@@ -37,7 +36,7 @@ class CargoAPIController extends AppBaseController
 
         $cargos = $query->get();
 
-        return $this->sendResponse($cargos, 'Cargos retrieved successfully');
+        return $this->sendResponse($cargos->toArray(), 'Cargos retrieved successfully');
     }
 
     /**
@@ -55,7 +54,7 @@ class CargoAPIController extends AppBaseController
         /** @var Cargo $cargo */
         $cargo = Cargo::create($input);
 
-        return $this->sendResponse($cargo, 'Cargo saved successfully');
+        return $this->sendResponse($cargo->toArray(), 'Cargo guardado exitosamente');
     }
 
     /**
@@ -75,7 +74,7 @@ class CargoAPIController extends AppBaseController
             return $this->sendError('Cargo not found');
         }
 
-        return $this->sendResponse($cargo, 'Cargo retrieved successfully');
+        return $this->sendResponse($cargo->toArray(), 'Cargo retrieved successfully');
     }
 
     /**
@@ -99,7 +98,7 @@ class CargoAPIController extends AppBaseController
         $cargo->fill($request->all());
         $cargo->save();
 
-        return $this->sendResponse($cargo, 'Cargo updated successfully');
+        return $this->sendResponse($cargo->toArray(), 'Cargo actualizado con éxito');
     }
 
     /**
