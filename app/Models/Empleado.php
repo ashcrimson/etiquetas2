@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $rut
  * @property string $nombres
  * @property string $apellidos
+ * @property string $iniciales
  * @property integer $cargo_id
  */
 class Empleado extends Model
@@ -30,7 +31,7 @@ class Empleado extends Model
 
     protected $dates = ['deleted_at'];
 
-
+    protected $appends = ['iniciales'];
 
     public $fillable = [
         'rut',
@@ -101,4 +102,19 @@ class Empleado extends Model
     {
         $q->where('cargo_id',Cargo::MEDICO);
     }
+
+    public function getInicialesAttribute()
+    {
+        return $this->getIniciales($this->nombres." ".$this->apellidos);
+    }
+
+    function getIniciales($nombre){
+        $name = '';
+        $explode = explode(' ',$nombre);
+        foreach($explode as $x){
+            $name .=  $x[0];
+        }
+        return $name;
+    }
+
 }

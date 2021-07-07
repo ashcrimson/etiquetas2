@@ -18,9 +18,11 @@ class PreparacionDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', function($Preparacion){
-            $id = $Preparacion->id;
-            return view('preparacions.datatables_actions',compact('Preparacion','id'));
+        return $dataTable->addColumn('action', function(Preparacion $preparacion){
+            $id = $preparacion->id;
+            return view('preparacions.datatables_actions',compact('preparacion','id'));
+        })->editColumn('fecha_admision',function (Preparacion $preparacion){
+            return $preparacion->fecha_admision->format('d/m/Y');
         });
 
     }
@@ -33,7 +35,7 @@ class PreparacionDataTable extends DataTable
      */
     public function query(Preparacion $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['dilucion','droga','responsable','medico','paciente','estado','protocolo','user']);
     }
 
     /**
@@ -71,28 +73,20 @@ class PreparacionDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            'id',
             'fecha_admision',
-            'paciente_id',
-            'profesional_a_cargo',
-            'responsable_id',
-            'droga_id',
+            'paciente' => ['data' => 'paciente.nombre_completo','name' => 'paciente.primer_nombre'],
+            'rut' => ['data' => 'paciente.run','name' => 'paciente.run'],
+            'Q.F' => ['data' => 'responsable.iniciales','name' => 'responsable.iniciales'],
+            'droga' => ['data' => 'droga.nombre','name' => 'droga.nombre'],
             'dosis',
-            'dilucion_id',
+            'dilucion' => ['data' => 'dilucion.nombre','name' => 'dilucion.nombre'],
             'volumen_suero',
             'volumen_agregado',
             'volumen_final',
             'bajada',
-            'medico_id',
+            'medico' => ['data' => 'medico.apellidos','name' => 'medico.apellidos'],
             'servicio_solicitante',
-            'protocolo_id',
-            'ciclo',
-            'dia',
-            'control_producto_terminado',
-            'entrega_conforme_enfermeria',
-            'Refrigerar',
-            'proteger_luz',
-            'user_id',
-            'estado_id'
         ];
     }
 

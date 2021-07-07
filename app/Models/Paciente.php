@@ -38,7 +38,7 @@ class Paciente extends Model
 
     protected $dates = ['deleted_at'];
 
-
+    protected $appends = ['nombre_completo'];
 
     public $fillable = [
         'run',
@@ -114,5 +114,10 @@ class Paciente extends Model
     public function preparaciones()
     {
         return $this->hasMany(\App\Models\Preparacion::class, 'paciente_id');
+    }
+
+    public function getNombreCompletoAttribute()
+    {
+        return $this->primer_nombre.' '.$this->segundo_nombre.' '.$this->apellido_paterno." ".$this->apellido_materno;
     }
 }

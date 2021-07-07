@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models
  * @version July 6, 2021, 1:07 pm CST
  *
- * @property \App\Models\Dilucione $dilucion
+ * @property \App\Models\Dilucion $dilucion
  * @property \App\Models\Droga $droga
  * @property \App\Models\Empleado $responsable
  * @property \App\Models\Empleado $medico
  * @property \App\Models\Paciente $paciente
- * @property \App\Models\PreparacionesEstado $estado
+ * @property \App\Models\PreparacionEstado $estado
  * @property \App\Models\Protocolo $protocolo
  * @property \App\Models\User $user
  * @property string|\Carbon\Carbon $fecha_admision
@@ -148,7 +148,7 @@ class Preparacion extends Model
      **/
     public function dilucion()
     {
-        return $this->belongsTo(\App\Models\Dilucione::class, 'dilucion_id');
+        return $this->belongsTo(\App\Models\Dilucion::class, 'dilucion_id');
     }
 
     /**
@@ -188,7 +188,7 @@ class Preparacion extends Model
      **/
     public function estado()
     {
-        return $this->belongsTo(\App\Models\PreparacionesEstado::class, 'estado_id');
+        return $this->belongsTo(\App\Models\PreparacionEstado::class, 'estado_id');
     }
 
     /**
