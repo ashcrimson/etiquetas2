@@ -31,7 +31,7 @@ class Empleado extends Model
 
     protected $dates = ['deleted_at'];
 
-    protected $appends = ['iniciales'];
+    protected $appends = ['iniciales','nombre_completo','text'];
 
     public $fillable = [
         'rut',
@@ -115,6 +115,16 @@ class Empleado extends Model
             $name .=  $x[0];
         }
         return $name;
+    }
+
+    public function getNombreCompletoAttribute()
+    {
+        return $this->nombres." ".$this->apellidos;
+    }
+
+    public function getTextAttribute()
+    {
+        return $this->nombre_completo." (".$this->cargo->nombre.")";
     }
 
 }

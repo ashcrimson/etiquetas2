@@ -97,3 +97,19 @@ Vue.component('multiselect', Multiselect);
 import SelectDroga from "./components/SelectDroga";
 
 Vue.component('select-droga',SelectDroga);
+
+import SelectDilucion from "./components/SelectDilucion";
+
+Vue.component('select-dilucion',SelectDilucion);
+
+import SelectProtocolo from "./components/SelectProtocolo";
+
+Vue.component('select-protocolo',SelectProtocolo);
+
+import SelectCargo from "./components/SelectCargo";
+
+Vue.component('select-cargo',SelectCargo);
+
+import SelectEmpleado from "./components/SelectEmpleado";
+
+Vue.component('select-empleado',SelectEmpleado);

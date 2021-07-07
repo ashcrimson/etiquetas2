@@ -41,8 +41,13 @@
 
             <!-- Responsable Id Field -->
             <div class="form-group col-sm-6">
-                {!! Form::label('responsable_id', 'Profesional A Cargo:') !!}
-                {!! Form::number('responsable_id', null, ['class' => 'form-control']) !!}
+                <select-empleado :items="responsables"
+                                 v-model="responsable"
+                                 label="Profesional a cargo (Q.F)"
+                                 :cargo="cargo_quimico"
+                >
+
+                </select-empleado>
             </div>
 
             <!-- Droga Id Field -->
@@ -58,8 +63,7 @@
 
             <!-- Dilucion Id Field -->
             <div class="form-group col-sm-6">
-                {!! Form::label('dilucion_id', 'Dilucion Id:') !!}
-                {!! Form::number('dilucion_id', null, ['class' => 'form-control']) !!}
+                <select-dilucion :items="diluciones" v-model="dilucion" label="Dilucion"></select-dilucion>
             </div>
 
             <!-- Volumen Suero Field -->
@@ -88,8 +92,13 @@
 
             <!-- Medico Id Field -->
             <div class="form-group col-sm-6">
-                {!! Form::label('medico_id', 'Medico Id:') !!}
-                {!! Form::number('medico_id', null, ['class' => 'form-control']) !!}
+                <select-empleado :items="medicos"
+                                 v-model="medico"
+                                 label="Medico"
+                                 :cargo="cargo_medico"
+                >
+
+                </select-empleado>
             </div>
 
             <!-- Servicio Solicitante Field -->
@@ -100,8 +109,7 @@
 
             <!-- Protocolo Id Field -->
             <div class="form-group col-sm-6">
-                {!! Form::label('protocolo_id', 'Protocolo Id:') !!}
-                {!! Form::number('protocolo_id', null, ['class' => 'form-control']) !!}
+                <select-protocolo :items="protocolos" v-model="protocolo" label="Protocolo"></select-protocolo>
             </div>
 
             <!-- Ciclo Field -->
@@ -175,6 +183,15 @@
 
                 protocolos: @json(\App\Models\Protocolo::all() ?? []),
                 protocolo: @json($preparacion->protocolo ?? null),
+
+                responsables: @json(\App\Models\Empleado::quimico()->get() ?? []),
+                responsable: @json($preparacion->responsable ?? null),
+
+                medicos: @json(\App\Models\Empleado::medico()->get() ?? []),
+                medico: @json($preparacion->medico ?? null),
+
+                cargo_quimico: @json(\App\Models\Cargo::find(\App\Models\Cargo::QUIMICO_FARMACEUTICO)),
+                cargo_medico: @json(\App\Models\Cargo::find(\App\Models\Cargo::MEDICO))
 
             },
             methods: {
