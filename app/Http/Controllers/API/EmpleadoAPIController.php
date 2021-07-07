@@ -37,7 +37,7 @@ class EmpleadoAPIController extends AppBaseController
 
         $empleados = $query->get();
 
-        return $this->sendResponse(EmpleadoResource::collection($empleados), 'Empleados retrieved successfully');
+        return $this->sendResponse($empleados, 'Empleados retrieved successfully');
     }
 
     /**
@@ -55,7 +55,7 @@ class EmpleadoAPIController extends AppBaseController
         /** @var Empleado $empleado */
         $empleado = Empleado::create($input);
 
-        return $this->sendResponse(new EmpleadoResource($empleado), 'Empleado saved successfully');
+        return $this->sendResponse($empleado, 'Empleado saved successfully');
     }
 
     /**
@@ -75,7 +75,7 @@ class EmpleadoAPIController extends AppBaseController
             return $this->sendError('Empleado not found');
         }
 
-        return $this->sendResponse(new EmpleadoResource($empleado), 'Empleado retrieved successfully');
+        return $this->sendResponse($empleado, 'Empleado retrieved successfully');
     }
 
     /**
@@ -99,7 +99,7 @@ class EmpleadoAPIController extends AppBaseController
         $empleado->fill($request->all());
         $empleado->save();
 
-        return $this->sendResponse(new EmpleadoResource($empleado), 'Empleado updated successfully');
+        return $this->sendResponse($empleado, 'Empleado updated successfully');
     }
 
     /**

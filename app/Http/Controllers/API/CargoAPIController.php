@@ -37,7 +37,7 @@ class CargoAPIController extends AppBaseController
 
         $cargos = $query->get();
 
-        return $this->sendResponse(CargoResource::collection($cargos), 'Cargos retrieved successfully');
+        return $this->sendResponse($cargos, 'Cargos retrieved successfully');
     }
 
     /**
@@ -55,7 +55,7 @@ class CargoAPIController extends AppBaseController
         /** @var Cargo $cargo */
         $cargo = Cargo::create($input);
 
-        return $this->sendResponse(new CargoResource($cargo), 'Cargo saved successfully');
+        return $this->sendResponse($cargo, 'Cargo saved successfully');
     }
 
     /**
@@ -75,7 +75,7 @@ class CargoAPIController extends AppBaseController
             return $this->sendError('Cargo not found');
         }
 
-        return $this->sendResponse(new CargoResource($cargo), 'Cargo retrieved successfully');
+        return $this->sendResponse($cargo, 'Cargo retrieved successfully');
     }
 
     /**
@@ -99,7 +99,7 @@ class CargoAPIController extends AppBaseController
         $cargo->fill($request->all());
         $cargo->save();
 
-        return $this->sendResponse(new CargoResource($cargo), 'Cargo updated successfully');
+        return $this->sendResponse($cargo, 'Cargo updated successfully');
     }
 
     /**
