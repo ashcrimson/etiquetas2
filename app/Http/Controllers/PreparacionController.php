@@ -197,7 +197,7 @@ class PreparacionController extends AppBaseController
 
     public function imprimeEtiqueta(Preparacion $preparacion)
     {
-        $fecha = $preparacion->fecha_admision->format('d/m/Y');
+        // $fecha = $preparacion->fecha_admision->format('d/m/Y');
 
         $print_data = "^XA
                     ^LH0,0
@@ -226,7 +226,7 @@ class PreparacionController extends AppBaseController
                     ^FO21,160 ^ADN,15,15 ^FR ^FDFecha Adm:
                     ^FS
                     ^FO321,160
-                    ^ADN,25,15 ^FR ^FD".$fecha."
+                    ^ADN,25,15 ^FR ^FD".$preparacion->fecha."
 
                     ^FS
                     ^FO21,190 ^ADN,15,15 ^FR ^FDDroga:
