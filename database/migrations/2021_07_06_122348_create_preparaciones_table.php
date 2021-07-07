@@ -33,7 +33,7 @@ class CreatePreparacionesTable extends Migration
             $table->string('dia')->nullable();
             $table->text('control_producto_terminado')->nullable();
             $table->text('entrega_conforme_enfermeria')->nullable();
-            $table->tinyInteger('Refrigerar')->nullable()->default(0);
+            $table->tinyInteger('refrigerar')->nullable()->default(0);
             $table->tinyInteger('proteger_luz')->nullable()->default(0);
             $table->unsignedBigInteger('user_id')->index('preparaciones_users1_idx');
             $table->unsignedBigInteger('estado_id')->index('preparaciones_estados1_idx');

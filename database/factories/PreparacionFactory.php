@@ -26,7 +26,7 @@ $factory->define(Preparacion::class, function (Faker $faker) {
         'dia' => $faker->dayOfWeek,
         'control_producto_terminado' => $faker->text,
         'entrega_conforme_enfermeria' => $faker->text,
-        'Refrigerar' => rand(0,1),
+        'refrigerar' => rand(0,1),
         'proteger_luz' => rand(0,1),
         'user_id' => \App\Models\User::all()->random()->id,
         'estado_id' => \App\Models\PreparacionEstado::all()->random()->id,

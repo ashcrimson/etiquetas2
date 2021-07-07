@@ -94,3 +94,6 @@ import Multiselect from 'vue-multiselect'
 // register globally
 Vue.component('multiselect', Multiselect);
 
+import SelectDroga from "./components/SelectDroga";
+
+Vue.component('select-droga',SelectDroga);

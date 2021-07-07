@@ -69,17 +69,6 @@
             {{($rema->sexo ?? null)=="M" || ($paciente->sexo ?? null)=="M"  ? 'checked' : '' }}>
     </div>
 
-    <div class="form-group col-sm-3">
-        {!! Form::label('prevision_id','Prevision:') !!}
-        {!!
-            Form::select(
-                'prevision_id',
-                select(\App\Models\PacientePrevision::class,'nombre','id')
-                , null
-                , ['id'=>'previsiones','class' => 'form-control','style'=>'width: 100%']
-            )
-        !!}
-    </div>
 
 
     <!-- telefono Field -->
@@ -87,7 +76,7 @@
         {!! Form::label('telefono', 'Telefono:') !!}
         {!! Form::text('telefono', null, ['id' => 'telefono','class' => 'form-control','maxlength' => 255]) !!}
     </div>
-    
+
     <!-- Direccion Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('direccion', 'Dirección:') !!}

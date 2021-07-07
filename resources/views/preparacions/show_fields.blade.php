@@ -88,9 +88,9 @@
 {!! $preparacion->entrega_conforme_enfermeria !!}<br>
 
 
-<!-- Refrigerar Field -->
+<!-- refrigerar Field -->
 {!! Form::label('Refrigerar', 'Refrigerar:') !!}
-{!! $preparacion->Refrigerar !!}<br>
+{!! $preparacion->refrigerar !!}<br>
 
 
 <!-- Proteger Luz Field -->

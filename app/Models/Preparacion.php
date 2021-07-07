@@ -35,7 +35,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $dia
  * @property string $control_producto_terminado
  * @property string $entrega_conforme_enfermeria
- * @property boolean $Refrigerar
+ * @property boolean $refrigerar
  * @property boolean $proteger_luz
  * @property integer $user_id
  * @property integer $estado_id
@@ -73,7 +73,7 @@ class Preparacion extends Model
         'dia',
         'control_producto_terminado',
         'entrega_conforme_enfermeria',
-        'Refrigerar',
+        'refrigerar',
         'proteger_luz',
         'user_id',
         'estado_id'
@@ -104,7 +104,7 @@ class Preparacion extends Model
         'dia' => 'string',
         'control_producto_terminado' => 'string',
         'entrega_conforme_enfermeria' => 'string',
-        'Refrigerar' => 'boolean',
+        'refrigerar' => 'boolean',
         'proteger_luz' => 'boolean',
         'user_id' => 'integer',
         'estado_id' => 'integer'
@@ -134,7 +134,7 @@ class Preparacion extends Model
         'dia' => 'nullable|string|max:255',
         'control_producto_terminado' => 'nullable|string',
         'entrega_conforme_enfermeria' => 'nullable|string',
-        'Refrigerar' => 'nullable|boolean',
+        'refrigerar' => 'nullable|boolean',
         'proteger_luz' => 'nullable|boolean',
         'user_id' => 'required',
         'estado_id' => 'required',

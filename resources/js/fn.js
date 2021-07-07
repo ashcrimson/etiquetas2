@@ -172,18 +172,50 @@ window.deleteItemDt = (data) =>{
 }
 
 
-window.erroresToList =  (errors) => {
 
+window.errorToList = (errors) => {
     var res ="<ul style='list-style-type: none; padding:0px;'>";
 
-    $.each(errors,function (field,fieldErrors) {
 
-        $.each(fieldErrors,function (index,error) {
-            res = res+'<li>'+error+'</li>';
+    if (Array.isArray(errors)){
+        errors.forEach(function (value) {
+            res = res+'<li style="margin-bottom: .5rem">'+value+'</li>';
+
         })
-    })
+    }else {
 
-    res = res+"</ul>";
+
+        const entries = Object.entries(errors);
+
+        for (const [field, fieldErrors] of entries) {
+
+            fieldErrors.forEach(function (value) {
+                res = res+'<li style="margin-bottom: .5rem">'+value+'</li>';
+
+            })
+        }
+    }
+
+    res= res+'<ul/>';
 
     return res;
 }
+
+window.notifyErrorApi = (e) =>{
+
+    logW(e.response);
+
+    var errors = e.response.data.errors;
+
+    if(typeof errors !== 'undefined'){
+
+        iziTe(errorToList(errors));
+
+    }else if(e.response.data.message){
+
+        iziTe(e.response.data.message)
+    }
+}
+
+// Global event bus
+Vue.prototype.$eventBus = new Vue();
