@@ -92,7 +92,7 @@ class Preparacion extends Model
         'droga_id' => 'integer',
         'dosis' => 'decimal:2',
         'dilucion_id' => 'integer',
-        'volumen_suero' => 'decimal:2',
+        'volumen_suero' => 'integer',
         'volumen_agregado' => 'decimal:2',
         'volumen_final' => 'decimal:2',
         'bajada' => 'string',

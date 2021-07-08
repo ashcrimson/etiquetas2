@@ -72,7 +72,21 @@
             <!-- Volumen Suero Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('volumen_suero', 'Volumen Suero:') !!}
-                {!! Form::number('volumen_suero', null, ['class' => 'form-control']) !!}
+                    {!!
+                        Form::select(
+                            'volumen_suero',
+                            [
+                                0 => 'Seleccione uno...',
+                                100 => 100,
+                                250 => 250,
+                                500 => 500,
+                                1000 => 1000,
+                            ]
+                            , null
+                            , ['id'=>'volumen_suero','class' => 'form-control','style'=>'width: 100%']
+                        )
+                    !!}
+
             </div>
 
             <!-- Volumen Agregado Field -->
@@ -90,7 +104,21 @@
             <!-- Bajada Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('bajada', 'Bajada:') !!}
-                {!! Form::text('bajada', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                {!!
+                    Form::select(
+                        'bajada',
+                        [
+                            '' => "Seleccione una..",
+                            'venotek' => 'venotek',
+                            'ON-70' => 'ON-70',
+                            'Hospira' => 'Hospira',
+                            'Jeringa' => 'Jeringa',
+                            'Cassette' => 'Cassette',
+                        ]
+                        , null
+                        , ['id'=>'bajada','class' => 'form-control','style'=>'width: 100%']
+                    )
+                !!}
             </div>
 
             <!-- Medico Id Field -->
@@ -109,7 +137,20 @@
             <!-- Servicio Solicitante Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('servicio_solicitante', 'Servicio Solicitante:') !!}
-                {!! Form::text('servicio_solicitante', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                {!!
+                    Form::select(
+                        'servicio_solicitante',
+                        [
+                            '' => "Seleccione una..",
+                            '7 Norte' => '7 Norte',
+                            'Pediatria' => 'Pediatria',
+                            'Pabellón' => 'Pabellón',
+                            'Cir.menor' => 'Cir.menor',
+                        ]
+                        , null
+                        , ['id'=>'servicio_solicitante','class' => 'form-control','style'=>'width: 100%']
+                    )
+                !!}
             </div>
 
             <!-- Protocolo Id Field -->
