@@ -226,7 +226,7 @@ class PreparacionController extends AppBaseController
                     ^FO21,160 ^ADN,15,15 ^FR ^FDFecha Adm:
                     ^FS
                     ^FO321,160
-                    ^ADN,25,15 ^FR ^FD".$preparacion->fecha."
+                    ^ADN,25,15 ^FR ^FD".$preparacion->fecha_admision."
 
                     ^FS
                     ^FO21,190 ^ADN,15,15 ^FR ^FDDroga:
@@ -248,16 +248,17 @@ class PreparacionController extends AppBaseController
                     ^ADN,25,10 ^FR ^FDBortez sem
 
                     ^FS
-                    ^FO381,250 ^ADN,15,10 ^FR ^FDCiclo:
+                    ^FO381,250 
+                    ^ADN,15,10 ^FR ^FDCiclo:
                     ^FS
                     ^FO461,250
-                    ^ADN,15,10 ^FR ^FD2
+                    ^ADN,15,10 ^FR ^FD".$preparacion->ciclo."
 
                     ^FS
                     ^FO501,250 ^ADN,15,10 ^FR ^FDDia:
                     ^FS
                     ^FO560,250
-                    ^ADN,15,10 ^FR ^FD8 (1,8, 15, 21)
+                    ^ADN,15,10 ^FR ^FD".$preparacion->dia."
 
                     ^FS
                     ^FO21,280 ^ADN,15,15 ^FR ^FDFecha Elab:
@@ -269,13 +270,13 @@ class PreparacionController extends AppBaseController
                     ^FO21,310 ^ADN,15,10 ^FR ^FDProteger de Luz:
                     ^FS
                     ^FO211,310
-                    ^ADN,15,10 ^FR ^FDSi
+                    ^ADN,15,10 ^FR ^FD".$preparacion->proteger_luz."
 
                     ^FS
                     ^FO321,310 ^ADN,15,10 ^FR ^FDRefrigerar:
                     ^FS
                     ^FO451,310
-                    ^ADN,15,10 ^FR ^FDNo
+                    ^ADN,15,10 ^FR ^FD".$preparacion->refrigerar."
 
                       ^FS
                     ^XZ";
