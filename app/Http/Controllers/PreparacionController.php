@@ -286,7 +286,7 @@ class PreparacionController extends AppBaseController
                       ^FS
                     ^XZ";
 
-            dd($print_data);
+//            dd($print_data);
 
 
         try {
