@@ -160,6 +160,11 @@ class PreparacionController extends AppBaseController
             return redirect(route('preparacions.index'));
         }
 
+        $request->merge([
+            'refrigerar' => $request->refrigerar ?? 0,
+            'proteger_luz' => $request->proteger_luz ?? 0,
+        ]);
+
         $preparacion->fill($request->all());
         $preparacion->save();
 
@@ -248,7 +253,7 @@ class PreparacionController extends AppBaseController
                     ^ADN,25,10 ^FR ^FDBortez sem
 
                     ^FS
-                    ^FO381,250 
+                    ^FO381,250
                     ^ADN,15,10 ^FR ^FDCiclo:
                     ^FS
                     ^FO461,250
@@ -270,18 +275,18 @@ class PreparacionController extends AppBaseController
                     ^FO21,310 ^ADN,15,10 ^FR ^FDProteger de Luz:
                     ^FS
                     ^FO211,310
-                    ^ADN,15,10 ^FR ^FD".$preparacion->proteger_luz."
+                    ^ADN,15,10 ^FR ^FD".($preparacion->proteger_luz ? "Sí" : "No")."
 
                     ^FS
                     ^FO321,310 ^ADN,15,10 ^FR ^FDRefrigerar:
                     ^FS
                     ^FO451,310
-                    ^ADN,15,10 ^FR ^FD".$preparacion->refrigerar."
+                    ^ADN,15,10 ^FR ^FD".($preparacion->refrigerar  ? "Sí" : "No")."
 
                       ^FS
                     ^XZ";
 
-//            dd($print_data);
+            dd($print_data);
 
 
         try {

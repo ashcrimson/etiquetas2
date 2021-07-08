@@ -103,8 +103,6 @@ class Preparacion extends Model
         'dia' => 'string',
         'control_producto_terminado' => 'string',
         'entrega_conforme_enfermeria' => 'string',
-        'refrigerar' => 'boolean',
-        'proteger_luz' => 'boolean',
         'user_id' => 'integer',
         'estado_id' => 'integer'
     ];
