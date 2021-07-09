@@ -218,7 +218,7 @@ class PreparacionController extends AppBaseController
                     ^FO21,100 ^ADN,15,15 ^FR ^FDNombre:
                     ^FS
                     ^FO321,100
-                    ^ADN,25,15 ^FR ^FD".$preparacion->paciente->nombre_completo."
+                    ^ADN,15,10 ^FR ^FD".$preparacion->paciente->nombre_completo."
 
 
                     ^FS
