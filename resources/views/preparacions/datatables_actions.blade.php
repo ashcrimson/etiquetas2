@@ -6,8 +6,12 @@
     <i class="fa fa-edit"></i>
 </a>
 
-<a href="{{ route('preparaciones.imprimir', $id) }}" data-toggle="tooltip" title="Imprimir" class='btn btn-outline-info btn-sm'>
+<a href="{{ route('preparaciones.imprimir', ['tamanio' => 5,'preparacion' => $id]) }}" data-toggle="tooltip" title="Imprimir 10x5" class='btn btn-outline-info btn-sm'>
     <i class="fa fa-print"></i>
+</a>
+
+<a href="{{ route('preparaciones.imprimir', ['tamanio' => 10,'preparacion' => $id]) }}" data-toggle="tooltip" title="Imprimir 10x10" class='btn btn-outline-info btn-sm'>
+    <i class="fa fa-print fa-2x"></i>
 </a>
 
 <a href="#" onclick="deleteItemDt(this)" data-id="{{$id}}" data-toggle="tooltip" title="Eliminar" class='btn btn-outline-danger btn-sm'>

@@ -48,11 +48,6 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::get('get/data/paciente', 'PacienteController@getPacientePorApi')->name('get.datos.paciente');
 
-    Route::resource('remas', 'RemaController');
-
-    Route::resource('pacienteAtencions', 'PacienteAtencionController');
-
-    Route::resource('pacientePrevisions', 'PacientePrevisionController');
 
     Route::resource('drogas', 'DrogaController');
 
@@ -68,6 +63,6 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::resource('preparacions', 'PreparacionController');
 
-    Route::get('preparacions/imprime/{preparacion}', 'PreparacionController@imprimeEtiqueta')->name('preparaciones.imprimir');
+    Route::get('preparacions/imprime/{tamanio}/{preparacion}', 'PreparacionController@imprimeEtiqueta')->name('preparaciones.imprimir');
 
 });

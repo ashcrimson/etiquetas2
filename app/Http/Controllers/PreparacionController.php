@@ -200,106 +200,108 @@ class PreparacionController extends AppBaseController
         return redirect(route('preparacions.index'));
     }
 
-    public function imprimeEtiqueta(Preparacion $preparacion)
+    public function imprimeEtiqueta($tamanio,Preparacion $preparacion)
     {
-        // $fecha = $preparacion->fecha_admision->format('d/m/Y');
 
-        // $print_data = "^XA
-        //             ^LH0,0
-        //             ^FO4,2
-        //             ^GB804,798,4
-        //             ^FS
-        //             ^FO4,2 ^GB548,52,4
-        //             ^FS ^FO19,12 ^ADN,36,20
-        //             ^FDHospital Naval A.Nef ^FS ^FO548,2 ^GB260,52,4
+        if ($tamanio==5){
+             $print_data = "^XA
+                         ^LH0,0
+                         ^FO4,2
+                         ^GB804,798,4
+                         ^FS
+                         ^FO4,2 ^GB548,52,4
+                         ^FS ^FO19,12 ^ADN,36,20
+                         ^FDHospital Naval A.Nef ^FS ^FO548,2 ^GB260,52,4
 
-        //             ^FS
-        //             ^FO611,16
-        //             ^ADN,36,10 ^FD1:3
-        //             ^FO21,70 
-        //             ^ADN,15,15 ^FR ^FDNombre:
-        //             ^FS
-        //             ^FO321,70
-        //             ^ADN,15,10 ^FR ^FD".$preparacion->paciente->nombre_completo."
+                         ^FS
+                         ^FO611,16
+                         ^ADN,36,10 ^FD1:3
+                         ^FO21,70
+                         ^ADN,15,15 ^FR ^FDNombre:
+                         ^FS
+                         ^FO321,70
+                         ^ADN,15,10 ^FR ^FD".$preparacion->paciente->nombre_completo."
 
 
-        //             ^FS
-        //             ^FO21,105 ^ADN,15,15 ^FR ^FDRut:
-        //             ^FS
-        //             ^FO321,105
-        //             ^ADN,15,10 ^FR ^FD".$preparacion->paciente->run."
+                         ^FS
+                         ^FO21,105 ^ADN,15,15 ^FR ^FDRut:
+                         ^FS
+                         ^FO321,105
+                         ^ADN,15,10 ^FR ^FD".$preparacion->paciente->run."
 
-        //             ^FS
-        //             ^FO21,140 ^ADN,15,15 ^FR ^FDFecha Adm:
-        //             ^FS
-        //             ^FO321,140
-        //             ^ADN,15,10 ^FR ^FD".$preparacion->fecha_admision."
+                         ^FS
+                         ^FO21,140 ^ADN,15,15 ^FR ^FDFecha Adm:
+                         ^FS
+                         ^FO321,140
+                         ^ADN,15,10 ^FR ^FD".$preparacion->fecha_admision."
 
-        //             ^FS
-        //             ^FO21,175 ^ADN,15,15 ^FR ^FDDroga:
-        //             ^FS
-        //             ^FO321,175
-        //             ^ADN,15,10 ^FR ^FD".$preparacion->droga->nombre."
+                         ^FS
+                         ^FO21,175 ^ADN,15,15 ^FR ^FDDroga:
+                         ^FS
+                         ^FO321,175
+                         ^ADN,15,10 ^FR ^FD".$preparacion->droga->nombre."
 
-        //             ^FS
-        //             ^FO21,210 ^ADN,15,15 ^FR ^FDVol. Total:
-        //             ^FS
-        //             ^FO321,210
-        //             ^ADN,15,10 ^FR ^FD".$preparacion->volumen_final." ML
+                         ^FS
+                         ^FO21,210 ^ADN,15,15 ^FR ^FDVol. Total:
+                         ^FS
+                         ^FO321,210
+                         ^ADN,15,10 ^FR ^FD".$preparacion->volumen_final." ML
 
-        //             ^FS
-        //             ^FO21,245
-        //             ^ADN,25,15 ^FR ^FDEsquema:
-        //             ^FS
-        //             ^FO321,245
-        //             ^ADN,15,10 ^FR ^FDBortez sem
+                         ^FS
+                         ^FO21,245
+                         ^ADN,25,15 ^FR ^FDEsquema:
+                         ^FS
+                         ^FO321,245
+                         ^ADN,15,10 ^FR ^FDBortez sem
 
-        //             ^FS
-        //             ^FO500,245
-        //             ^ADN,15,15 ^FR ^FDCiclo:
-        //             ^FS
-        //             ^FO655,245
-        //             ^ADN,15,10 ^FR ^FD".$preparacion->ciclo."
+                         ^FS
+                         ^FO500,245
+                         ^ADN,15,15 ^FR ^FDCiclo:
+                         ^FS
+                         ^FO655,245
+                         ^ADN,15,10 ^FR ^FD".$preparacion->ciclo."
 
-        //             ^FS
-        //             ^FO21,280 ^ADN,15,15 ^FR ^FDDia:
-        //             ^FS
-        //             ^FO321,280
-        //             ^ADN,15,10 ^FR ^FD".$preparacion->dia."
+                         ^FS
+                         ^FO21,280 ^ADN,15,15 ^FR ^FDDia:
+                         ^FS
+                         ^FO321,280
+                         ^ADN,15,10 ^FR ^FD".$preparacion->dia."
 
-        //             ^FS
-        //             ^FO21,315 ^ADN,15,15 ^FR ^FDFecha Elab:
-        //             ^FS
-        //             ^FO321,315
-        //             ^ADN,15,10 ^FR ^FD05/05/2021 (vigente 8 hrs) hasta 18 hrs
+                         ^FS
+                         ^FO21,315 ^ADN,15,15 ^FR ^FDFecha Elab:
+                         ^FS
+                         ^FO321,315
+                         ^ADN,15,10 ^FR ^FD05/05/2021 (vigente 8 hrs) hasta 18 hrs
 
-        //             ^FS
-        //             ^FO21,350 ^ADN,15,15 ^FR ^FDProteger de Luz:
-        //             ^FS
-        //             ^FO400,350
-        //             ^ADN,15,10 ^FR ^FD".($preparacion->proteger_luz ? "Si" : "No")."
+                         ^FS
+                         ^FO21,350 ^ADN,15,15 ^FR ^FDProteger de Luz:
+                         ^FS
+                         ^FO400,350
+                         ^ADN,15,10 ^FR ^FD".($preparacion->proteger_luz ? "Si" : "No")."
 
-        //             ^FS
-        //             ^FO21,385 ^ADN,15,15 ^FR ^FDRefrigerar:
-        //             ^FS
-        //             ^FO321,385
-        //             ^ADN,15,10 ^FR ^FD".($preparacion->refrigerar  ? "Si" : "No")."
+                         ^FS
+                         ^FO21,385 ^ADN,15,15 ^FR ^FDRefrigerar:
+                         ^FS
+                         ^FO321,385
+                         ^ADN,15,10 ^FR ^FD".($preparacion->refrigerar  ? "Si" : "No")."
 
-        //               ^FS
-        //             ^XZ";
+                           ^FS
+                         ^XZ";
+        }
 
+        if ($tamanio==10){
             $print_data = "^XA
                     ^LH0,0
-                    ^FS 
-                    ^FO180,40 
+                    ^FS
+                    ^FO180,40
                     ^ADN,30,20
-                    ^FDHospital Naval A.Nef 
+                    ^FDHospital Naval A.Nef
 
 
                     ^FS
                     ^FO611,16
                     ^ADN,36,10 ^FD1:3
-                    ^FO30,100 
+                    ^FO30,100
                     ^ADN,30,15 ^FDNOMBRE:
                     ^FS
                     ^FO290,100
@@ -307,7 +309,7 @@ class PreparacionController extends AppBaseController
 
 
                     ^FS
-                    ^FO30,150 
+                    ^FO30,150
                     ^ADN,30,15  ^FDRUT:
                     ^FS
                     ^FO290,150
@@ -352,28 +354,28 @@ class PreparacionController extends AppBaseController
                     ^ADN,30,10 ^FD".$preparacion->ciclo."
 
                     ^FS
-                    ^FO30,450 
+                    ^FO30,450
                     ^ADN,30,15 ^FDDia:
                     ^FS
                     ^FO290,450
                     ^ADN,30,10 ^FD".$preparacion->dia."
 
                     ^FS
-                    ^FO30,500 
+                    ^FO30,500
                     ^ADN,30,15 ^FDFecha Elab:
                     ^FS
                     ^FO290,500
                     ^ADN,30,10 ^FD05/05/2021 (vigente 8 hrs) hasta 18 hrs
 
                     ^FS
-                    ^FO30,550 
+                    ^FO30,550
                     ^ADN,30,15 ^FDProteger de Luz:
                     ^FS
                     ^FO400,550
                     ^ADN,30,10  ^FD".($preparacion->proteger_luz ? "Si" : "No")."
 
                     ^FS
-                    ^FO30,600 
+                    ^FO30,600
                     ^ADN,30,15  ^FDRefrigerar:
                     ^FS
                     ^FO290,600
@@ -381,6 +383,9 @@ class PreparacionController extends AppBaseController
 
                       ^FS
                     ^XZ";
+        }
+
+
 
 
 
