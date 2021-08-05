@@ -14,165 +14,165 @@ class ProtocolosTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('protocolos')->delete();
-        
+
         \DB::table('protocolos')->insert(array (
-            0 => 
+            0 =>
             array (
-                'id' => 1,
+                'id' => NULL,
                 'nombre' => 'Folfox-6',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
-                'id' => 2,
+                'id' => NULL,
                 'nombre' => 'Folfox-4',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
-                'id' => 3,
+                'id' => NULL,
                 'nombre' => 'Folfiri',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
-                'id' => 4,
+                'id' => NULL,
                 'nombre' => 'Folfirinox',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            4 => 
+            4 =>
             array (
-                'id' => 5,
+                'id' => NULL,
                 'nombre' => 'Pacli +Carbo',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            5 => 
+            5 =>
             array (
-                'id' => 6,
+                'id' => NULL,
                 'nombre' => 'Pemetrexet+Cisplatino',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            6 => 
+            6 =>
             array (
-                'id' => 7,
+                'id' => NULL,
                 'nombre' => 'Gemcitabina',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            7 => 
+            7 =>
             array (
-                'id' => 8,
+                'id' => NULL,
                 'nombre' => 'GEMOX',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            8 => 
+            8 =>
             array (
-                'id' => 9,
+                'id' => NULL,
                 'nombre' => 'XELOX',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            9 => 
+            9 =>
             array (
-                'id' => 10,
+                'id' => NULL,
                 'nombre' => 'Borte sem',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            10 => 
+            10 =>
             array (
-                'id' => 11,
+                'id' => NULL,
                 'nombre' => 'ABVD',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            11 => 
+            11 =>
             array (
-                'id' => 12,
+                'id' => NULL,
                 'nombre' => 'R-CHOP',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            12 => 
+            12 =>
             array (
-                'id' => 13,
+                'id' => NULL,
                 'nombre' => 'CHOP',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            13 => 
+            13 =>
             array (
-                'id' => 14,
+                'id' => NULL,
             'nombre' => 'Hercetyn SC (MANT)',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            14 => 
+            14 =>
             array (
-                'id' => 15,
+                'id' => NULL,
                 'nombre' => 'Rituximab SC',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            15 => 
+            15 =>
             array (
-                'id' => 16,
+                'id' => NULL,
                 'nombre' => 'ET',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            16 => 
+            16 =>
             array (
-                'id' => 17,
+                'id' => NULL,
                 'nombre' => 'BEP',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            17 => 
+            17 =>
             array (
-                'id' => 18,
+                'id' => NULL,
                 'nombre' => 'BIP',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            18 => 
+            18 =>
             array (
-                'id' => 19,
+                'id' => NULL,
                 'nombre' => 'ESHAP',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }

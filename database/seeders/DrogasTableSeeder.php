@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Droga;
 use Illuminate\Database\Seeder;
 
 class DrogasTableSeeder extends Seeder
@@ -14,309 +15,309 @@ class DrogasTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('drogas')->delete();
-        
+
         \DB::table('drogas')->insert(array (
-            0 => 
+            0 =>
             array (
-                'id' => 1,
+                'id' => null,
                 'nombre' => 'BENDAMUSTINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
-                'id' => 2,
+                'id' => null,
                 'nombre' => 'BLEOMICINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
-                'id' => 3,
+                'id' => null,
                 'nombre' => 'BORTEZOMIB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
-                'id' => 4,
+                'id' => null,
                 'nombre' => 'CARBOPLATINO',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            4 => 
+            4 =>
             array (
-                'id' => 5,
+                'id' => null,
                 'nombre' => 'CICLOFOSFAMIDA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            5 => 
+            5 =>
             array (
-                'id' => 6,
+                'id' => null,
                 'nombre' => 'CISPLATINO',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            6 => 
+            6 =>
             array (
-                'id' => 7,
+                'id' => null,
                 'nombre' => 'CITARABINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            7 => 
+            7 =>
             array (
-                'id' => 8,
+                'id' => null,
                 'nombre' => 'DACARBAZINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            8 => 
+            8 =>
             array (
-                'id' => 9,
+                'id' => null,
                 'nombre' => 'DOCETAXEL',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            9 => 
+            9 =>
             array (
-                'id' => 10,
+                'id' => null,
                 'nombre' => 'DOXORRUBICINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            10 => 
+            10 =>
             array (
-                'id' => 11,
+                'id' => null,
                 'nombre' => 'DOXORRUBICINA LIPOSOMAL',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            11 => 
+            11 =>
             array (
-                'id' => 12,
+                'id' => null,
                 'nombre' => 'ETOPÓSIDO',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            12 => 
+            12 =>
             array (
-                'id' => 13,
+                'id' => null,
                 'nombre' => 'FLUORURACILO',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            13 => 
+            13 =>
             array (
-                'id' => 14,
+                'id' => null,
                 'nombre' => 'GEMCITABINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            14 => 
+            14 =>
             array (
-                'id' => 15,
+                'id' => null,
                 'nombre' => 'IFOSFAMIDA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            15 => 
+            15 =>
             array (
-                'id' => 16,
+                'id' => null,
                 'nombre' => 'IRINOTECAN',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            16 => 
+            16 =>
             array (
-                'id' => 17,
+                'id' => null,
                 'nombre' => 'METOTREXATO',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            17 => 
+            17 =>
             array (
-                'id' => 18,
+                'id' => null,
                 'nombre' => 'OXALIPLATINO',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            18 => 
+            18 =>
             array (
-                'id' => 19,
+                'id' => null,
                 'nombre' => 'PACLITAXEL',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            19 => 
+            19 =>
             array (
-                'id' => 20,
+                'id' => null,
                 'nombre' => 'PEMETREXATO',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            20 => 
+            20 =>
             array (
-                'id' => 21,
+                'id' => null,
                 'nombre' => 'TRASTUZUMAB-EMTANSINA ',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            21 => 
+            21 =>
             array (
-                'id' => 22,
+                'id' => null,
                 'nombre' => 'VINBLASTINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            22 => 
+            22 =>
             array (
-                'id' => 23,
+                'id' => null,
                 'nombre' => 'VINCRISTINA',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            23 => 
+            23 =>
             array (
-                'id' => 24,
+                'id' => null,
                 'nombre' => 'BEVACIZUMAB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            24 => 
+            24 =>
             array (
-                'id' => 25,
+                'id' => null,
                 'nombre' => 'CETUXIMAB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            25 => 
+            25 =>
             array (
-                'id' => 26,
+                'id' => null,
                 'nombre' => 'DARATUMUMAB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            26 => 
+            26 =>
             array (
-                'id' => 27,
+                'id' => null,
                 'nombre' => 'NAB-PACLITAXEL',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            27 => 
+            27 =>
             array (
-                'id' => 28,
+                'id' => null,
                 'nombre' => 'NIVOLUMAB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            28 => 
+            28 =>
             array (
-                'id' => 29,
+                'id' => null,
                 'nombre' => 'PANITUMUMAB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            29 => 
+            29 =>
             array (
-                'id' => 30,
+                'id' => null,
                 'nombre' => 'PEMBROLIZUMAB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            30 => 
+            30 =>
             array (
-                'id' => 31,
+                'id' => null,
                 'nombre' => 'PERTUZUMAB',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            31 => 
+            31 =>
             array (
-                'id' => 32,
+                'id' => null,
             'nombre' => 'RITUXIMAB (MABTHERA) IV',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            32 => 
+            32 =>
             array (
-                'id' => 33,
+                'id' => null,
             'nombre' => 'RITUXIMAB (REDITUX) IV',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            33 => 
+            33 =>
             array (
-                'id' => 34,
+                'id' => null,
                 'nombre' => 'RITUXIMAB SC',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            34 => 
+            34 =>
             array (
-                'id' => 35,
+                'id' => null,
             'nombre' => 'TRASTUZUMAB(HERCEPTIN) IV',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            35 => 
+            35 =>
             array (
-                'id' => 36,
+                'id' => null,
             'nombre' => 'TRASTUZUMAB(BISINTEX) IV',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            36 => 
+            36 =>
             array (
-                'id' => 37,
+                'id' => null,
                 'nombre' => 'TRASTUZUMAB SC',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }

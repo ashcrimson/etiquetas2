@@ -14,29 +14,29 @@ class CargosTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('cargos')->delete();
-        
+
         \DB::table('cargos')->insert(array (
-            0 => 
+            0 =>
             array (
-                'id' => 1,
+                'id' => null,
                 'nombre' => 'MEDICO',
                 'created_at' => '2021-07-06 12:48:20',
                 'updated_at' => '2021-07-06 12:48:20',
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
-                'id' => 2,
+                'id' => null,
                 'nombre' => 'Químico farmacéutico',
                 'created_at' => '2021-07-06 12:48:40',
                 'updated_at' => '2021-07-06 12:48:40',
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }

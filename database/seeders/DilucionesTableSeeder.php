@@ -14,45 +14,45 @@ class DilucionesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('diluciones')->delete();
-        
+
         \DB::table('diluciones')->insert(array (
-            0 => 
+            0 =>
             array (
-                'id' => 1,
+                'id' => null,
                 'nombre' => 'S.F. 0,9%',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            1 => 
+            1 =>
             array (
-                'id' => 2,
+                'id' => null,
                 'nombre' => 'S.G 5%',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            2 => 
+            2 =>
             array (
-                'id' => 3,
+                'id' => null,
                 'nombre' => 'Sin Dilución',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            3 => 
+            3 =>
             array (
-                'id' => 4,
+                'id' => null,
                 'nombre' => 'Jeringa',
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
+
+
     }
 }

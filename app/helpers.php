@@ -231,3 +231,11 @@ function timeToDateTime($time){
     return Carbon::now()->setTime($hora,$minuto,0);
 
 }
+
+
+function setStartValSequence($nameSeq,$start){
+
+    for ($i=1;$i<=$start;$i++){
+        $query = DB::table('DUAL')->select($nameSeq.".NEXTVAL" )->get();
+    }
+}
