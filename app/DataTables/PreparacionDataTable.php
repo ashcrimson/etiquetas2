@@ -22,6 +22,8 @@ class PreparacionDataTable extends DataTable
         return $dataTable->addColumn('action', function(Preparacion $preparacion){
             $id = $preparacion->id;
             return view('preparacions.datatables_actions',compact('preparacion','id'));
+        })->editColumn('volumen_suero',function (Preparacion $preparacion){
+            return $preparacion->volumen_suero==0 ? 'sin dilusión' : $preparacion->volumen_suero;
         })->editColumn('fecha_admision',function (Preparacion $preparacion){
             return Carbon::parse($preparacion->fecha_admision)->format('d/m/Y');
         });

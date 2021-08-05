@@ -61,7 +61,7 @@
             <!-- Dosis Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('dosis', 'Dosis:') !!}
-                {!! Form::number('dosis', null, ['class' => 'form-control']) !!}
+                {!! Form::number('dosis', null, ['class' => 'form-control','step' => 'any']) !!}
             </div>
 
             <!-- Dilucion Id Field -->
@@ -76,7 +76,8 @@
                         Form::select(
                             'volumen_suero',
                             [
-                                0 => 'Seleccione uno...',
+                                null => 'Seleccione uno...',
+                                0 => 'Sin dilusión',
                                 100 => 100,
                                 250 => 250,
                                 500 => 500,
@@ -92,13 +93,13 @@
             <!-- Volumen Agregado Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('volumen_agregado', 'Volumen Agregado:') !!}
-                {!! Form::number('volumen_agregado', null, ['class' => 'form-control']) !!}
+                {!! Form::number('volumen_agregado', null, ['class' => 'form-control','step' => 'any']) !!}
             </div>
 
             <!-- Volumen Final Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('volumen_final', 'Volumen Final:') !!}
-                {!! Form::number('volumen_final', null, ['class' => 'form-control']) !!}
+                {!! Form::number('volumen_final', null, ['class' => 'form-control','step' => 'any']) !!}
             </div>
 
             <!-- Bajada Field -->
