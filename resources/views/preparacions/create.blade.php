@@ -32,7 +32,7 @@
                     @include('preparacions.fields')
                     <!-- Submit Field -->
                     <div class="form-group col-sm-6">
-                        <a href="{!! route('remas.index') !!}" class="btn btn-block btn-secondary">Cancelar</a>
+                        <a href="{!! route('preparacions.index') !!}" class="btn btn-block btn-secondary">Cancelar</a>
                     </div>
                     <div class="form-group col-sm-6">
                         <button type="submit"  class="btn btn-block btn-success">Guardar</button>
