@@ -4,6 +4,7 @@ namespace App\DataTables;
 
 use App\Models\Preparacion;
 use Carbon\Carbon;
+use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -77,20 +78,68 @@ class PreparacionDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id',
-            'fecha_admision',
-            'paciente' => ['data' => 'paciente.nombre_completo','name' => 'paciente.primer_nombre'],
-            'rut' => ['data' => 'paciente.run','name' => 'paciente.run'],
-            'Q.F' => ['data' => 'responsable.iniciales','name' => 'responsable.iniciales'],
-            'droga' => ['data' => 'droga.nombre','name' => 'droga.nombre'],
-            'dosis',
-            'dilucion' => ['data' => 'dilucion.nombre','name' => 'dilucion.nombre'],
-            'volumen_suero',
-            'volumen_agregado',
-            'volumen_final',
-            'bajada',
-            'medico' => ['data' => 'medico.apellidos','name' => 'medico.apellidos'],
-            'servicio_solicitante',
+
+
+            Column::make('id'),
+            Column::make('fecha_admision'),
+
+            Column::make('apellido_paterno')
+                ->data('paciente.apellido_paterno')
+                ->name('paciente.apellido_paterno')
+                ->visible(false)
+                ->exportable(false),
+            Column::make('apellido_materno')
+                ->data('paciente.apellido_materno')
+                ->name('paciente.apellido_materno')
+                ->visible(false)
+                ->exportable(false),
+            Column::make('primer_nombre')
+                ->data('paciente.primer_nombre')
+                ->name('paciente.primer_nombre')
+                ->visible(false)
+                ->exportable(false),
+            Column::make('segundo_nombre')
+                ->data('paciente.segundo_nombre')
+                ->name('paciente.segundo_nombre')
+                ->visible(false)
+                ->exportable(false),
+
+            Column::make('paciente')
+                ->data('paciente.nombre_completo')
+                ->name('paciente.nombre_completo')
+                ->searchable(false)
+                ->orderable(false),
+
+            Column::make('rut')
+                ->data('paciente.run')
+                ->name('paciente.run'),
+            Column::make('Q.F')
+                ->data('responsable.iniciales')
+                ->name('responsable.iniciales')
+                ->searchable(false)
+                ->orderable(false),
+
+            Column::make('droga')
+                ->data('droga.nombre')
+                ->name('droga.nombre'),
+
+            Column::make('dosis'),
+
+            Column::make('dilucion')
+                ->data('dilucion.nombre')
+                ->name('dilucion.nombre'),
+
+            Column::make('volumen_suero'),
+            Column::make('volumen_agregado'),
+            Column::make('volumen_final'),
+            Column::make('bajada'),
+
+            Column::make('medico')
+                ->data('medico.apellidos')
+                ->name('medico.apellidos'),
+            Column::make('servicio_solicitante')
+                ->data('servicio_solicitante')
+                ->name('servicio_solicitante'),
         ];
     }
 
