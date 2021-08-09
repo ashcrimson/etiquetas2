@@ -186,6 +186,8 @@ class OptionsTableSeeder extends Seeder
             ),
         ));
 
-        setStartValSequence('OPTIONS_ID_SEQ',11);
+        if (config('database.default')!='mysql'){
+            setStartValSequence('OPTIONS_ID_SEQ',11);
+        }
     }
 }
