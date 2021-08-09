@@ -3,13 +3,16 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Models\Preparacion;
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 
 $factory->define(Preparacion::class, function (Faker $faker) {
 
+    $fechaValides = Carbon::now()->addDays(rand(30,60));
+
     return [
         'fecha_admision' => $faker->date('Y-m-d H:i:s'),
-        'fecha_validez' => $faker->date('Y-m-d'),
+        'fecha_validez' => $fechaValides->format("Y-m-d"),
         'paciente_id' => \App\Models\Paciente::all()->random()->id,
         'profesional_a_cargo' => $faker->word,
         'responsable_id' => \App\Models\Empleado::quimico()->get()->random()->id,

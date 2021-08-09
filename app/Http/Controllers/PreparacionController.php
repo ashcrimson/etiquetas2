@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\PreparacionDataTable;
+use App\DataTables\Scopes\ScopePreparacionDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreatePreparacionRequest;
 use App\Http\Requests\UpdatePreparacionRequest;
@@ -25,8 +26,15 @@ class PreparacionController extends AppBaseController
      * @param PreparacionDataTable $preparacionDataTable
      * @return Response
      */
-    public function index(PreparacionDataTable $preparacionDataTable)
+    public function index(PreparacionDataTable $preparacionDataTable,Request $request)
     {
+        $scope = new ScopePreparacionDataTable();
+
+        $scope->del = $request->del ?? null;
+        $scope->al = $request->al ?? null;
+
+        $preparacionDataTable->addScope($scope);
+
         return $preparacionDataTable->render('preparacions.index');
     }
 
