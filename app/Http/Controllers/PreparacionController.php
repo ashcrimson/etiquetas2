@@ -219,8 +219,11 @@ class PreparacionController extends AppBaseController
                          ^GB804,798,4
                          ^FS
                          ^FO4,2 ^GB548,52,4
-                         ^FS ^FO19,12 ^ADN,36,20
-                         ^FDHospital Naval A.Nef ^FS ^FO548,2 ^GB260,52,4
+                         ^FS 
+                         ^FO19,12 
+                         ^ADN,36,20
+                         ^FDHospital Naval A.Nef 
+                         ^FS ^FO548,2 ^GB260,52,4
 
                          ^FS
                          ^FO611,16
@@ -302,9 +305,18 @@ class PreparacionController extends AppBaseController
             $print_data = "^XA
                     ^LH0,0
                     ^FS
-                    ^FO180,40
+                    ^FO50,40
                     ^ADN,30,20
                     ^FDHospital Naval A.Nef
+
+                    ^FS
+                    ^FO600,40
+                    ^ADN,30,20
+                    ^FDFolio:
+                    ^FS
+                    ^FO750,40
+                    ^ADN,30,20
+                    ^FD".$preparacion->id."
 
 
                     ^FS
@@ -329,10 +341,10 @@ class PreparacionController extends AppBaseController
 
                     ^FS
                     ^FO30,200
-                    ^ADN,30,15 ^FR ^FDFecha Adm:
+                    ^ADN,30,15 ^FR ^FDFecha Val:
                     ^FS
                     ^FO290,200
-                    ^ADN,30,10  ^FD".$preparacion->fecha_admision."
+                    ^ADN,30,10  ^FD".$preparacion->fecha_validez."
 
                     ^FS
                     ^FO30,250
@@ -343,54 +355,75 @@ class PreparacionController extends AppBaseController
 
                     ^FS
                     ^FO30,300
-                    ^ADN,30,15  ^FDVol. Total:
+                    ^ADN,30,15  ^FDDosis:
                     ^FS
                     ^FO290,300
-                    ^ADN,30,10  ^FD".$preparacion->volumen_final." ML
+                    ^ADN,30,10  ^FD".$preparacion->dosis." ML
 
                     ^FS
                     ^FO30,350
-                    ^ADN,30,15  ^FDEsquema:
+                    ^ADN,30,15  ^FDVol. Total:
                     ^FS
                     ^FO290,350
+                    ^ADN,30,10  ^FD".$preparacion->volumen_final." ML
+
+                    ^FS
+                    ^FO30,400
+                    ^ADN,30,15  ^FDEsquema:
+                    ^FS
+                    ^FO290,400
                     ^ADN,30,10 ^FDBortez sem
 
                     ^FS
-                    ^FO500,400
+                    ^FO30,450
                     ^ADN,30,15  ^FDCiclo:
                     ^FS
-                    ^FO655,400
+                    ^FO290,450
                     ^ADN,30,10 ^FD".$preparacion->ciclo."
 
                     ^FS
-                    ^FO30,450
+                    ^FO30,500
                     ^ADN,30,15 ^FDDia:
                     ^FS
-                    ^FO290,450
+                    ^FO290,500
                     ^ADN,30,10 ^FD".$preparacion->dia."
 
                     ^FS
-                    ^FO30,500
+                    ^FO30,550
                     ^ADN,30,15 ^FDFecha Elab:
                     ^FS
-                    ^FO290,500
+                    ^FO290,550
                     ^ADN,30,10 ^FD05/05/2021 (vigente 8 hrs) hasta 18 hrs
 
                     ^FS
-                    ^FO30,550
+                    ^FO30,600
                     ^ADN,30,15 ^FDProteger de Luz:
                     ^FS
-                    ^FO400,550
+                    ^FO420,600
                     ^ADN,30,10  ^FD".($preparacion->proteger_luz ? "Si" : "No")."
 
                     ^FS
-                    ^FO30,600
+                    ^FO30,650
                     ^ADN,30,15  ^FDRefrigerar:
                     ^FS
-                    ^FO290,600
+                    ^FO290,650
                     ^ADN,30,10 ^FD".($preparacion->refrigerar  ? "Si" : "No")."
 
-                      ^FS
+                    ^FS
+                    ^FO30,700
+                    ^ADN,30,15  ^FDQF:
+                    ^FS
+                    ^FO290,700
+                    ^ADN,30,10 ^FD".$preparacion->profesional_a_cargo." 
+
+                    ^FS
+                    ^FO30,750
+                    ^ADN,30,15  ^FDMedico:
+                    ^FS
+                    ^FO290,750
+                    ^ADN,30,10 ^FD".$preparacion->medico->nombre_completo." 
+
+                    
                     ^XZ";
         }
 
