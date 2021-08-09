@@ -110,10 +110,12 @@ class Empleado extends Model
 
     function getIniciales($nombre){
         $name = '';
-        $explode = explode(' ',$nombre);
+        $explode = explode(' ',eliminar_acentos($nombre));
+
         foreach($explode as $x){
-            $name .=  $x[0];
+            $name .=  $x[0] ?? '';
         }
+
         return $name;
     }
 
