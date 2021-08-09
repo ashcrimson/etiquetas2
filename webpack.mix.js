@@ -12,7 +12,8 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
+    .vue({ version: 2 })
+    .sass('resources/sass/app.scss', 'public/css')
     .copy('node_modules/admin-lte/dist/img','public/dist/img')
     .copy('node_modules/admin-lte/plugins/sparklines/sparkline.js','public/js')
     .copy('node_modules/admin-lte/plugins/moment/moment.min.js','public/js')
@@ -29,6 +30,7 @@ mix.js('resources/js/app.js', 'public/js')
     // .copy('node_modules/admin-lte/plugins/fullcalendar-daygrid/main.min.js','public/plugins/fullcalendar-daygrid')
     // .copy('node_modules/admin-lte/plugins/fullcalendar-timegrid/main.min.js','public/plugins/fullcalendar-timegrid')
     // .copy('node_modules/admin-lte/plugins/fullcalendar-bootstrap/main.min.js','public/plugins/fullcalendar-bootstrap')
+
 
     .copy('node_modules/bootstrap-fileinput','public/plugins/bootstrap-fileinput')
     .copy('node_modules/select2','public/plugins/select2')
