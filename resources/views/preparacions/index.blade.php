@@ -43,7 +43,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    @include('pacientes.form_filters')
+                    @include('preparacions.form_filters')
                 </div>
                 <!-- /.card-body -->
             </div>

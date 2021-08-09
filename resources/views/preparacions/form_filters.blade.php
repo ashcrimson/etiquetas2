@@ -1,6 +1,6 @@
-<form id="form-filter"  method="post">
+<form id="form-filter">
 
-    <div class=-"form-row">
+    <div class="form-row">
 
         <div class="form-group col-sm-4">
             {!! Form::label('del', 'Desde:') !!}
@@ -26,7 +26,7 @@
         <div class="form-group col-sm-2">
             {!! Form::label('boton','&nbsp;') !!}
             <div>
-                <a  href="{{route('preparacionEstados.index')}}" type="submit" id="boton" class="btn btn-info btn-block">
+                <a  href="{{route('preparacions.index')}}" type="submit" id="boton" class="btn btn-info btn-block">
                     <i class="fa fa-times"></i> Limpiar Filtros
                 </a>
             </div>
