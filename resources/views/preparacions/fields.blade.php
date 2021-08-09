@@ -33,6 +33,14 @@
         <!-- /.card-header -->
         <div class="card-body">
             <div class="form-row">
+
+
+            <!-- Fecha Validez Field -->
+            <div class="form-group col-sm-4">
+                {!! Form::label('fecha_validez', 'Fecha Validez:') !!}
+                {!! Form::date('fecha_validez', null, ['class' => 'form-control','id'=>'fecha_validez']) !!}
+            </div>
+
             <!-- Fecha Admision Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('fecha_admision', 'Fecha Admision:') !!}
@@ -232,7 +240,7 @@
                 cargo_medico: @json(\App\Models\Cargo::find(\App\Models\Cargo::MEDICO)),
 
                 servicios: @json(\App\Models\Servicio::all() ?? []),
-                servicio: @json($preparacion->servicio ?? \App\Models\Empleado::find(old('servicio_id')) ?? null),
+                servicio: @json($preparacion->servicio ?? \App\Models\Servicio::find(old('servicio_id')) ?? null),
 
             },
             methods: {

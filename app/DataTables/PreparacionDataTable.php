@@ -25,6 +25,8 @@ class PreparacionDataTable extends DataTable
             return view('preparacions.datatables_actions',compact('preparacion','id'));
         })->editColumn('volumen_suero',function (Preparacion $preparacion){
             return $preparacion->volumen_suero==0 ? 'sin dilusión' : $preparacion->volumen_suero;
+        })->editColumn('fecha_validez',function (Preparacion $preparacion){
+            return Carbon::parse($preparacion->fecha_validez)->format('d/m/Y');
         })->editColumn('fecha_admision',function (Preparacion $preparacion){
             return Carbon::parse($preparacion->fecha_admision)->format('d/m/Y');
         });
@@ -39,7 +41,7 @@ class PreparacionDataTable extends DataTable
      */
     public function query(Preparacion $model)
     {
-        return $model->newQuery()->with(['dilucion','droga','responsable','medico','paciente','estado','protocolo','user']);
+        return $model->newQuery()->with(['dilucion','droga','responsable','medico','paciente','estado','servicio','protocolo','user']);
     }
 
     /**
@@ -81,6 +83,7 @@ class PreparacionDataTable extends DataTable
 
 
             Column::make('id'),
+            Column::make('fecha_validez'),
             Column::make('fecha_admision'),
 
             Column::make('apellido_paterno')
@@ -138,8 +141,8 @@ class PreparacionDataTable extends DataTable
                 ->data('medico.apellidos')
                 ->name('medico.apellidos'),
             Column::make('servicio_solicitante')
-                ->data('servicio_solicitante')
-                ->name('servicio_solicitante'),
+                ->data('servicio.nombre')
+                ->name('servicio.nombre'),
         ];
     }
 

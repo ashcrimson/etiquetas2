@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Preparacion
  * @package App\Models
- * @version July 6, 2021, 1:07 pm CST
+ * @version August 9, 2021, 10:29 am CST
  *
  * @property \App\Models\Dilucion $dilucion
  * @property \App\Models\Droga $droga
@@ -16,8 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \App\Models\Paciente $paciente
  * @property \App\Models\PreparacionEstado $estado
  * @property \App\Models\Protocolo $protocolo
+ * @property \App\Models\Servicio $servicio
  * @property \App\Models\User $user
- * @property string $fecha_admision
+ * @property string|\Carbon\Carbon $fecha_admision
+ * @property string|\Carbon\Carbon $fecha_validez
  * @property integer $paciente_id
  * @property string $profesional_a_cargo
  * @property integer $responsable_id
@@ -29,7 +31,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property number $volumen_final
  * @property string $bajada
  * @property integer $medico_id
- * @property string $servicio_solicitante
+ * @property integer $servicio_id
  * @property integer $protocolo_id
  * @property string $ciclo
  * @property string $dia
@@ -56,6 +58,7 @@ class Preparacion extends Model
 
     public $fillable = [
         'fecha_admision',
+        'fecha_validez',
         'paciente_id',
         'profesional_a_cargo',
         'responsable_id',
@@ -67,7 +70,7 @@ class Preparacion extends Model
         'volumen_final',
         'bajada',
         'medico_id',
-        'servicio_solicitante',
+        'servicio_id',
         'protocolo_id',
         'ciclo',
         'dia',
@@ -97,7 +100,7 @@ class Preparacion extends Model
         'volumen_final' => 'decimal:2',
         'bajada' => 'string',
         'medico_id' => 'integer',
-        'servicio_solicitante' => 'string',
+        'servicio_id' => 'integer',
         'protocolo_id' => 'integer',
         'ciclo' => 'string',
         'dia' => 'string',
@@ -114,6 +117,7 @@ class Preparacion extends Model
      */
     public static $rules = [
         'fecha_admision' => 'required',
+        'fecha_validez' => 'required',
         'responsable_id' => 'required',
         'droga_id' => 'required',
         'dosis' => 'required|numeric',
@@ -123,7 +127,7 @@ class Preparacion extends Model
         'volumen_final' => 'nullable|numeric',
         'bajada' => 'required|string|max:255',
         'medico_id' => 'required',
-        'servicio_solicitante' => 'required|string|max:255',
+        'servicio_id' => 'required',
         'protocolo_id' => 'required',
         'ciclo' => 'nullable|string|max:255',
         'dia' => 'nullable|string|max:255',
@@ -187,6 +191,14 @@ class Preparacion extends Model
     public function protocolo()
     {
         return $this->belongsTo(\App\Models\Protocolo::class, 'protocolo_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function servicio()
+    {
+        return $this->belongsTo(\App\Models\Servicio::class, 'servicio_id');
     }
 
     /**
