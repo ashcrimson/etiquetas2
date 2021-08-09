@@ -137,21 +137,12 @@
 
             <!-- Servicio Solicitante Field -->
             <div class="form-group col-sm-4">
-                {!! Form::label('servicio_solicitante', 'Servicio Solicitante:') !!}
-                {!!
-                    Form::select(
-                        'servicio_solicitante',
-                        [
-                            '' => "Seleccione una..",
-                            '7 Norte' => '7 Norte',
-                            'Pediatria' => 'Pediatria',
-                            'Pabellón' => 'Pabellón',
-                            'Cir.menor' => 'Cir.menor',
-                        ]
-                        , null
-                        , ['id'=>'servicio_solicitante','class' => 'form-control','style'=>'width: 100%']
-                    )
-                !!}
+                <select-servicio :items="servicios"
+                                 v-model="servicio"
+                                 label="Servicio Soliciatante"
+                >
+
+                </select-servicio>
             </div>
 
             <!-- Protocolo Id Field -->
@@ -238,7 +229,10 @@
                 medico: @json($preparacion->medico ?? \App\Models\Empleado::find(old('medico_id')) ?? null),
 
                 cargo_quimico: @json(\App\Models\Cargo::find(\App\Models\Cargo::QUIMICO_FARMACEUTICO)),
-                cargo_medico: @json(\App\Models\Cargo::find(\App\Models\Cargo::MEDICO))
+                cargo_medico: @json(\App\Models\Cargo::find(\App\Models\Cargo::MEDICO)),
+
+                servicios: @json(\App\Models\Servicio::all() ?? []),
+                servicio: @json($preparacion->servicio ?? \App\Models\Empleado::find(old('servicio_id')) ?? null),
 
             },
             methods: {

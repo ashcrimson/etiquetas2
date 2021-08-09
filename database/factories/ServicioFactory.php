@@ -1,31 +1,16 @@
 <?php
 
-namespace Database\Factories;
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 
 use App\Models\Servicio;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-class ServicioFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Servicio::class;
+$factory->define(Servicio::class, function (Faker $faker) {
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
-        return [
-            'nombre' => $this->faker->word,
+    return [
+        'nombre' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
-        ];
-    }
-}
+    ];
+});

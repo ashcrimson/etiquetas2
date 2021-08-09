@@ -113,3 +113,7 @@ Vue.component('select-cargo',SelectCargo);
 import SelectEmpleado from "./components/SelectEmpleado";
 
 Vue.component('select-empleado',SelectEmpleado);
+
+import SelectServicio from "./components/SelectServicio";
+
+Vue.component('select-servicio',SelectServicio);
