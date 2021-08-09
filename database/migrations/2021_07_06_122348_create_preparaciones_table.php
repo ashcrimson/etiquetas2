@@ -16,6 +16,7 @@ class CreatePreparacionesTable extends Migration
         Schema::create('preparaciones', function (Blueprint $table) {
             $table->id();
             $table->dateTime('fecha_admision');
+            $table->date('fecha_validez');
             $table->unsignedBigInteger('paciente_id')->index('preparaciones_pacientes1_idx');
             $table->string('profesional_a_cargo');
             $table->unsignedBigInteger('responsable_id')->index('preparaciones_empleados1_idx');
@@ -27,7 +28,7 @@ class CreatePreparacionesTable extends Migration
             $table->decimal('volumen_final', 10)->nullable();
             $table->string('bajada');
             $table->unsignedBigInteger('medico_id')->index('preparaciones_empleados2_idx');
-            $table->string('servicio_solicitante');
+            $table->unsignedBigInteger('servicio_id')->index('preparaciones_servicios_idx');
             $table->unsignedBigInteger('protocolo_id')->index('preparaciones_protocolos1_idx');
             $table->string('ciclo')->nullable();
             $table->string('dia')->nullable();

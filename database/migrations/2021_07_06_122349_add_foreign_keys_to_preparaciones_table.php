@@ -21,6 +21,7 @@ class AddForeignKeysToPreparacionesTable extends Migration
             $table->foreign('paciente_id', 'fk_preparaciones_pacientes1')->references('id')->on('pacientes');
             $table->foreign('estado_id', 'fk_preparaciones_estados1')->references('id')->on('preparaciones_estados');
             $table->foreign('protocolo_id', 'fk_preparaciones_protocolos1')->references('id')->on('protocolos');
+            $table->foreign('servicio_id', 'fk_preparaciones_servicios1')->references('id')->on('servicios');
             $table->foreign('user_id', 'fk_preparaciones_users1')->references('id')->on('users');
         });
     }
@@ -40,6 +41,7 @@ class AddForeignKeysToPreparacionesTable extends Migration
             $table->dropForeign('fk_preparaciones_pacientes1');
             $table->dropForeign('fk_preparaciones_estados1');
             $table->dropForeign('fk_preparaciones_protocolos1');
+            $table->dropForeign('fk_preparaciones_servicios1');
             $table->dropForeign('fk_preparaciones_users1');
         });
     }
