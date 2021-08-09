@@ -65,4 +65,5 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::get('preparacions/imprime/{tamanio}/{preparacion}', 'PreparacionController@imprimeEtiqueta')->name('preparaciones.imprimir');
 
+    Route::resource('servicios', 'ServicioController');
 });
