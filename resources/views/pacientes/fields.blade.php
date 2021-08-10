@@ -136,7 +136,13 @@
                         $("#primer_nombre").val(paciente.primer_nombre);
                         $("#segundo_nombre").val(paciente.segundo_nombre);
                         $("#fecha_nac").val(paciente.fecha_nac);
-                        $("#sexo").val(paciente.sexo);
+
+                        if (paciente.sexo=='M'){
+                            $('#sexo').bootstrapToggle('on')
+                        }else {
+
+                            $("#sexo").bootstrapToggle('off');
+                        }
                         $("#sigla_grado").val(paciente.sigla_grado);
                         $("#unid_rep_dot").val(paciente.unid_rep_dot);
                         $("#cond_alta_dot").val(paciente.cond_alta_dot);

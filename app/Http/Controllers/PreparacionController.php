@@ -147,6 +147,12 @@ class PreparacionController extends AppBaseController
             return redirect(route('preparacions.index'));
         }
 
+        if (!$preparacion->puedeEditar()){
+            Flash::error('No puede editar el registro!');
+
+            return redirect(route('preparacions.index'));
+        }
+
         return view('preparacions.edit')->with('preparacion', $preparacion);
     }
 
@@ -172,6 +178,7 @@ class PreparacionController extends AppBaseController
         $request->merge([
             'refrigerar' => $request->refrigerar ?? 0,
             'proteger_luz' => $request->proteger_luz ?? 0,
+            'cerrada' => $request->cerrar ?? 0
         ]);
 
         $preparacion->fill($request->all());
@@ -219,10 +226,10 @@ class PreparacionController extends AppBaseController
                          ^GB804,798,4
                          ^FS
                          ^FO4,2 ^GB548,52,4
-                         ^FS 
-                         ^FO19,12 
+                         ^FS
+                         ^FO19,12
                          ^ADN,36,20
-                         ^FDHospital Naval A.Nef 
+                         ^FDHospital Naval A.Nef
                          ^FS ^FO548,2 ^GB260,52,4
 
                          ^FS
@@ -414,16 +421,16 @@ class PreparacionController extends AppBaseController
                     ^ADN,30,15  ^FDQF:
                     ^FS
                     ^FO290,700
-                    ^ADN,30,10 ^FD".$preparacion->profesional_a_cargo." 
+                    ^ADN,30,10 ^FD".$preparacion->profesional_a_cargo."
 
                     ^FS
                     ^FO30,750
                     ^ADN,30,15  ^FDMedico:
                     ^FS
                     ^FO290,750
-                    ^ADN,30,10 ^FD".$preparacion->medico->nombre_completo." 
+                    ^ADN,30,10 ^FD".$preparacion->medico->nombre_completo."
 
-                    
+
                     ^XZ";
         }
 

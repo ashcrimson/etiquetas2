@@ -30,15 +30,28 @@
             <div class="card">
                 <div class="card-body">
 
-                   {!! Form::model($preparacion, ['route' => ['preparacions.update', $preparacion->id], 'method' => 'patch']) !!}
+                   {!! Form::model($preparacion, ['route' => ['preparacions.update', $preparacion->id], 'method' => 'patch'
+                        ,'class' => 'form-loading-on-submit']) !!}
                         <div class="form-row">
 
                             @include('preparacions.fields')
-                            <!-- Submit Field -->
-                            <div class="form-group col-sm-12">
-                                <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
-                                <a href="{!! route('preparacions.index') !!}" class="btn btn-outline-secondary">Cancelar</a>
+
+
+                            <div class="form-group col-sm-4">
+                                <a href="{!! route('preparacions.index') !!}" class="btn btn-block btn-secondary">Cancelar</a>
                             </div>
+                            <div class="form-group col-sm-4">
+                                <button type="submit"  class="btn btn-block btn-success">
+                                    <i class="fa fa-save"></i> Guardar
+                                </button>
+                            </div>
+
+                            <div class="form-group col-sm-4">
+                                <button type="submit"  class="btn btn-block btn-warning" name="cerrar" value="1">
+                                    <i class="fa fa-save"></i> Cierre de preparación
+                                </button>
+                            </div>
+
                         </div>
 
                    {!! Form::close() !!}

@@ -38,6 +38,7 @@ class CreatePreparacionesTable extends Migration
             $table->tinyInteger('proteger_luz')->nullable()->default(0);
             $table->unsignedBigInteger('user_id')->index('preparaciones_users1_idx');
             $table->unsignedBigInteger('estado_id')->index('preparaciones_estados1_idx');
+            $table->boolean('cerrada')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

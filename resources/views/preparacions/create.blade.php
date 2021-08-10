@@ -26,7 +26,7 @@
 
             @include('layouts.partials.request_errors')
 
-            {!! Form::open(['route' => 'preparacions.store']) !!}
+            {!! Form::open(['route' => 'preparacions.store','class' => 'form-loading-on-submit']) !!}
                 <div class="form-row">
 
                     @include('preparacions.fields')

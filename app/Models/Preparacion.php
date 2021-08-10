@@ -41,6 +41,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property boolean $proteger_luz
  * @property integer $user_id
  * @property integer $estado_id
+ * @property boolean $cerrada
  */
 class Preparacion extends Model
 {
@@ -79,7 +80,8 @@ class Preparacion extends Model
         'refrigerar',
         'proteger_luz',
         'user_id',
-        'estado_id'
+        'estado_id',
+        'cerrada',
     ];
 
     /**
@@ -207,5 +209,13 @@ class Preparacion extends Model
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
+
+    /**
+     * @return bool
+     */
+    public function puedeEditar()
+    {
+        return !$this->cerrada;
     }
 }

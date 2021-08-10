@@ -2,9 +2,11 @@
     <i class="fa fa-eye"></i>
 </a>
 
+@if($preparacion->puedeEditar())
 <a href="{{ route('preparacions.edit', $id) }}" data-toggle="tooltip" title="Editar" class='btn btn-outline-info btn-sm'>
     <i class="fa fa-edit"></i>
 </a>
+@endif
 
 <a href="{{ route('preparaciones.imprimir', ['tamanio' => 5,'preparacion' => $id]) }}" data-toggle="tooltip" title="Imprimir 10x5" class='btn btn-outline-info btn-sm'>
     <i class="fa fa-print"></i>

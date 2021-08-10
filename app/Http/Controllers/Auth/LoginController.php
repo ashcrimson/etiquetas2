@@ -98,12 +98,17 @@ class LoginController extends Controller
         $user = User::where('username',$request->username)->first();
 
         if (!$user) {
-            $user = User::create([
-                'username' => $usuario,
-                'name' => "'".$response['nombre']."'",
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-            ]);
+
+            $mensaje = "El usuario no esta en la base de datos";
+
+            return redirect()->back()->withInput()->withErrors(['username' => $mensaje]);
+
+//            $user = User::create([
+//                'username' => $usuario,
+//                'name' => "'".$response['nombre']."'",
+//                'email' => $request->email,
+//                'password' => bcrypt($request->password),
+//            ]);
         }
 
         Auth::login($user);
