@@ -86,8 +86,10 @@ class PreparacionDataTable extends DataTable
 
 
             Column::make('id'),
-            Column::make('fecha_validez'),
-            Column::make('fecha_admision'),
+            Column::make('fecha_vigencia')
+            ->data('fecha_validez'),
+            Column::make('fecha_administracion')
+            ->data('fecha_admision'),
 
             Column::make('apellido_paterno')
                 ->data('paciente.apellido_paterno')
@@ -116,7 +118,7 @@ class PreparacionDataTable extends DataTable
                 ->searchable(false)
                 ->orderable(false),
 
-            Column::make('rut')
+            Column::make('ruta')
                 ->data('paciente.run')
                 ->name('paciente.run'),
             Column::make('Q.F')
