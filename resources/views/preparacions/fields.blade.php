@@ -146,10 +146,10 @@
             <!-- Medico Id Field -->
             <div class="form-group col-sm-4">
                 <select-empleado :items="tens"
-                                 v-model="tens"
+                                 v-model="ten"
                                  label="TENS"
                                  name="tens_id"
-                                 :cargo="cargo_tens"
+                                 :cargo="3"
                                  id="modalSelectTens"
                 >
 
@@ -249,7 +249,7 @@
                 medicos: @json(\App\Models\Empleado::medico()->get() ?? []),
                 medico: @json($preparacion->medico ?? \App\Models\Empleado::find(old('medico_id')) ?? null),
 
-                tens: @json(\App\Models\Tens::tens()->get() ?? []),
+                tens: @json(\App\Models\Empleado::tens()->get() ?? []),
                 tens: @json($preparacion->tens ?? \App\Models\Empleado::find(old('tens_id')) ?? null),
 
                 cargo_quimico: @json(\App\Models\Cargo::find(\App\Models\Cargo::QUIMICO_FARMACEUTICO)),
