@@ -90,7 +90,7 @@ class PreparacionController extends AppBaseController
             'user_id' => auth()->user()->id,
             'profesional_a_cargo' => Empleado::find($request->responsable_id)->nombre_completo,
             'paciente_id' => $paciente->id,
-            'estado_id' => PreparacionEstado::PREPARADO,
+//            'estado_id' => PreparacionEstado::CONFIRMADO,
         ]);
 
 
@@ -433,7 +433,7 @@ class PreparacionController extends AppBaseController
 
                     ^XZ";
 
-            
+
         }
 
 
