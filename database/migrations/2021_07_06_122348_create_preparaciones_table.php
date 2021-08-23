@@ -17,6 +17,8 @@ class CreatePreparacionesTable extends Migration
             $table->id();
             $table->dateTime('fecha_admision');
             $table->date('fecha_validez');
+            $table->date('fecha_elaboracion');
+            
             $table->unsignedBigInteger('paciente_id')->index('preparaciones_pacientes1_idx');
             $table->string('profesional_a_cargo');
             $table->unsignedBigInteger('responsable_id')->index('preparaciones_empleados1_idx');

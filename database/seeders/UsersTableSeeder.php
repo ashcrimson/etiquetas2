@@ -56,6 +56,46 @@ class UsersTableSeeder extends Seeder
             $user->options()->sync(Option::pluck('id')->toArray());
         });
 
+        User::factory(1)->create([
+            "username" => "cschlageter",
+            "name" => "Schlageter Tello, Carol",
+            "email" => "cschlageter@sanidadnaval.cl",
+            "password" => bcrypt("123")
+        ])->each(function (User $user){
+            $user->syncRoles(Role::USER);
+            $user->options()->sync(Option::pluck('id')->toArray());
+        });
+
+        User::factory(1)->create([
+            "username" => "fpinoo",
+            "name" => "Felipe Pino",
+            "email" => "fpinoo@sanidadnaval.cl",
+            "password" => bcrypt("123")
+        ])->each(function (User $user){
+            $user->syncRoles(Role::SUPERADMIN);
+            $user->options()->sync(Option::pluck('id')->toArray());
+        });
+
+        User::factory(1)->create([
+            "username" => "dbarrera",
+            "name" => "Daniela Barrera",
+            "email" => "dbarrera@sanidadnaval.cl",
+            "password" => bcrypt("123")
+        ])->each(function (User $user){
+            $user->syncRoles(Role::SUPERADMIN);
+            $user->options()->sync(Option::pluck('id')->toArray());
+        });
+
+        User::factory(1)->create([
+            "username" => "fahumada",
+            "name" => "Fernando Ahumada",
+            "email" => "fahumada@sanidadnaval.cl",
+            "password" => bcrypt("123")
+        ])->each(function (User $user){
+            $user->syncRoles(Role::SUPERADMIN);
+            $user->options()->sync(Option::pluck('id')->toArray());
+        });
+
 //        User::factory(6)->create([
 //            "password" => bcrypt("123")
 //        ])->each(function (User $user){

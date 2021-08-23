@@ -506,13 +506,18 @@ class PreparacionController extends AppBaseController
         $preparacion->setAttribute("familiar_responsable" ,$preparacion->paciente->familiar_responsable);
         $preparacion->setAttribute("telefono" ,$preparacion->paciente->telefono);
 
+
         if ($preparacion->fecha_admision){
             $preparacion->setAttribute("fecha_admision",Carbon::parse($preparacion->fecha_admision)->format('Y-m-d'));
         }
         if ($preparacion->fecha_validez){
             $preparacion->setAttribute("fecha_validez",Carbon::parse($preparacion->fecha_validez)->format('Y-m-d'));
         }
+        if ($preparacion->fecha_elaboracion){
+            $preparacion->setAttribute("fecha_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('Y-m-d'));
+        }
 
+      
         return $preparacion;
 
 

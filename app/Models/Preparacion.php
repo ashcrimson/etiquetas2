@@ -61,6 +61,8 @@ class Preparacion extends Model
     public $fillable = [
         'fecha_admision',
         'fecha_validez',
+        'fecha_elaboracion',
+       
         'paciente_id',
         'profesional_a_cargo',
         'responsable_id',
