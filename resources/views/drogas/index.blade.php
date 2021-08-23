@@ -17,7 +17,7 @@
                             <a class="btn btn-outline-success"
                                 href="{!! route('drogas.create') !!}">
                                 <i class="fa fa-plus"></i>
-                                <span class="d-none d-sm-inline">{{__('New')}}</span>
+                                <span class="d-none d-sm-inline">{{__('Nueva')}}</span>
                             </a>
                         </li>
                     </ol>

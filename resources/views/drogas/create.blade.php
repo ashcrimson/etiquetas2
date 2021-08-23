@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{__('New Droga')}}</h1>
+                    <h1>{{__('Nueva Droga')}}</h1>
                 </div>
                 <div class="col ">
                     <a class="btn btn-outline-info float-right"
