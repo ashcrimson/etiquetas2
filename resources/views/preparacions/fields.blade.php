@@ -143,16 +143,15 @@
                 </select-empleado>
             </div>
 
-            <!-- Medico Id Field -->
+            <!-- Empeado ten -->
             <div class="form-group col-sm-4">
                 <select-empleado :items="tens"
                                  v-model="ten"
                                  label="TENS"
-                                 name="tens_id"
-                                 :cargo="3"
+                                 name="ten_id"
+                                 :cargo="cargo_ten"
                                  id="modalSelectTens"
                 >
-
                 </select-empleado>
             </div>
 
@@ -249,11 +248,12 @@
                 medicos: @json(\App\Models\Empleado::medico()->get() ?? []),
                 medico: @json($preparacion->medico ?? \App\Models\Empleado::find(old('medico_id')) ?? null),
 
-                tens: @json(\App\Models\Empleado::tens()->get() ?? []),
-                tens: @json($preparacion->tens ?? \App\Models\Empleado::find(old('tens_id')) ?? null),
+                tens: @json(\App\Models\Empleado::ten()->get() ?? []),
+                ten: @json($preparacion->ten ?? \App\Models\Empleado::find(old('ten_id')) ?? null),
 
                 cargo_quimico: @json(\App\Models\Cargo::find(\App\Models\Cargo::QUIMICO_FARMACEUTICO)),
                 cargo_medico: @json(\App\Models\Cargo::find(\App\Models\Cargo::MEDICO)),
+                cargo_ten: @json(\App\Models\Cargo::find(\App\Models\Cargo::TEN)),
 
                 servicios: @json(\App\Models\Servicio::all() ?? []),
                 servicio: @json($preparacion->servicio ?? \App\Models\Servicio::find(old('servicio_id')) ?? null),

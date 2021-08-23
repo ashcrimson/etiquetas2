@@ -103,6 +103,11 @@ class Empleado extends Model
         $q->where('cargo_id',Cargo::MEDICO);
     }
 
+    public function scopeTen(Builder $q)
+    {
+        $q->where('cargo_id',Cargo::TEN);
+    }
+
     public function getInicialesAttribute()
     {
         return $this->getIniciales($this->nombres." ".$this->apellidos);

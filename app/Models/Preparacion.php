@@ -31,6 +31,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property number $volumen_final
  * @property string $bajada
  * @property integer $medico_id
+ * @property integer $ten_id
  * @property integer $servicio_id
  * @property integer $protocolo_id
  * @property string $ciclo
@@ -71,6 +72,7 @@ class Preparacion extends Model
         'volumen_final',
         'bajada',
         'medico_id',
+        'ten_id',
         'servicio_id',
         'protocolo_id',
         'ciclo',
@@ -102,6 +104,7 @@ class Preparacion extends Model
         'volumen_final' => 'decimal:2',
         'bajada' => 'string',
         'medico_id' => 'integer',
+        'ten_id' => 'integer',
         'servicio_id' => 'integer',
         'protocolo_id' => 'integer',
         'ciclo' => 'string',
@@ -169,6 +172,11 @@ class Preparacion extends Model
     public function medico()
     {
         return $this->belongsTo(\App\Models\Empleado::class, 'medico_id');
+    }
+
+    public function ten()
+    {
+        return $this->belongsTo(\App\Models\Empleado::class, 'ten_id');
     }
 
     /**

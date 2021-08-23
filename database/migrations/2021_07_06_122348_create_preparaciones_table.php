@@ -28,6 +28,7 @@ class CreatePreparacionesTable extends Migration
             $table->decimal('volumen_final', 10)->nullable();
             $table->string('bajada');
             $table->unsignedBigInteger('medico_id')->index('preparaciones_empleados2_idx');
+            $table->unsignedBigInteger('ten_id')->index('preparaciones_empleados3_idx');
             $table->unsignedBigInteger('servicio_id')->index('preparaciones_servicios_idx');
             $table->unsignedBigInteger('protocolo_id')->index('preparaciones_protocolos1_idx');
             $table->string('ciclo')->nullable();

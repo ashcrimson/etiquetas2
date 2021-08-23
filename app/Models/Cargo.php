@@ -23,6 +23,7 @@ class Cargo extends Model
 
     const MEDICO = 1;
     const QUIMICO_FARMACEUTICO = 2;
+    const TEN = 3;
 
 
     protected $dates = ['deleted_at'];
