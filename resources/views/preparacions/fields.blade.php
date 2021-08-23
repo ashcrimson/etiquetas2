@@ -35,6 +35,15 @@
             <div class="form-row">
 
 
+            <!-- Estado Field -->
+            <div class="form-group col-sm-4">
+                <label for="estado_id">Estado:</label>
+                <multiselect v-model="estado" :options="estados" label="nombre" placeholder="Seleccione uno...">
+                </multiselect>
+                <input type="hidden" name="estado_id" :value="estado ? estado.id : null">
+            </div>
+
+
             <!-- Fecha Validez Field -->
             <div class="form-group col-sm-4">
                 {!! Form::label('fecha_validez', 'Fecha Validez:') !!}
@@ -257,6 +266,9 @@
 
                 servicios: @json(\App\Models\Servicio::all() ?? []),
                 servicio: @json($preparacion->servicio ?? \App\Models\Servicio::find(old('servicio_id')) ?? null),
+
+                estados: @json(\App\Models\PreparacionEstado::all() ?? []),
+                estado: @json($preparacion->estado ?? \App\Models\PreparacionEstado::find(old('estado_id')) ?? null),
 
             },
             methods: {

@@ -22,7 +22,7 @@ class PreparacionesEstadosTableSeeder extends Seeder
             0 =>
             array (
                 'id' => NULL,
-                'nombre' => 'SOLICITADO',
+                'nombre' => 'CONFIRMADO',
                 'created_at' => '2021-07-06 13:02:41',
                 'updated_at' => '2021-07-06 13:02:41',
                 'deleted_at' => NULL,
@@ -30,7 +30,7 @@ class PreparacionesEstadosTableSeeder extends Seeder
             1 =>
             array (
                 'id' => NULL,
-                'nombre' => 'PREPARANDO',
+                'nombre' => 'SUSPENDIDO',
                 'created_at' => '2021-07-06 13:03:06',
                 'updated_at' => '2021-07-06 13:03:06',
                 'deleted_at' => NULL,
@@ -38,19 +38,11 @@ class PreparacionesEstadosTableSeeder extends Seeder
             2 =>
             array (
                 'id' => NULL,
-                'nombre' => 'PREPARADO',
+                'nombre' => 'EN PROCESO',
                 'created_at' => '2021-07-06 13:03:15',
                 'updated_at' => '2021-07-06 13:03:15',
                 'deleted_at' => NULL,
-            ),
-            3 =>
-            array (
-                'id' => NULL,
-                'nombre' => 'ADMINISTRADO',
-                'created_at' => '2021-07-06 13:03:22',
-                'updated_at' => '2021-07-06 13:03:22',
-                'deleted_at' => NULL,
-            ),
+            )
         ));
 
 
