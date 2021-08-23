@@ -35,6 +35,14 @@ class CargosTableSeeder extends Seeder
                 'updated_at' => '2021-07-06 12:48:40',
                 'deleted_at' => NULL,
             ),
+            2 =>
+            array (
+                'id' => null,
+                'nombre' => 'TENS',
+                'created_at' => '2021-07-06 12:48:40',
+                'updated_at' => '2021-07-06 12:48:40',
+                'deleted_at' => NULL,
+            ),
         ));
 
 
