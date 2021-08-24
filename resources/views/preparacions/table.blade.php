@@ -14,7 +14,14 @@
                 $(this).find('tbody').addClass('text-sm');
                 $(this).find('thead').addClass('text-sm');
                 $('[data-toggle="tooltip"]').tooltip();
-            });
+            }).on( 'processing.dt', function ( e, settings, processing ) {
+                if(processing){
+
+                    $('#btnSubmitFormFilters').html( '<i class="fa fa-sync fa-spin"></i> Filtrando...' );
+                }else{
+                    $('#btnSubmitFormFilters').html( '<i class="fa fa-search"></i> Aplicar Filtros' );
+                }
+            } );
 
 
 

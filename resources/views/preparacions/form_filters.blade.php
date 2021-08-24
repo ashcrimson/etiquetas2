@@ -61,13 +61,11 @@
 
 
 
-
-
         <div class="form-group col-sm-2">
             {!! Form::label('boton','&nbsp;') !!}
             <div>
-                <button type="submit" id="boton" class="btn btn-info btn-block">
-                    <i class="fa fa-sync"></i> Aplicar Filtros
+                <button type="submit" id="btnSubmitFormFilters" class="btn btn-info">
+                    <i class="fa fa-search"></i> Aplicar Filtros
                 </button>
             </div>
         </div>
