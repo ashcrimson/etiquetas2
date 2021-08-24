@@ -46,15 +46,28 @@
 
             <!-- Fecha Validez Field -->
             <div class="form-group col-sm-4">
-                {!! Form::label('fecha_validez', 'Fecha Validez:') !!}
+                {!! Form::label('fecha_validez', 'Fecha Vigencia:') !!}
                 {!! Form::date('fecha_validez', null, ['class' => 'form-control','id'=>'fecha_validez']) !!}
             </div>
 
             <!-- Fecha Admision Field -->
             <div class="form-group col-sm-4">
-                {!! Form::label('fecha_admision', 'Fecha Admision:') !!}
+                {!! Form::label('fecha_admision', 'Fecha Administracion:') !!}
                 {!! Form::date('fecha_admision', null, ['class' => 'form-control','id'=>'fecha_admision']) !!}
             </div>
+
+
+            <!-- Fecha Elaboracion Field -->
+            <div class="form-group col-sm-4">
+                {!! Form::label('fecha_elaboracion', 'Fecha Elaboracion:') !!}
+                {!! Form::date('fecha_elaboracion', null, ['class' => 'form-control','id'=>'fecha_elaboracion']) !!}
+            </div>
+
+            <!-- Hora Elaboracion Field -->
+                    <div class="form-group col-sm-4">
+                        {!! Form::label('hora_elaboracion', 'Hora Elaboracion:') !!}
+                        {!! Form::time('hora_elaboracion', null, ['class' => 'form-control']) !!}
+                    </div>
 
             <!-- Responsable Id Field -->
             <div class="form-group col-sm-4">
