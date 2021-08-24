@@ -348,72 +348,79 @@ class PreparacionController extends AppBaseController
 
                     ^FS
                     ^FO30,200
-                    ^ADN,30,15 ^FR ^FDFecha Val:
+                    ^ADN,30,15 ^FR ^FDFecha Adm:
                     ^FS
                     ^FO290,200
-                    ^ADN,30,10  ^FD".$preparacion->fecha_validez."
+                    ^ADN,30,10  ^FD".$preparacion->fecha_admision."
 
                     ^FS
                     ^FO30,250
-                    ^ADN,30,15 ^FDDroga:
+                    ^ADN,30,15 ^FDFecha Elab:
                     ^FS
                     ^FO290,250
-                    ^ADN,30,10 ^FD".$preparacion->droga->nombre."
+                    ^ADN,30,10 ^FD".$preparacion->fecha_elaboracion."
 
                     ^FS
                     ^FO30,300
-                    ^ADN,30,15  ^FDDosis:
+                    ^ADN,30,15  ^FDDroga:
                     ^FS
                     ^FO290,300
-                    ^ADN,30,10  ^FD".$preparacion->dosis." ML
+                    ^ADN,30,10  ^FD".$preparacion->droga->nombre." 
 
                     ^FS
                     ^FO30,350
-                    ^ADN,30,15  ^FDVol. Total:
+                    ^ADN,30,15  ^FDDosis:
                     ^FS
                     ^FO290,350
-                    ^ADN,30,10  ^FD".$preparacion->volumen_final." ML
+                    ^ADN,30,10  ^FD".$preparacion->dosis." ML
 
                     ^FS
                     ^FO30,400
-                    ^ADN,30,15  ^FDEsquema:
+                    ^ADN,30,15  ^FDVol. Total:
                     ^FS
                     ^FO290,400
-                    ^ADN,30,10 ^FDBortez sem
+                    ^ADN,30,10 ^FD".$preparacion->volumen_final."
 
                     ^FS
                     ^FO30,450
-                    ^ADN,30,15  ^FDCiclo:
+                    ^ADN,30,15  ^FDEsquema:
                     ^FS
                     ^FO290,450
-                    ^ADN,30,10 ^FD".$preparacion->ciclo."
+                    ^ADN,30,10 ^FD".$preparacion->esquema."
 
                     ^FS
                     ^FO30,500
-                    ^ADN,30,15 ^FDDia:
+                    ^ADN,30,15 ^FDCiclo:
                     ^FS
                     ^FO290,500
-                    ^ADN,30,10 ^FD".$preparacion->dia."
+                    ^ADN,30,10 ^FD".$preparacion->ciclo."
 
                     ^FS
                     ^FO30,550
-                    ^ADN,30,15 ^FDFecha Elab:
+                    ^ADN,30,15 ^FDDia:
                     ^FS
                     ^FO290,550
-                    ^ADN,30,10 ^FD05/05/2021 (vigente 8 hrs) hasta 18 hrs
+                    ^ADN,30,10 ^FD".$preparacion->dia."
 
                     ^FS
                     ^FO30,600
-                    ^ADN,30,15 ^FDProteger de Luz:
+                    ^ADN,30,15 ^FDVigencia:
                     ^FS
-                    ^FO420,600
-                    ^ADN,30,10  ^FD".($preparacion->proteger_luz ? "Si" : "No")."
+                    ^FO320,600
+                    ^ADN,30,10  ^FD".$preparacion->fecha_validez."
 
                     ^FS
                     ^FO30,650
+                    ^ADN,30,15  ^FDProteger de Luz:
+                    ^FS
+                    ^FO420,650
+                    ^ADN,30,10 ^FD".($preparacion->proteger_luz ? "Si" : "No")."
+
+                    ^FS
+                    ^FO480,650
                     ^ADN,30,15  ^FDRefrigerar:
                     ^FS
-                    ^FO290,650
+                    ^FO750,650
                     ^ADN,30,10 ^FD".($preparacion->refrigerar  ? "Si" : "No")."
 
                     ^FS

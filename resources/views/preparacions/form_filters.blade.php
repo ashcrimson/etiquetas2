@@ -12,6 +12,8 @@
             {!! Form::date('al', null, ['class' => 'form-control']) !!}
         </div>
 
+        
+
 
 
         <div class="form-group col-sm-2">
