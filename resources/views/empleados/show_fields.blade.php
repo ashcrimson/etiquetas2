@@ -14,7 +14,7 @@
 
 
 <!-- Cargo Id Field -->
-{!! Form::label('cargo_id', 'Cargo Id:') !!}
-{!! $empleado->cargo_id !!}<br>
+{!! Form::label('cargo_id', 'Cargo:') !!}
+{!! $empleado->cargo->nombre !!}<br>
 
 
