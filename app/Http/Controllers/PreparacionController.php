@@ -33,6 +33,11 @@ class PreparacionController extends AppBaseController
         $scope->del = $request->del ?? null;
         $scope->al = $request->al ?? null;
 
+        $scope->tens = $request->ten_id ?? null;
+        $scope->quimicos = $request->responsable_id ?? null;
+        $scope->medicos = $request->medico_id ?? null;
+        $scope->estados = $request->estado_id ?? null;
+
         $preparacionDataTable->addScope($scope);
 
         return $preparacionDataTable->render('preparacions.index');
