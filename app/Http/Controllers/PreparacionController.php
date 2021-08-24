@@ -366,7 +366,7 @@ class PreparacionController extends AppBaseController
                     ^ADN,30,15  ^FDDroga:
                     ^FS
                     ^FO290,300
-                    ^ADN,30,10  ^FD".$preparacion->droga->nombre." 
+                    ^ADN,30,10  ^FD".$preparacion->droga->nombre."
 
                     ^FS
                     ^FO30,350
@@ -523,7 +523,7 @@ class PreparacionController extends AppBaseController
         }
 
         if ($preparacion->fecha_elaboracion){
-            $preparacion->setAttribute("hora_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('H:i:s'));
+            $preparacion->setAttribute("hora_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('H:i'));
             $preparacion->setAttribute("fecha_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('Y-m-d'));
         }
 
