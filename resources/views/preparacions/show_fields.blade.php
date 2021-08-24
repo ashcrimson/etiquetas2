@@ -1,11 +1,18 @@
 <!-- Fecha Admision Field -->
-{!! Form::label('fecha_admision', 'Fecha Admision:') !!}
+{!! Form::label('fecha_admision', 'Fecha Administración:') !!}
 {!! $preparacion->fecha_admision !!}<br>
+
+<!-- Fecha Elaboración Field -->
+{!! Form::label('fecha_elaboracion', 'Fecha Elaboración:') !!}
+{!! $preparacion->fecha_elaboracion !!}<br>
 
 
 <!-- Paciente Id Field -->
-{!! Form::label('paciente_id', 'Paciente Id:') !!}
-{!! $preparacion->paciente_id !!}<br>
+{!! Form::label('paciente_id', 'Nombre Paciente:') !!}
+{!! $preparacion->paciente->primer_nombre!!}
+{!! $preparacion->paciente->segundo_nombre!!}
+{!! $preparacion->paciente->apellido_paterno!!}
+{!! $preparacion->paciente->apellido_materno!!}<br>
 
 
 <!-- Profesional A Cargo Field -->
@@ -14,13 +21,13 @@
 
 
 <!-- Responsable Id Field -->
-{!! Form::label('responsable_id', 'Responsable Id:') !!}
-{!! $preparacion->responsable_id !!}<br>
+{!! Form::label('responsable_id', 'Responsable:') !!}
+{!! $preparacion->medico->nombres!!} {!! $preparacion->medico->apellidos!!}<br>
 
 
 <!-- Droga Id Field -->
-{!! Form::label('droga_id', 'Droga Id:') !!}
-{!! $preparacion->droga_id !!}<br>
+{!! Form::label('droga_id', 'Medicamento:') !!}
+{!! $preparacion->droga->nombre !!}<br>
 
 
 <!-- Dosis Field -->
@@ -29,8 +36,8 @@
 
 
 <!-- Dilucion Id Field -->
-{!! Form::label('dilucion_id', 'Dilucion Id:') !!}
-{!! $preparacion->dilucion_id !!}<br>
+{!! Form::label('dilucion_id', 'Dilución:') !!}
+{!! $preparacion->dilucion->nombre!!}<br>
 
 
 <!-- Volumen Suero Field -->
@@ -54,18 +61,19 @@
 
 
 <!-- Medico Id Field -->
-{!! Form::label('medico_id', 'Medico Id:') !!}
-{!! $preparacion->medico_id !!}<br>
+{!! Form::label('medico_id', 'Medico:') !!}
+{!! $preparacion->medico->nombres !!}
+{!! $preparacion->medico->apellidos !!}<br>
 
 
 <!-- Servicio Solicitante Field -->
 {!! Form::label('servicio_solicitante', 'Servicio Solicitante:') !!}
-{!! $preparacion->servicio_solicitante !!}<br>
+{!! $preparacion->servicio->nombre !!}<br>
 
 
 <!-- Protocolo Id Field -->
-{!! Form::label('protocolo_id', 'Protocolo Id:') !!}
-{!! $preparacion->protocolo_id !!}<br>
+{!! Form::label('protocolo_id', 'Protocolo:') !!}
+{!! $preparacion->protocolo->nombre !!}<br>
 
 
 <!-- Ciclo Field -->
@@ -99,12 +107,12 @@
 
 
 <!-- User Id Field -->
-{!! Form::label('user_id', 'User Id:') !!}
-{!! $preparacion->user_id !!}<br>
+{!! Form::label('user_id', 'Usuario:') !!}
+{!! $preparacion->user->name !!}<br>
 
 
 <!-- Estado Id Field -->
-{!! Form::label('estado_id', 'Estado Id:') !!}
-{!! $preparacion->estado_id !!}<br>
+{!! Form::label('estado_id', 'Estado:') !!}
+{!! $preparacion->estado->nombre !!}<br>
 
 
