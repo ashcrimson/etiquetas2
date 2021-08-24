@@ -12,6 +12,7 @@ $factory->define(Preparacion::class, function (Faker $faker) {
 
     return [
         'fecha_admision' => $faker->date('Y-m-d H:i:s'),
+        'fecha_elaboracion' => $faker->date('Y-m-d H:i:s'),
         'fecha_validez' => $fechaValides->format("Y-m-d"),
         'paciente_id' => \App\Models\Paciente::all()->random()->id,
         'profesional_a_cargo' => $faker->word,
@@ -24,6 +25,7 @@ $factory->define(Preparacion::class, function (Faker $faker) {
         'volumen_final' => $faker->randomDigitNotZero(),
         'bajada' => $faker->randomElement(["venotek","ON-70","Hospira","Jeringa","Cassette"]),
         'medico_id' => \App\Models\Empleado::medico()->get()->random()->id,
+        'ten_id' => \App\Models\Empleado::ten()->get()->random()->id,
         'servicio_id' => \App\Models\Servicio::all()->random()->id,
         'protocolo_id' => \App\Models\Protocolo::all()->random()->id,
         'ciclo' => $faker->word,

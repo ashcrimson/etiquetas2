@@ -90,7 +90,7 @@ class PreparacionController extends AppBaseController
             'user_id' => auth()->user()->id,
             'profesional_a_cargo' => Empleado::find($request->responsable_id)->nombre_completo,
             'paciente_id' => $paciente->id,
-//            'estado_id' => PreparacionEstado::CONFIRMADO,
+            'fecha_elaboracion' => $request->fecha_elaboracion." ".$request->hora_elaboracion,
         ]);
 
 
@@ -178,6 +178,7 @@ class PreparacionController extends AppBaseController
         $request->merge([
             'refrigerar' => $request->refrigerar ?? 0,
             'proteger_luz' => $request->proteger_luz ?? 0,
+            'fecha_elaboracion' => $request->fecha_elaboracion." ".$request->hora_elaboracion,
             'cerrada' => $request->cerrar ?? 0
         ]);
 
@@ -520,11 +521,13 @@ class PreparacionController extends AppBaseController
         if ($preparacion->fecha_validez){
             $preparacion->setAttribute("fecha_validez",Carbon::parse($preparacion->fecha_validez)->format('Y-m-d'));
         }
+
         if ($preparacion->fecha_elaboracion){
+            $preparacion->setAttribute("hora_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('H:i:s'));
             $preparacion->setAttribute("fecha_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('Y-m-d'));
         }
 
-      
+
         return $preparacion;
 
 
