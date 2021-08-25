@@ -280,7 +280,7 @@ class PreparacionController extends AppBaseController
                          ^ADN,15,10 ^FR ^FD".$preparacion->fecha_elaboracion."
 
                          ^FS
-                         ^FO21,210 ^ADN,15,15 ^FR ^FDDDroga:
+                         ^FO21,210 ^ADN,15,15 ^FR ^FDDroga:
                          ^FS
                          ^FO321,210
                          ^ADN,15,10 ^FR ^FD".$preparacion->droga->nombre."
@@ -290,50 +290,61 @@ class PreparacionController extends AppBaseController
                          ^ADN,25,15 ^FR ^FDDosis:
                          ^FS
                          ^FO321,245
-                         ^ADN,15,10 ^FR ^FD".$preparacion->dosis." ML
+                         ^ADN,15,10 ^FR ^FD".$preparacion->dosis." MG
 
                          ^FS
-                         ^FO500,245
-                         ^ADN,15,15 ^FR ^FDVol. Total:
+                         ^FO21,280 ^ADN,15,15 ^FR ^FDVol. Total:
                          ^FS
-                         ^FO655,245
+                         ^FO321,280
                          ^ADN,15,10 ^FR ^FD".$preparacion->volumen_final."
 
                          ^FS
-                         ^FO21,280 ^ADN,15,15 ^FR ^FDEsquema:
+                         ^FO21,315 ^ADN,15,15 ^FR ^FDEsquema:
                          ^FS
-                         ^FO321,280
+                         ^FO321,315
                          ^ADN,15,10 ^FR ^FD".$preparacion->esquema."
 
                          ^FS
-                         ^FO21,315 ^ADN,15,15 ^FR ^FDCiclo:
+                         ^FO21,350 ^ADN,15,15 ^FR ^FDCiclo:
                          ^FS
-                         ^FO321,315
+                         ^FO400,350
                          ^ADN,15,10 ^FR ^FD".$preparacion->ciclo."
 
                          ^FS
-                         ^FO21,350 ^ADN,15,15 ^FR ^FDDia:
+                         ^FO21,385 ^ADN,15,15 ^FR ^FDDia:
                          ^FS
-                         ^FO400,350
+                         ^FO321,385
                          ^ADN,15,10 ^FR ^FD".$preparacion->dia."
 
                          ^FS
-                         ^FO21,385 ^ADN,15,15 ^FR ^FDVigencia:
+                         ^FO21,420 ^ADN,15,15 ^FR ^FDVigencia:
                          ^FS
-                         ^FO321,385
+                         ^FO321,420
                          ^ADN,15,10 ^FR ^FD".$preparacion->fecha_validez."
 
                          ^FS
-                         ^FO21,420 ^ADN,15,15 ^FR ^FDProteger de Luz:
+                         ^FO21,455 ^ADN,15,15 ^FR ^FDProteger de Luz:
                          ^FS
-                         ^FO321,420
+                         ^FO421,455
                          ^ADN,15,10 ^FR ^FD".($preparacion->proteger_luz ? "Si" : "No")."
 
                          ^FS
-                         ^FO21,455 ^ADN,15,15 ^FR ^FDRefrigerar:
+                         ^FO21,490 ^ADN,15,15 ^FR ^FDRefrigerar:
                          ^FS
-                         ^FO321,455
+                         ^FO421,490
                          ^ADN,15,10 ^FR ^FD".($preparacion->refrigerar  ? "Si" : "No")."
+
+                         ^FS
+                         ^FO21,525 ^ADN,15,15 ^FR ^FDQF:
+                         ^FS
+                         ^FO421,525
+                         ^ADN,15,10 ^FR ^FD".$preparacion->profesional_a_cargo."
+
+                         ^FS
+                         ^FO21,560 ^ADN,15,15 ^FR ^FDMedico:
+                         ^FS
+                         ^FO421,560
+                         ^ADN,15,10 ^FR ^FD".$preparacion->medico->nombre_completo."
 
                         
                          ^XZ";
@@ -403,7 +414,7 @@ class PreparacionController extends AppBaseController
                     ^ADN,30,15  ^FDDosis:
                     ^FS
                     ^FO290,350
-                    ^ADN,30,10  ^FD".$preparacion->dosis." ML
+                    ^ADN,30,10  ^FD".$preparacion->dosis." MG
 
                     ^FS
                     ^FO30,400

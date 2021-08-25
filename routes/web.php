@@ -61,6 +61,10 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::resource('protocolos', 'ProtocoloController');
 
+    Route::get('preparaciones', ['as' => 'preparaciones.index', 'uses' => 'PreparacionController@index']);
+
+    Route::get('preparaciones.create', ['as' => 'preparaciones.create', 'uses' => 'PreparacionController@create']);
+
     Route::resource('preparacions', 'PreparacionController');
 
     Route::get('preparacions/imprime/{tamanio}/{preparacion}', 'PreparacionController@imprimeEtiqueta')->name('preparaciones.imprimir');
