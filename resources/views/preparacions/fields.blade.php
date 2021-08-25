@@ -189,7 +189,7 @@
 
             <!-- Protocolo Id Field -->
             <div class="form-group col-sm-4">
-                <select-protocolo :items="protocolos" v-model="protocolo" label="Protocolo"></select-protocolo>
+                <select-protocolo :items="protocolos" v-model="protocolo" label="Esquema"></select-protocolo>
             </div>
 
             <!-- Ciclo Field -->

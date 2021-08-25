@@ -236,7 +236,17 @@ class PreparacionController extends AppBaseController
                          ^FO19,12
                          ^ADN,36,20
                          ^FDHospital Naval A.Nef
-                         ^FS ^FO548,2 ^GB260,52,4
+                         ^FS 
+                         ^FO548,2 ^GB260,52,4
+
+                         ^FS
+                         ^FO600,12
+                         ^ADN,30,20
+                         ^FDFolio:
+                         ^FS
+                         ^FO750,12
+                         ^ADN,30,20
+                         ^FD".$preparacion->id."
 
                          ^FS
                          ^FO611,16
@@ -253,6 +263,9 @@ class PreparacionController extends AppBaseController
                          ^FS
                          ^FO321,105
                          ^ADN,15,10 ^FR ^FD".$preparacion->paciente->run."
+                         ^FS
+                         ^FO421,105
+                         ^ADN,15,10 ^FR ^FD-".$preparacion->paciente->dv_run."
 
                          ^FS
                          ^FO21,140 ^ADN,15,15 ^FR ^FDFecha Adm:
@@ -261,56 +274,68 @@ class PreparacionController extends AppBaseController
                          ^ADN,15,10 ^FR ^FD".$preparacion->fecha_admision."
 
                          ^FS
-                         ^FO21,175 ^ADN,15,15 ^FR ^FDDroga:
+                         ^FO21,175 ^ADN,15,15 ^FR ^FDFecha Elab:
                          ^FS
                          ^FO321,175
+                         ^ADN,15,10 ^FR ^FD".$preparacion->fecha_elaboracion."
+
+                         ^FS
+                         ^FO21,210 ^ADN,15,15 ^FR ^FDDDroga:
+                         ^FS
+                         ^FO321,210
                          ^ADN,15,10 ^FR ^FD".$preparacion->droga->nombre."
 
                          ^FS
-                         ^FO21,210 ^ADN,15,15 ^FR ^FDVol. Total:
-                         ^FS
-                         ^FO321,210
-                         ^ADN,15,10 ^FR ^FD".$preparacion->volumen_final." ML
-
-                         ^FS
                          ^FO21,245
-                         ^ADN,25,15 ^FR ^FDEsquema:
+                         ^ADN,25,15 ^FR ^FDDosis:
                          ^FS
                          ^FO321,245
-                         ^ADN,15,10 ^FR ^FDBortez sem
+                         ^ADN,15,10 ^FR ^FD".$preparacion->dosis." ML
 
                          ^FS
                          ^FO500,245
-                         ^ADN,15,15 ^FR ^FDCiclo:
+                         ^ADN,15,15 ^FR ^FDVol. Total:
                          ^FS
                          ^FO655,245
+                         ^ADN,15,10 ^FR ^FD".$preparacion->volumen_final."
+
+                         ^FS
+                         ^FO21,280 ^ADN,15,15 ^FR ^FDEsquema:
+                         ^FS
+                         ^FO321,280
+                         ^ADN,15,10 ^FR ^FD".$preparacion->esquema."
+
+                         ^FS
+                         ^FO21,315 ^ADN,15,15 ^FR ^FDCiclo:
+                         ^FS
+                         ^FO321,315
                          ^ADN,15,10 ^FR ^FD".$preparacion->ciclo."
 
                          ^FS
-                         ^FO21,280 ^ADN,15,15 ^FR ^FDDia:
+                         ^FO21,350 ^ADN,15,15 ^FR ^FDDia:
                          ^FS
-                         ^FO321,280
+                         ^FO400,350
                          ^ADN,15,10 ^FR ^FD".$preparacion->dia."
 
                          ^FS
-                         ^FO21,315 ^ADN,15,15 ^FR ^FDFecha Elab:
+                         ^FO21,385 ^ADN,15,15 ^FR ^FDVigencia:
                          ^FS
-                         ^FO321,315
-                         ^ADN,15,10 ^FR ^FD05/05/2021 (vigente 8 hrs) hasta 18 hrs
+                         ^FO321,385
+                         ^ADN,15,10 ^FR ^FD".$preparacion->fecha_validez."
 
                          ^FS
-                         ^FO21,350 ^ADN,15,15 ^FR ^FDProteger de Luz:
+                         ^FO21,420 ^ADN,15,15 ^FR ^FDProteger de Luz:
                          ^FS
-                         ^FO400,350
+                         ^FO321,420
                          ^ADN,15,10 ^FR ^FD".($preparacion->proteger_luz ? "Si" : "No")."
 
                          ^FS
-                         ^FO21,385 ^ADN,15,15 ^FR ^FDRefrigerar:
+                         ^FO21,455 ^ADN,15,15 ^FR ^FDRefrigerar:
                          ^FS
-                         ^FO321,385
+                         ^FO321,455
                          ^ADN,15,10 ^FR ^FD".($preparacion->refrigerar  ? "Si" : "No")."
 
-                           ^FS
+                        
                          ^XZ";
         }
 

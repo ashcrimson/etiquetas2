@@ -135,7 +135,7 @@ class Preparacion extends Model
         'bajada' => 'required|string|max:255',
         'medico_id' => 'required',
         'servicio_id' => 'required',
-        'protocolo_id' => 'required',
+      
         'ciclo' => 'nullable|string|max:255',
         'dia' => 'nullable|string|max:255',
         'control_producto_terminado' => 'nullable|string',
