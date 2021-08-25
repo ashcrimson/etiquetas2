@@ -61,13 +61,18 @@ Route::group(['middleware' => 'auth'],function () {
 
     Route::resource('protocolos', 'ProtocoloController');
 
-    Route::get('preparaciones', ['as' => 'preparaciones.index', 'uses' => 'PreparacionController@index']);
 
-    Route::get('preparaciones.create', ['as' => 'preparaciones.create', 'uses' => 'PreparacionController@create']);
+    Route::resource('preparaciones', 'PreparacionController', ['names' => [
+        'index'     => 'preparacions.index',
+        'store'     => 'preparacions.store',
+        'create'    => 'preparacions.create',
+        'show'      => 'preparacions.show',
+        'edit'      => 'preparacions.edit',
+        'update'    => 'preparacions.update',
+        'destroy'   => 'preparacions.destroy',
+    ]]);
 
-    Route::resource('preparacions', 'PreparacionController');
-
-    Route::get('preparacions/imprime/{tamanio}/{preparacion}', 'PreparacionController@imprimeEtiqueta')->name('preparaciones.imprimir');
+    Route::get('preparaciones/imprime/{tamanio}/{preparacion}', 'PreparacionController@imprimeEtiqueta')->name('preparaciones.imprimir');
 
     Route::resource('servicios', 'ServicioController');
 });
