@@ -285,8 +285,50 @@
 
             },
             methods: {
+                setDatosPreparacion(preparacion){
+                    logI('set datos ultima preparacion paciente',preparacion);
+
+                    if(preparacion){
+                        this.droga =preparacion.droga;
+                        this.dilucion =preparacion.dilucion;
+                        this.protocolo =preparacion.protocolo;
+                        this.responsable =preparacion.responsable;
+                        this.medico =preparacion.medico;
+                        this.ten =preparacion.ten;
+                        this.servicio =preparacion.servicio;
+                        this.estado =preparacion.estado;
 
 
+                        $("#fecha_validez").val(preparacion.fecha_validez);
+                        $("#fecha_admision").val(preparacion.fecha_admision);
+                        $("#fecha_elaboracion").val(preparacion.fecha_elaboracion);
+                        $("#hora_elaboracion").val(preparacion.hora_elaboracion);
+
+                        $("#dosis").val(preparacion.dosis);
+                        $("#volumen_suero").val(preparacion.volumen_suero);
+                        $("#volumen_agregado").val(preparacion.volumen_agregado);
+                        $("#volumen_final").val(preparacion.volumen_final);
+                        $("#bajada").val(preparacion.bajada);
+                        $("#ciclo").val(preparacion.ciclo);
+                        $("#dia").val(preparacion.dia);
+                        $("#control_producto_terminado").val(preparacion.control_producto_terminado);
+                        $("#entrega_conforme_enfermeria").val(preparacion.entrega_conforme_enfermeria);
+
+                        if (preparacion.refrigerar=='1'){
+                            $('#refrigerar').bootstrapToggle('on')
+                        }else {
+                            $("#refrigerar").bootstrapToggle('off');
+                        }
+
+                        if (preparacion.proteger_luz=='1'){
+                            $('#proteger_luz').bootstrapToggle('on')
+                        }else {
+                            $("#proteger_luz").bootstrapToggle('off');
+                        }
+
+
+                    }
+                }
 
             }
         });

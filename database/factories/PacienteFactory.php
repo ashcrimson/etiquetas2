@@ -19,6 +19,9 @@ $factory->define(Paciente::class, function (Faker $faker) {
         'sigla_grado' => null,
         'unid_rep_dot' => null,
         'cond_alta_dot' => null,
+        'direccion' => $faker->address,
+        'familiar_responsable' => $faker->name,
+        'telefono' => $faker->phoneNumber,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')
     ];

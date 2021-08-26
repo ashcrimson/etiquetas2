@@ -111,7 +111,7 @@
         methods: {
             async getDatosPaciente(){
 
-                console.log('FN: getDatosPaciente');
+                logI('FN: getDatosPaciente');
 
                 this.loading = true;
 
@@ -119,13 +119,16 @@
 
                 let url = "{{route('get.datos.paciente')}}"+"?run="+run;
 
-                console.log('url',url);
-
                 try{
                     let res = await axios.get(url);
                     let paciente = res.data.data;
 
-                    console.log('respuesta',res);
+                    //si existe la isntancia de vue vmPreparacionFields
+                    if (typeof vmPreparacionFields  !== 'undefined') {
+                        vmPreparacionFields.setDatosPreparacion(paciente.ultima_preparacion)
+                    }
+
+                    logI('respuesta',res);
 
                     if (!paciente){
                         alertWarning('Rut No Encontrado');
@@ -143,16 +146,16 @@
 
                             $("#sexo").bootstrapToggle('off');
                         }
-                        $("#sigla_grado").val(paciente.sigla_grado);
-                        $("#unid_rep_dot").val(paciente.unid_rep_dot);
-                        $("#cond_alta_dot").val(paciente.cond_alta_dot);
+                        $("#telefono").val(paciente.telefono);
+                        $("#direccion").val(paciente.direccion);
+                        $("#familiar_responsable").val(paciente.familiar_responsable);
                     }
 
 
                     this.loading = false;
 
                 }catch (e) {
-                    console.log(e.response);
+                    logW(e);
                     alertWarning('Rut No Encontrado');
                     this.loading = false;
                 }

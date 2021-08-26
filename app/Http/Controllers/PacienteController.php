@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreatePacienteRequest;
 use App\Http\Requests\UpdatePacienteRequest;
 use App\Models\Paciente;
+use App\Models\Preparacion;
 use Carbon\Carbon;
 use Exception;
 use Flash;
@@ -173,19 +174,74 @@ class PacienteController extends AppBaseController
     public function getPacientePorApi(Request $request)
     {
 
-        try {
+        /**
+         * @var Paciente $paciente
+         */
+        $paciente = Paciente::with('preparaciones')->where('run',$request->run)->first();
 
-            $params = array('run' => $request->run);
-            $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
-            $client->response_timeout = 5;
-            $response = $client->call('buscarDetallePersona', $params);
+        /**
+         * @var Preparacion $ultimaPreparacion
+         */
+        $ultimaPreparacion = $paciente->preparaciones->last();
 
-            return $this->sendResponse($response,"Paciente");
+        $ultimaPreparacion->load([
+            'droga',
+            'dilucion',
+            'protocolo',
+            'responsable',
+            'medico',
+            'ten',
+            'servicio',
+            'estado'
+        ]);
 
-        } catch (Exception $exception) {
+        $ultimaPreparacion = $this->formatFechasPreparacion($ultimaPreparacion);
 
-            return $this->sendError($exception->getMessage());
+        if ($paciente){
+            $paciente->setAttribute('ultima_preparacion',$ultimaPreparacion);
+            $paciente->setAttribute('sexo',$paciente->sexo ? 'M' : 'F');
+            return  $this->sendResponse($paciente,"Paciente");
         }
+        else{
+
+            try {
+
+
+
+                $params = array('run' => $request->run);
+                $client = new nusoap_client('http://172.25.16.18/bus/webservice/ws.php?wsdl');
+                $client->response_timeout = 5;
+                $response = $client->call('buscarDetallePersona', $params);
+
+                return $this->sendResponse($response,"Paciente");
+
+            } catch (Exception $exception) {
+
+                return $this->sendError($exception->getMessage());
+            }
+        }
+
+
+    }
+
+    public function formatFechasPreparacion(Preparacion $preparacion)
+    {
+
+
+        if ($preparacion->fecha_admision){
+            $preparacion->setAttribute("fecha_admision",Carbon::parse($preparacion->fecha_admision)->format('Y-m-d'));
+        }
+        if ($preparacion->fecha_validez){
+            $preparacion->setAttribute("fecha_validez",Carbon::parse($preparacion->fecha_validez)->format('Y-m-d'));
+        }
+
+        if ($preparacion->fecha_elaboracion){
+            $preparacion->setAttribute("hora_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('H:i'));
+            $preparacion->setAttribute("fecha_elaboracion",Carbon::parse($preparacion->fecha_elaboracion)->format('Y-m-d'));
+        }
+
+
+        return $preparacion;
 
 
     }
