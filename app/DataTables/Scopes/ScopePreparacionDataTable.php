@@ -65,7 +65,7 @@ class ScopePreparacionDataTable implements DataTableScope
             $del = Carbon::parse($this->del);
             $al = Carbon::parse($this->al)->addDay();
 
-            $query->whereBetween('fecha_validez',[$del,$al]);
+            $query->whereBetween('fecha_elaboracion',[$del,$al]);
         }
     }
 }
