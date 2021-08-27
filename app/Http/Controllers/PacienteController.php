@@ -179,30 +179,35 @@ class PacienteController extends AppBaseController
          */
         $paciente = Paciente::with('preparaciones')->where('run',$request->run)->first();
 
-        /**
-         * @var Preparacion $ultimaPreparacion
-         */
-        $ultimaPreparacion = $paciente->preparaciones->last();
-
-        $ultimaPreparacion->load([
-            'droga',
-            'dilucion',
-            'protocolo',
-            'responsable',
-            'medico',
-            'ten',
-            'servicio',
-            'estado'
-        ]);
-
-        $ultimaPreparacion = $this->formatFechasPreparacion($ultimaPreparacion);
 
         if ($paciente){
+
+            /**
+             * @var Preparacion $ultimaPreparacion
+             */
+            $ultimaPreparacion = $paciente->preparaciones->last();
+
+            $ultimaPreparacion->load([
+                'droga',
+                'dilucion',
+                'protocolo',
+                'responsable',
+                'medico',
+                'ten',
+                'servicio',
+                'estado'
+            ]);
+
+            $ultimaPreparacion = $this->formatFechasPreparacion($ultimaPreparacion);
+
+
             $paciente->setAttribute('ultima_preparacion',$ultimaPreparacion);
             $paciente->setAttribute('sexo',$paciente->sexo ? 'M' : 'F');
             return  $this->sendResponse($paciente,"Paciente");
         }
         else{
+
+//            dd('consulta api');
 
             try {
 
