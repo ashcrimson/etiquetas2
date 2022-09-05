@@ -118,14 +118,14 @@ class PreparacionDataTable extends DataTable
                 ->searchable(false)
                 ->orderable(false),
 
-            Column::make('ruta')
-                ->data('paciente.run')
-                ->name('paciente.run'),
-            Column::make('Q.F')
-                ->data('responsable.iniciales')
-                ->name('responsable.iniciales')
-                ->searchable(false)
-                ->orderable(false),
+            // Column::make('ruta')
+            //     ->data('paciente.run')
+            //     ->name('paciente.run'),
+            // Column::make('Q.F')
+            //     ->data('responsable.iniciales')
+            //     ->name('responsable.iniciales')
+            //     ->searchable(false)
+            //     ->orderable(false),
 
             Column::make('droga')
                 ->data('droga.nombre')
@@ -142,12 +142,12 @@ class PreparacionDataTable extends DataTable
             Column::make('volumen_final'),
             Column::make('bajada'),
 
-            Column::make('medico')
-                ->data('medico.apellidos')
-                ->name('medico.apellidos'),
-            Column::make('servicio_solicitante')
-                ->data('servicio.nombre')
-                ->name('servicio.nombre'),
+            // Column::make('medico')
+            //     ->data('medico.apellidos')
+            //     ->name('medico.apellidos'),
+            // Column::make('servicio_solicitante')
+            //     ->data('servicio.nombre')
+            //     ->name('servicio.nombre'),
         ];
     }
 
